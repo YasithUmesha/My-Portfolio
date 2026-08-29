@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-label="FarmtrustDemo banner">
+  <rect width="640" height="420" fill="#12263d"/>
+  <rect x="54" y="72" width="532" height="276" rx="20" fill="#1d3e5f"/>
+  <circle cx="182" cy="180" r="66" fill="#6ee7b7" opacity="0.9"/>
+  <path d="M218 220h175v28H218zM218 178h216v28H218zM218 136h136v28H218z" fill="#d1fae5"/>
+  <rect x="355" y="220" width="110" height="76" rx="14" fill="#67e8f9" opacity="0.9"/>
+</svg>

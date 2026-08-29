@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-label="Smart-Rent banner">
+  <rect width="640" height="420" fill="#191b32"/>
+  <rect x="70" y="110" width="500" height="200" rx="26" fill="#2f335d"/>
+  <path d="M110 250l90-80 110 100 110-116 90 96v96H110z" fill="#8b5cf6" opacity="0.9"/>
+  <rect x="150" y="140" width="120" height="60" rx="12" fill="#d8b4fe"/>
+</svg>

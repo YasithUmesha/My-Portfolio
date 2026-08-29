@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-label="HYZE banner">
+  <rect width="640" height="420" fill="#0c1628"/>
+  <path d="M96 312L214 118l102 108 108-150 120 234z" fill="#22d3ee" opacity="0.9"/>
+  <path d="M134 300h370v16H134z" fill="#a5f3fc"/>
+  <circle cx="214" cy="118" r="18" fill="#f8fafc"/>
+  <circle cx="316" cy="226" r="18" fill="#f8fafc"/>
+  <circle cx="424" cy="168" r="18" fill="#f8fafc"/>
+</svg>
