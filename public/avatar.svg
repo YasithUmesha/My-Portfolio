@@ -1,14 +1,68 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420" role="img" aria-label="Profile illustration">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
   <defs>
-    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#0b1220"/>
+    <linearGradient id="avatarBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#140f36" />
+      <stop offset="50%" stop-color="#0a071f" />
+      <stop offset="100%" stop-color="#030014" />
     </linearGradient>
+    <linearGradient id="avatarGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+    <linearGradient id="hoodieGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#312e81" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <filter id="avatarBlur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="20" result="blur" />
+    </filter>
   </defs>
-  <rect width="420" height="420" rx="34" fill="url(#bg)"/>
-  <circle cx="210" cy="155" r="78" fill="#67e8f9" opacity="0.9"/>
-  <path d="M105 330c20-60 68-94 105-94s85 34 105 94" fill="#2dd4bf" opacity="0.9"/>
-  <circle cx="190" cy="145" r="6" fill="#08151e"/>
-  <circle cx="230" cy="145" r="6" fill="#08151e"/>
-  <path d="M186 182c13 14 35 14 48 0" stroke="#08151e" stroke-width="6" fill="none" stroke-linecap="round"/>
+
+  <!-- Background Circle with ambient glow -->
+  <circle cx="200" cy="200" r="185" fill="url(#avatarGlow)" opacity="0.3" filter="url(#avatarBlur)" />
+  <circle cx="200" cy="200" r="175" fill="url(#avatarBg)" stroke="rgba(255,255,255,0.15)" stroke-width="2" />
+  
+  <!-- Outer Orbit Ring -->
+  <circle cx="200" cy="200" r="160" fill="none" stroke="url(#avatarGlow)" stroke-width="1.5" stroke-dasharray="10 8" opacity="0.5" />
+
+  <!-- Orbiting Tech Dots -->
+  <circle cx="200" cy="40" r="6" fill="#6366f1" />
+  <circle cx="360" cy="200" r="7" fill="#a855f7" />
+  <circle cx="200" cy="360" r="6" fill="#ec4899" />
+  <circle cx="40" cy="200" r="7" fill="#3b82f6" />
+
+  <!-- Programmer Character Silhouette & Details -->
+  <!-- Shoulders & Hoodie -->
+  <path d="M110 350 C110 270 145 250 200 250 C255 250 290 270 290 350 Z" fill="url(#hoodieGrad)" />
+  <!-- Hoodie Zipper / Accents -->
+  <path d="M200 250 L200 350" stroke="#818cf8" stroke-width="2.5" />
+  <!-- Inner Collar -->
+  <path d="M175 250 C185 270 215 270 225 250" fill="#1e1b4b" />
+
+  <!-- Neck -->
+  <rect x="185" y="210" width="30" height="35" rx="5" fill="#fbcfe8" opacity="0.9" />
+
+  <!-- Head / Hair Back -->
+  <circle cx="200" cy="165" r="58" fill="#1e1b4b" />
+  
+  <!-- Face -->
+  <ellipse cx="200" cy="170" rx="46" ry="50" fill="#fde68a" />
+
+  <!-- Modern Hair -->
+  <path d="M152 165 C152 110 248 110 248 165 C248 140 230 120 200 120 C170 120 152 140 152 165 Z" fill="#1e1b4b" />
+  <path d="M156 148 C175 130 220 135 240 155 C230 142 205 135 185 140 Z" fill="#312e81" />
+
+  <!-- Glasses / Developer specs -->
+  <rect x="165" y="158" width="28" height="22" rx="6" fill="rgba(99, 102, 241, 0.2)" stroke="#6366f1" stroke-width="3" />
+  <rect x="207" y="158" width="28" height="22" rx="6" fill="rgba(99, 102, 241, 0.2)" stroke="#6366f1" stroke-width="3" />
+  <line x1="193" y1="168" x2="207" y2="168" stroke="#6366f1" stroke-width="3" />
+
+  <!-- Smile -->
+  <path d="M188 198 Q200 208 212 198" fill="none" stroke="#9a3412" stroke-width="2.5" stroke-linecap="round" />
+
+  <!-- Laptop Screen in Front -->
+  <rect x="135" y="295" width="130" height="75" rx="8" fill="#090518" stroke="#a855f7" stroke-width="2" />
+  <rect x="145" y="305" width="110" height="55" rx="4" fill="#030014" />
+  <text x="200" y="337" fill="#60a5fa" font-family="monospace" font-size="12" text-anchor="middle" font-weight="bold">&lt;/&gt;</text>
 </svg>

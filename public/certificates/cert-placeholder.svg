@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="certBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0e24" />
+      <stop offset="100%" stop-color="#050716" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="50%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+    <linearGradient id="glowPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+  </defs>
+
+  <!-- Certificate Border & Background -->
+  <rect x="15" y="15" width="570" height="370" rx="16" fill="url(#certBg)" stroke="rgba(255, 255, 255, 0.12)" stroke-width="2" />
+  <rect x="25" y="25" width="550" height="350" rx="12" fill="none" stroke="url(#glowPurple)" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.6" />
+
+  <!-- Corner Ornaments -->
+  <circle cx="35" cy="35" r="4" fill="#818cf8" />
+  <circle cx="565" cy="35" r="4" fill="#818cf8" />
+  <circle cx="35" cy="365" r="4" fill="#818cf8" />
+  <circle cx="565" cy="365" r="4" fill="#818cf8" />
+
+  <!-- Top Badge -->
+  <g transform="translate(250, 45)">
+    <circle cx="50" cy="25" r="28" fill="url(#goldGrad)" opacity="0.2" />
+    <circle cx="50" cy="25" r="20" fill="url(#goldGrad)" />
+    <!-- Star icon -->
+    <path d="M50 15 L53 22 L60 22 L54 26 L56 33 L50 29 L44 33 L46 26 L40 22 L47 22 Z" fill="#0b0e24" />
+  </g>
+
+  <!-- Title & Text -->
+  <text x="300" y="130" fill="#a5b4fc" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle" letter-spacing="3" font-weight="600">CERTIFICATE OF ACHIEVEMENT</text>
+  <text x="300" y="170" fill="#ffffff" font-family="system-ui, sans-serif" font-size="20" text-anchor="middle" font-weight="700">Software Engineering Credential</text>
+  
+  <text x="300" y="205" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">Awarded to</text>
+  <text x="300" y="235" fill="#c084fc" font-family="system-ui, sans-serif" font-size="18" text-anchor="middle" font-weight="600">Yasith Umesha</text>
+
+  <line x1="160" y1="250" x2="440" y2="250" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1" />
+
+  <text x="300" y="275" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">Demonstrated technical proficiency in full-stack web application development</text>
+
+  <!-- Footer Info -->
+  <g transform="translate(70, 310)">
+    <text x="0" y="20" fill="#818cf8" font-family="system-ui, sans-serif" font-size="11" font-weight="600">ISSUING ORGANIZATION</text>
+    <text x="0" y="36" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">Professional Academy / Platform</text>
+  </g>
+
+  <g transform="translate(420, 310)">
+    <text x="0" y="20" fill="#818cf8" font-family="system-ui, sans-serif" font-size="11" font-weight="600">VERIFIED STATUS</text>
+    <text x="0" y="36" fill="#34d399" font-family="system-ui, sans-serif" font-size="11">✓ Verified ID Credential</text>
+  </g>
+</svg>
+

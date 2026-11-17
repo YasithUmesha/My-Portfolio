@@ -17,3 +17,6 @@ pnpm-debug.log*
 
 # local env files
 .env*
+
+# reference downloads
+/reference/
