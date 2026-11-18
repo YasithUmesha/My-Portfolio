@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -23,20 +22,20 @@ export default function About({ onOpenCVNotice }: { onOpenCVNotice?: () => void 
       id="about"
       className="relative min-h-screen flex flex-col justify-center items-center py-20 sm:py-24 lg:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
-      {/* Subtle ambient lighting */}
-      <div className="absolute top-1/2 -left-48 -translate-y-1/2 w-96 h-96 bg-[#38bdf8]/[0.025] rounded-full blur-3xl pointer-events-none -z-10" />
+      {/* Subtle sapphire ambient lighting */}
+      <div className="absolute top-1/2 -left-48 -translate-y-1/2 w-96 h-96 bg-[#00f0ff]/[0.03] rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-6xl mx-auto w-full my-auto">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#0d0f14] border border-white/10 text-xs font-mono uppercase tracking-wider text-[#38bdf8] mb-3">
-            <Compass className="w-3.5 h-3.5 text-[#38bdf8]" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#0a0e17] border border-[#00f0ff]/25 text-xs font-mono uppercase tracking-wider text-[#00f0ff] mb-3">
+            <Compass className="w-3.5 h-3.5 text-[#00f0ff]" />
             <span>Profile &amp; Philosophy</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
-            Crafting Purposeful Software with{" "}
-            <span className="text-[#c8f31d]">
+            Crafting Scalable Systems with{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f0ff] via-[#38bdf8] to-[#60a5fa]">
               Analytical Precision
             </span>
           </h2>
@@ -63,9 +62,9 @@ export default function About({ onOpenCVNotice }: { onOpenCVNotice?: () => void 
                 
                 {/* Soft breathing backlight */}
                 <motion.div
-                  animate={{ opacity: [0.2, 0.45, 0.2] }}
+                  animate={{ opacity: [0.2, 0.5, 0.2] }}
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute inset-0 rounded-full bg-[#c8f31d]/20 blur-2xl pointer-events-none"
+                  className="absolute inset-0 rounded-full bg-[#00f0ff]/20 blur-2xl pointer-events-none"
                 />
 
                 {/* Fine circular reticle ring */}
@@ -80,17 +79,17 @@ export default function About({ onOpenCVNotice }: { onOpenCVNotice?: () => void 
                     cy="120"
                     r="116"
                     fill="none"
-                    stroke="rgba(255, 255, 255, 0.08)"
+                    stroke="rgba(56, 189, 248, 0.15)"
                     strokeWidth="1"
                     strokeDasharray="6 12"
                   />
-                  <circle cx="120" cy="4" r="2.5" fill="#c8f31d" />
+                  <circle cx="120" cy="4" r="3" fill="#00f0ff" />
                 </motion.svg>
 
                 {/* Minimal Framed Portrait */}
-                <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-2xl p-[1px] bg-gradient-to-b from-white/20 to-white/5 shadow-2xl">
-                  <div className="w-full h-full rounded-[15px] overflow-hidden bg-[#0d0f14] p-1">
-                    <div className="relative w-full h-full rounded-xl overflow-hidden bg-[#08090a]">
+                <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-2xl p-[1px] bg-gradient-to-b from-[#00f0ff]/40 to-white/5 shadow-2xl">
+                  <div className="w-full h-full rounded-[15px] overflow-hidden bg-[#0a0e17] p-1">
+                    <div className="relative w-full h-full rounded-xl overflow-hidden bg-[#06080e]">
                       <Image
                         src={portfolioData.personal.avatar}
                         alt={portfolioData.personal.name}
@@ -102,21 +101,21 @@ export default function About({ onOpenCVNotice }: { onOpenCVNotice?: () => void 
                 </div>
 
                 {/* Corner crosshairs */}
-                <span className="absolute top-2 left-2 text-[8px] font-mono text-zinc-600">+</span>
-                <span className="absolute top-2 right-2 text-[8px] font-mono text-zinc-600">+</span>
+                <span className="absolute top-2 left-2 text-[8px] font-mono text-[#00f0ff]">+</span>
+                <span className="absolute top-2 right-2 text-[8px] font-mono text-[#00f0ff]">+</span>
               </div>
 
               {/* Card Meta Container */}
-              <div className="w-full rounded-xl bg-[#0d0f14] border border-white/10 p-5 flex flex-col items-center text-center shadow-lg">
+              <div className="w-full rounded-xl bg-[#0a0e17] border border-white/10 p-5 flex flex-col items-center text-center shadow-lg">
                 <h3 className="text-xl font-bold text-white tracking-tight">
                   {portfolioData.personal.name}
                 </h3>
-                <p className="text-xs font-mono text-[#c8f31d] mt-1">
+                <p className="text-xs font-mono text-[#00f0ff] mt-1">
                   {portfolioData.personal.role}
                 </p>
 
                 {/* Academic Tag */}
-                <div className="mt-3 px-3 py-1 rounded-md bg-[#08090a] border border-white/10 text-xs text-zinc-300 font-mono">
+                <div className="mt-3 px-3 py-1 rounded-md bg-[#06080e] border border-white/10 text-xs text-zinc-300 font-mono">
                   🏛️ {portfolioData.personal.university}
                 </div>
                 <div className="mt-1 text-[11px] text-[#38bdf8] font-mono">
@@ -125,14 +124,16 @@ export default function About({ onOpenCVNotice }: { onOpenCVNotice?: () => void 
 
                 {/* Action button */}
                 <div className="mt-4 w-full pt-4 border-t border-white/10">
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     type="button"
                     onClick={onOpenCVNotice}
-                    className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-lg text-xs font-semibold text-black bg-[#c8f31d] hover:bg-[#d8ff38] transition-all duration-200"
+                    className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-lg text-xs font-semibold text-black bg-gradient-to-r from-[#00f0ff] to-[#38bdf8] hover:from-[#38bdf8] hover:to-[#00f0ff] transition-all duration-200 shadow-[0_0_15px_rgba(0,240,255,0.25)]"
                   >
                     <FileDown className="w-3.5 h-3.5" />
                     <span>Download CV / Resume</span>
-                  </button>
+                  </motion.button>
                 </div>
               </div>
 
@@ -150,7 +151,7 @@ export default function About({ onOpenCVNotice }: { onOpenCVNotice?: () => void 
             {/* Bio Paragraphs */}
             <div className="space-y-3 text-zinc-300 leading-relaxed text-xs sm:text-sm">
               {portfolioData.personal.aboutText.map((paragraph, index) => (
-                <p key={index} className="text-zinc-400">
+                <p key={index} className="text-zinc-300">
                   {paragraph}
                 </p>
               ))}
@@ -165,9 +166,9 @@ export default function About({ onOpenCVNotice }: { onOpenCVNotice?: () => void 
                 {portfolioData.personal.interests.map((interest) => (
                   <span
                     key={interest}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-mono bg-[#0d0f14] text-zinc-300 border border-white/10 hover:border-[#c8f31d]/30 transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-mono bg-[#0a0e17] text-zinc-300 border border-white/10 hover:border-[#00f0ff]/40 transition-colors"
                   >
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#c8f31d]" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#00f0ff]" />
                     <span>{interest}</span>
                   </span>
                 ))}
@@ -177,19 +178,20 @@ export default function About({ onOpenCVNotice }: { onOpenCVNotice?: () => void 
             {/* 4 Metric / Highlight Cards */}
             <div className="grid grid-cols-2 gap-3 pt-2">
               {portfolioData.personal.highlights.map((item, index) => (
-                <div
+                <motion.div
                   key={item.title}
-                  className="p-3.5 rounded-xl bg-[#0d0f14] hover:bg-[#13161f] border border-white/10 hover:border-[#c8f31d]/30 transition-all duration-200 group"
+                  whileHover={{ y: -3 }}
+                  className="p-3.5 rounded-xl bg-[#0a0e17] hover:bg-[#121824] border border-white/10 hover:border-[#00f0ff]/40 transition-all duration-200 group shadow-sm"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#08090a] border border-white/10 text-[#c8f31d] group-hover:border-[#c8f31d]/40 transition-all flex-shrink-0">
+                    <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#06080e] border border-white/10 text-[#00f0ff] group-hover:border-[#00f0ff]/50 transition-all flex-shrink-0">
                       {index === 0 && <GraduationCap className="w-4 h-4 text-[#38bdf8]" />}
-                      {index === 1 && <Layers className="w-4 h-4 text-[#c8f31d]" />}
+                      {index === 1 && <Layers className="w-4 h-4 text-[#00f0ff]" />}
                       {index === 2 && <Code2 className="w-4 h-4 text-[#fb923c]" />}
                       {index === 3 && <Rocket className="w-4 h-4 text-[#10b981]" />}
                     </div>
                     <div className="min-w-0">
-                      <span className="text-[10px] font-mono uppercase text-zinc-500 block truncate">
+                      <span className="text-[10px] font-mono uppercase text-zinc-400 block truncate">
                         {item.title}
                       </span>
                       <h4 className="text-xs sm:text-sm font-bold text-white tracking-tight truncate">
@@ -200,7 +202,7 @@ export default function About({ onOpenCVNotice }: { onOpenCVNotice?: () => void 
                       </p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 

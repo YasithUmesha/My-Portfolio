@@ -29,7 +29,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#08090a] border-t border-white/[0.08] pt-10 pb-10 overflow-hidden">
+    <footer className="relative bg-[#06080e] border-t border-white/[0.08] pt-10 pb-10 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center pb-8 border-b border-white/[0.08]">
@@ -37,8 +37,8 @@ export default function Footer() {
           {/* Brand Info */}
           <div className="md:col-span-5 space-y-2">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-[#0d0f14] border border-white/10 flex items-center justify-center">
-                <span className="font-mono text-xs font-bold text-[#c8f31d]">YU</span>
+              <div className="w-7 h-7 rounded-lg bg-[#0a0e17] border border-[#00f0ff]/30 flex items-center justify-center">
+                <span className="font-mono text-xs font-bold text-[#00f0ff]">&lt;/&gt;</span>
               </div>
               <span className="text-base font-bold text-white tracking-tight">
                 {portfolioData.personal.name}
@@ -58,7 +58,7 @@ export default function Footer() {
                   key={item.label}
                   href={item.href}
                   onClick={(e) => scrollToSection(e, item.href)}
-                  className="text-xs font-mono text-zinc-400 hover:text-[#c8f31d] transition-colors"
+                  className="text-xs font-mono text-zinc-400 hover:text-[#00f0ff] transition-colors"
                 >
                   {item.label}
                 </a>
@@ -71,10 +71,10 @@ export default function Footer() {
             <button
               type="button"
               onClick={scrollToTop}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0d0f14] border border-white/10 hover:border-[#c8f31d]/40 text-xs font-mono text-zinc-300 hover:text-white transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0a0e17] border border-white/10 hover:border-[#00f0ff]/50 text-xs font-mono text-zinc-300 hover:text-white transition-colors"
             >
               <span>Back to Top</span>
-              <ArrowUp className="w-3.5 h-3.5 text-[#c8f31d]" />
+              <ArrowUp className="w-3.5 h-3.5 text-[#00f0ff]" />
             </button>
           </div>
 
@@ -83,8 +83,8 @@ export default function Footer() {
         {/* Bottom Credits Bar */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-zinc-500">
           <p>© {currentYear} {portfolioData.personal.name}. All Rights Reserved.</p>
-          <p className="text-[11px] text-zinc-600">
-            Engineered with Next.js App Router • Framer Motion • Tailwind CSS
+          <p className="text-[11px] text-zinc-500">
+            Engineered with Next.js App Router • Framer Motion • Cyber Sapphire Theme
           </p>
         </div>
 

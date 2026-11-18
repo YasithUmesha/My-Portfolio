@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import PageLoader from "@/components/PageLoader";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -16,7 +17,10 @@ export default function HomePage() {
   const [isCVModalOpen, setIsCVModalOpen] = useState(false);
 
   return (
-    <main className="relative min-h-screen bg-[#030014] text-slate-100 selection:bg-purple-600/30 selection:text-white">
+    <main className="relative min-h-screen bg-[#06080e] text-slate-100 selection:bg-[#00f0ff]/25 selection:text-white">
+      {/* Interactive Page Refresh / Boot Animation */}
+      <PageLoader />
+
       {/* Navigation */}
       <Navbar />
 

@@ -47,9 +47,9 @@ export default function Skills() {
       case "Frontend":
         return "text-[#38bdf8] bg-[#38bdf8]/10 border-[#38bdf8]/20";
       case "Backend":
-        return "text-[#c8f31d] bg-[#c8f31d]/10 border-[#c8f31d]/20";
+        return "text-[#00f0ff] bg-[#00f0ff]/10 border-[#00f0ff]/20";
       case "Databases":
-        return "text-[#10b981] bg-[#10b981]/10 border-[#10b981]/20";
+        return "text-[#60a5fa] bg-[#60a5fa]/10 border-[#60a5fa]/20";
       case "Tools":
         return "text-[#fb923c] bg-[#fb923c]/10 border-[#fb923c]/20";
       default:
@@ -63,7 +63,7 @@ export default function Skills() {
       className="relative min-h-screen flex flex-col justify-center items-center py-20 sm:py-24 lg:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
       {/* Subtle ambient lighting */}
-      <div className="absolute top-1/3 right-10 w-96 h-96 bg-[#c8f31d]/[0.025] rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/3 right-10 w-96 h-96 bg-[#00f0ff]/[0.025] rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-6xl mx-auto w-full my-auto">
         
@@ -73,9 +73,9 @@ export default function Skills() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#0d0f14] border border-white/10 text-xs font-mono uppercase tracking-wider text-[#c8f31d] mb-3"
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#0a0e17] border border-[#00f0ff]/25 text-xs font-mono uppercase tracking-wider text-[#00f0ff] mb-3"
           >
-            <Terminal className="w-3.5 h-3.5 text-[#c8f31d]" />
+            <Terminal className="w-3.5 h-3.5 text-[#00f0ff]" />
             <span>Technical Capabilities</span>
           </motion.div>
           
@@ -87,7 +87,7 @@ export default function Skills() {
             className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight"
           >
             Tools &amp; Technologies{" "}
-            <span className="text-[#c8f31d]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f0ff] via-[#38bdf8] to-[#60a5fa]">
               I Work With
             </span>
           </motion.h2>
@@ -107,7 +107,7 @@ export default function Skills() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
           
           {/* Category Tabs with Framer Motion layoutId */}
-          <div className="flex flex-wrap items-center justify-center gap-1.5 bg-[#0d0f14] p-1.5 rounded-xl border border-white/10 shadow-inner">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 bg-[#0a0e17] p-1.5 rounded-xl border border-white/10 shadow-inner">
             {categories.map((category) => {
               const isSelected = selectedCategory === category;
               return (
@@ -125,7 +125,7 @@ export default function Skills() {
                     <motion.div
                       layoutId="activeSkillTabIndicator"
                       transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                      className="absolute inset-0 bg-[#c8f31d] rounded-lg -z-10 shadow-[0_0_15px_rgba(200,243,29,0.3)]"
+                      className="absolute inset-0 bg-[#00f0ff] rounded-lg -z-10 shadow-[0_0_15px_rgba(0,240,255,0.4)]"
                     />
                   )}
                   <span>{category}</span>
@@ -142,7 +142,7 @@ export default function Skills() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Filter by technology..."
-              className="w-full pl-9 pr-3 py-1.5 rounded-lg bg-[#0d0f14] border border-white/10 focus:border-[#c8f31d] text-xs font-mono text-white placeholder-zinc-500 focus:outline-none transition-colors"
+              className="w-full pl-9 pr-3 py-1.5 rounded-lg bg-[#0a0e17] border border-white/10 focus:border-[#00f0ff] text-xs font-mono text-white placeholder-zinc-500 focus:outline-none transition-colors"
             />
             {searchQuery && (
               <button
@@ -172,11 +172,11 @@ export default function Skills() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.2, delay: index * 0.02 }}
                 whileHover={{ y: -4, transition: { type: "spring", stiffness: 350, damping: 25 } }}
-                className="group relative rounded-xl bg-[#0d0f14] hover:bg-[#13161f] border border-white/10 hover:border-[#c8f31d]/50 p-4 transition-all duration-200 shadow-sm hover:shadow-[0_8px_25px_rgba(0,0,0,0.5)] flex flex-col justify-between"
+                className="group relative rounded-xl bg-[#0a0e17] hover:bg-[#101726] border border-white/10 hover:border-[#00f0ff]/50 p-4 transition-all duration-200 shadow-sm hover:shadow-[0_8px_25px_rgba(0,0,0,0.5)] flex flex-col justify-between"
               >
                 {/* Real Tech Brand Logo & Category Indicator */}
                 <div className="flex items-center justify-between mb-3">
-                  <div className="w-10 h-10 rounded-lg bg-[#08090a] border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:border-[#c8f31d]/30 transition-all p-2 shadow-inner">
+                  <div className="w-10 h-10 rounded-lg bg-[#06080e] border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:border-[#00f0ff]/40 transition-all p-2 shadow-inner">
                     <TechLogo name={skill.name} className="w-full h-full object-contain" />
                   </div>
                   <span
@@ -190,17 +190,17 @@ export default function Skills() {
 
                 {/* Skill Name & Status */}
                 <div>
-                  <h4 className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#c8f31d] transition-colors truncate">
+                  <h4 className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#00f0ff] transition-colors truncate">
                     {skill.name}
                   </h4>
                   <p className="text-[10px] text-zinc-500 mt-1 flex items-center gap-1.5 font-mono">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#c8f31d] inline-block animate-pulse" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#00f0ff] inline-block animate-pulse" />
                     <span>Production</span>
                   </p>
                 </div>
 
                 {/* Corner Crosshair */}
-                <div className="absolute top-1.5 right-1.5 text-[8px] font-mono text-zinc-700 group-hover:text-[#c8f31d] transition-colors">
+                <div className="absolute top-1.5 right-1.5 text-[8px] font-mono text-zinc-700 group-hover:text-[#00f0ff] transition-colors">
                   +
                 </div>
               </motion.div>
@@ -209,7 +209,7 @@ export default function Skills() {
         </motion.div>
 
         {filteredSkills.length === 0 && (
-          <div className="text-center py-12 rounded-xl bg-[#0d0f14] border border-white/10 p-6">
+          <div className="text-center py-12 rounded-xl bg-[#0a0e17] border border-white/10 p-6">
             <Cpu className="w-8 h-8 text-zinc-600 mx-auto mb-2" />
             <p className="text-xs font-mono text-zinc-400">
               No matching technologies found for &quot;{searchQuery}&quot;
@@ -220,7 +220,7 @@ export default function Skills() {
         {/* Footer Note */}
         <div className="mt-8 text-center">
           <p className="text-[11px] text-zinc-500 font-mono">
-            Configurable stack items mapped in <code className="text-[#c8f31d] bg-[#0d0f14] px-1.5 py-0.5 rounded border border-white/10">src/data/portfolioData.ts</code>
+            Configurable stack items mapped in <code className="text-[#00f0ff] bg-[#0a0e17] px-1.5 py-0.5 rounded border border-white/10">src/data/portfolioData.ts</code>
           </p>
         </div>
 

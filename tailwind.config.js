@@ -8,23 +8,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "#08090a",
-        foreground: "#f4f4f5",
+        background: "#06080e",
+        foreground: "#f1f5f9",
         surface: {
-          base: "#08090a",
-          card: "#0d0f14",
-          cardHover: "#12151d",
-          elevated: "#171a23",
-          border: "rgba(255, 255, 255, 0.08)",
-          borderHover: "rgba(200, 243, 29, 0.35)",
+          base: "#06080e",
+          card: "#0a0e17",
+          cardHover: "#101726",
+          elevated: "#151e30",
+          border: "rgba(56, 189, 248, 0.12)",
+          borderHover: "rgba(0, 240, 255, 0.45)",
         },
         accent: {
-          lime: "#c8f31d",       // Primary signature electric lime
-          limeMuted: "#9ebf16",
-          cyan: "#38bdf8",       // Technical glacier cyan
-          emerald: "#10b981",    // Live status indicator
-          amber: "#f59e0b",      // Academic/highlight badge
-          orange: "#fb923c",
+          cyan: "#00f0ff",        // Electric Cyan matching vertical LED strip
+          azure: "#38bdf8",       // Sky azure
+          sapphire: "#2563eb",    // Deep cyber sapphire
+          emerald: "#10b981",     // Plant & online status
+          amber: "#f59e0b",       // Warm lamp glow
         },
       },
       fontFamily: {
@@ -34,12 +33,17 @@ module.exports = {
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'float': 'float 5s ease-in-out infinite',
-        'spin-slow': 'spin 20s linear infinite',
+        'scan': 'scan 3s ease-in-out infinite',
       },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-8px)' },
+        },
+        scan: {
+          '0%': { top: '0%' },
+          '50%': { top: '90%' },
+          '100%': { top: '0%' },
         },
       },
     },

@@ -94,7 +94,7 @@ export default function Contact() {
       className="relative min-h-screen flex flex-col justify-center items-center py-20 sm:py-24 lg:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
       {/* Background ambient lighting */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#c8f31d]/[0.02] rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#00f0ff]/[0.025] rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-6xl mx-auto w-full my-auto">
         
@@ -104,9 +104,9 @@ export default function Contact() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#0d0f14] border border-white/10 text-xs font-mono uppercase tracking-wider text-[#c8f31d] mb-3"
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#0a0e17] border border-[#00f0ff]/25 text-xs font-mono uppercase tracking-wider text-[#00f0ff] mb-3"
           >
-            <Radio className="w-3.5 h-3.5 text-[#c8f31d] animate-pulse" />
+            <Radio className="w-3.5 h-3.5 text-[#00f0ff] animate-pulse" />
             <span>Open Dialogue</span>
           </motion.div>
           
@@ -118,7 +118,7 @@ export default function Contact() {
             className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight"
           >
             Initiate Contact &amp;{" "}
-            <span className="text-[#c8f31d]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f0ff] via-[#38bdf8] to-[#60a5fa]">
               Collaborate
             </span>
           </motion.h2>
@@ -145,10 +145,10 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-5 space-y-4"
           >
-            <div className="rounded-xl bg-[#0d0f14] border border-white/10 p-5 sm:p-6 space-y-4 shadow-sm">
+            <div className="rounded-xl bg-[#0a0e17] border border-white/10 p-5 sm:p-6 space-y-4 shadow-sm">
               <div className="flex items-center justify-between">
                 <h3 className="text-base font-bold text-white tracking-tight flex items-center gap-2">
-                  <MessageSquare className="w-4 h-4 text-[#c8f31d]" />
+                  <MessageSquare className="w-4 h-4 text-[#00f0ff]" />
                   <span>Direct Channels</span>
                 </h3>
                 <span className="flex items-center gap-1 text-[10px] font-mono text-[#10b981]">
@@ -162,9 +162,9 @@ export default function Contact() {
               </p>
 
               {/* Email Copier with Spring Morph Checkmark */}
-              <div className="p-3 rounded-lg bg-[#08090a] border border-white/10 flex items-center justify-between hover:border-[#c8f31d]/30 transition-colors">
+              <div className="p-3 rounded-lg bg-[#06080e] border border-white/10 flex items-center justify-between hover:border-[#00f0ff]/40 transition-colors">
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <Mail className="w-4 h-4 text-[#c8f31d] flex-shrink-0" />
+                  <Mail className="w-4 h-4 text-[#00f0ff] flex-shrink-0" />
                   <span className="text-xs font-mono text-zinc-300 truncate">
                     {portfolioData.contact.email}
                   </span>
@@ -185,7 +185,7 @@ export default function Contact() {
                         animate={{ scale: 1 }}
                         exit={{ scale: 0 }}
                       >
-                        <Check className="w-4 h-4 text-[#c8f31d]" />
+                        <Check className="w-4 h-4 text-[#00f0ff]" />
                       </motion.div>
                     ) : (
                       <motion.div
@@ -202,7 +202,7 @@ export default function Contact() {
               </div>
 
               {/* Location with Lucide Icon */}
-              <div className="p-3 rounded-lg bg-[#08090a] border border-white/10 flex items-center gap-2.5">
+              <div className="p-3 rounded-lg bg-[#06080e] border border-white/10 flex items-center gap-2.5">
                 <MapPin className="w-4 h-4 text-[#38bdf8] flex-shrink-0" />
                 <span className="text-xs font-mono text-zinc-300">
                   {portfolioData.contact.location}
@@ -210,7 +210,7 @@ export default function Contact() {
               </div>
 
               {/* Response Time Guarantee Pill */}
-              <div className="p-3 rounded-lg bg-[#08090a] border border-white/10 flex items-center gap-2.5 text-zinc-400 text-xs font-mono">
+              <div className="p-3 rounded-lg bg-[#06080e] border border-white/10 flex items-center gap-2.5 text-zinc-400 text-xs font-mono">
                 <Clock className="w-4 h-4 text-[#fb923c] flex-shrink-0" />
                 <span>Response Time: Typically within 24 hours</span>
               </div>
@@ -223,7 +223,7 @@ export default function Contact() {
                   href={portfolioData.contact.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 py-2 px-3 rounded-lg bg-[#08090a] hover:bg-[#14171f] border border-white/10 hover:border-[#c8f31d]/40 flex items-center justify-center gap-2 text-xs font-mono text-zinc-300 hover:text-[#c8f31d] transition-colors"
+                  className="flex-1 py-2 px-3 rounded-lg bg-[#06080e] hover:bg-[#121824] border border-white/10 hover:border-[#00f0ff]/40 flex items-center justify-center gap-2 text-xs font-mono text-zinc-300 hover:text-[#00f0ff] transition-colors"
                 >
                   <GithubIcon className="w-4 h-4" />
                   <span>GitHub</span>
@@ -234,7 +234,7 @@ export default function Contact() {
                   href={portfolioData.contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 py-2 px-3 rounded-lg bg-[#08090a] hover:bg-[#14171f] border border-white/10 hover:border-[#38bdf8]/40 flex items-center justify-center gap-2 text-xs font-mono text-zinc-300 hover:text-[#38bdf8] transition-colors"
+                  className="flex-1 py-2 px-3 rounded-lg bg-[#06080e] hover:bg-[#121824] border border-white/10 hover:border-[#38bdf8]/40 flex items-center justify-center gap-2 text-xs font-mono text-zinc-300 hover:text-[#38bdf8] transition-colors"
                 >
                   <LinkedinIcon className="w-4 h-4" />
                   <span>LinkedIn</span>
@@ -251,7 +251,7 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-7"
           >
-            <div className="rounded-xl bg-[#0d0f14] border border-white/10 p-5 sm:p-6 shadow-sm">
+            <div className="rounded-xl bg-[#0a0e17] border border-white/10 p-5 sm:p-6 shadow-sm">
               <AnimatePresence mode="wait">
                 {isSubmitted ? (
                   <motion.div 
@@ -260,7 +260,7 @@ export default function Contact() {
                     exit={{ opacity: 0, scale: 0.9 }}
                     className="text-center py-10 space-y-3"
                   >
-                    <div className="w-12 h-12 rounded-full bg-[#c8f31d]/10 text-[#c8f31d] border border-[#c8f31d]/30 flex items-center justify-center mx-auto shadow-[0_0_20px_rgba(200,243,29,0.2)]">
+                    <div className="w-12 h-12 rounded-full bg-[#00f0ff]/10 text-[#00f0ff] border border-[#00f0ff]/30 flex items-center justify-center mx-auto shadow-[0_0_20px_rgba(0,240,255,0.25)]">
                       <CheckCircle2 className="w-6 h-6" />
                     </div>
                     <h4 className="text-lg font-bold text-white">Transmission Dispatched</h4>
@@ -288,7 +288,7 @@ export default function Contact() {
                           value={formData.name}
                           onChange={handleChange}
                           placeholder="Yasith Umesha"
-                          className="w-full px-3 py-2 rounded-lg bg-[#08090a] border border-white/10 focus:border-[#c8f31d] focus:outline-none text-xs text-white transition-colors"
+                          className="w-full px-3 py-2 rounded-lg bg-[#06080e] border border-white/10 focus:border-[#00f0ff] focus:outline-none text-xs text-white transition-colors"
                         />
                         {errors.name && <p className="text-[10px] font-mono text-red-400 mt-1 flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors.name}</p>}
                       </div>
@@ -301,7 +301,7 @@ export default function Contact() {
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="you@domain.com"
-                          className="w-full px-3 py-2 rounded-lg bg-[#08090a] border border-white/10 focus:border-[#c8f31d] focus:outline-none text-xs text-white transition-colors"
+                          className="w-full px-3 py-2 rounded-lg bg-[#06080e] border border-white/10 focus:border-[#00f0ff] focus:outline-none text-xs text-white transition-colors"
                         />
                         {errors.email && <p className="text-[10px] font-mono text-red-400 mt-1 flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors.email}</p>}
                       </div>
@@ -315,7 +315,7 @@ export default function Contact() {
                         value={formData.subject}
                         onChange={handleChange}
                         placeholder="Collaboration inquiry / Internship"
-                        className="w-full px-3 py-2 rounded-lg bg-[#08090a] border border-white/10 focus:border-[#c8f31d] focus:outline-none text-xs text-white transition-colors"
+                        className="w-full px-3 py-2 rounded-lg bg-[#06080e] border border-white/10 focus:border-[#00f0ff] focus:outline-none text-xs text-white transition-colors"
                       />
                       {errors.subject && <p className="text-[10px] font-mono text-red-400 mt-1 flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors.subject}</p>}
                     </div>
@@ -328,7 +328,7 @@ export default function Contact() {
                         value={formData.message}
                         onChange={handleChange}
                         placeholder="Outline your inquiry or project details..."
-                        className="w-full px-3 py-2 rounded-lg bg-[#08090a] border border-white/10 focus:border-[#c8f31d] focus:outline-none text-xs text-white resize-none transition-colors"
+                        className="w-full px-3 py-2 rounded-lg bg-[#06080e] border border-white/10 focus:border-[#00f0ff] focus:outline-none text-xs text-white resize-none transition-colors"
                       />
                       {errors.message && <p className="text-[10px] font-mono text-red-400 mt-1 flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors.message}</p>}
                     </div>
@@ -338,7 +338,7 @@ export default function Contact() {
                       whileTap={{ scale: 0.99 }}
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-2.5 rounded-lg bg-[#c8f31d] hover:bg-[#d8ff38] text-black font-semibold text-xs transition-colors flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(200,243,29,0.25)]"
+                      className="w-full py-2.5 rounded-lg bg-gradient-to-r from-[#00f0ff] to-[#38bdf8] hover:from-[#38bdf8] hover:to-[#00f0ff] text-black font-semibold text-xs transition-colors flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(0,240,255,0.3)]"
                     >
                       <Send className="w-3.5 h-3.5" />
                       <span>{isSubmitting ? "Dispatching..." : "Transmit Message"}</span>

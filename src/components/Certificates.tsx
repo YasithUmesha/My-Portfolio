@@ -29,13 +29,13 @@ export default function Certificates() {
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#0d0f14] border border-white/10 text-xs font-mono uppercase tracking-wider text-[#c8f31d] mb-3">
-            <Award className="w-3.5 h-3.5 text-[#c8f31d]" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#0a0e17] border border-[#00f0ff]/25 text-xs font-mono uppercase tracking-wider text-[#00f0ff] mb-3">
+            <Award className="w-3.5 h-3.5 text-[#00f0ff]" />
             <span>Academic &amp; Verified</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
             Education &amp;{" "}
-            <span className="text-[#c8f31d]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f0ff] via-[#38bdf8] to-[#60a5fa]">
               Certificates
             </span>
           </h2>
@@ -46,7 +46,7 @@ export default function Certificates() {
 
         {/* University Education Highlight */}
         <div className="mb-6">
-          <div className="relative rounded-xl bg-[#0d0f14] border border-white/10 hover:border-[#38bdf8]/40 p-5 sm:p-6 transition-all duration-200">
+          <div className="relative rounded-xl bg-[#0a0e17] border border-white/10 hover:border-[#00f0ff]/40 p-5 sm:p-6 transition-all duration-200 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
               
               <div className="lg:col-span-8 space-y-2">
@@ -58,16 +58,16 @@ export default function Certificates() {
                 <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
                   {education.degree}
                 </h3>
-                <p className="text-xs font-mono text-[#c8f31d]">
+                <p className="text-xs font-mono text-[#00f0ff]">
                   {education.university} • {education.faculty}
                 </p>
-                <p className="text-xs text-zinc-400 leading-relaxed pt-1">
+                <p className="text-xs text-zinc-300 leading-relaxed pt-1">
                   Focusing on enterprise software architecture, modern web development, database management systems, and agile workflows.
                 </p>
               </div>
 
               <div className="lg:col-span-4 flex lg:justify-end">
-                <div className="px-4 py-3 rounded-lg bg-[#08090a] border border-white/10 text-left lg:text-right w-full lg:w-auto">
+                <div className="px-4 py-3 rounded-lg bg-[#06080e] border border-white/10 text-left lg:text-right w-full lg:w-auto">
                   <span className="text-[10px] font-mono text-zinc-500 block uppercase">Status</span>
                   <span className="text-xs font-bold text-white block mt-0.5">{education.status}</span>
                   <span className="text-[10px] font-mono text-zinc-400 block mt-0.5">{education.period}</span>
@@ -83,25 +83,25 @@ export default function Certificates() {
           {certificates.map((cert) => (
             <div
               key={cert.id}
-              className="group rounded-xl bg-[#0d0f14] hover:bg-[#12151d] border border-white/10 hover:border-[#c8f31d]/35 p-4 transition-all duration-200 flex flex-col justify-between"
+              className="group rounded-xl bg-[#0a0e17] hover:bg-[#101726] border border-white/10 hover:border-[#00f0ff]/40 p-4 transition-all duration-200 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] font-mono text-zinc-500 flex items-center gap-1">
-                    <Calendar className="w-3 h-3 text-[#c8f31d]" />
+                    <Calendar className="w-3 h-3 text-[#00f0ff]" />
                     <span>{cert.issueDate}</span>
                   </span>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#08090a] text-zinc-300 border border-white/10">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#06080e] text-zinc-300 border border-white/10">
                     {cert.issuer}
                   </span>
                 </div>
 
-                <h4 className="text-sm font-semibold text-white group-hover:text-[#c8f31d] transition-colors mt-2">
+                <h4 className="text-sm font-semibold text-white group-hover:text-[#00f0ff] transition-colors mt-2">
                   {cert.title}
                 </h4>
                 <div className="flex flex-wrap gap-1 mt-2">
                   {cert.skills.map((skill) => (
-                    <span key={skill} className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#08090a] text-zinc-400 border border-white/5">
+                    <span key={skill} className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#06080e] text-zinc-400 border border-white/5">
                       {skill}
                     </span>
                   ))}
@@ -115,10 +115,10 @@ export default function Certificates() {
                 <button
                   type="button"
                   onClick={() => setSelectedCert(cert)}
-                  className="p-1 rounded bg-[#08090a] hover:bg-white/10 text-zinc-300 hover:text-white"
+                  className="p-1 rounded bg-[#06080e] hover:bg-white/10 text-zinc-300 hover:text-white"
                   aria-label="View Certificate Preview"
                 >
-                  <Eye className="w-3.5 h-3.5 text-[#c8f31d]" />
+                  <Eye className="w-3.5 h-3.5 text-[#00f0ff]" />
                 </button>
               </div>
             </div>
@@ -130,7 +130,7 @@ export default function Certificates() {
       {/* Certificate Modal */}
       {selectedCert && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-          <div className="relative w-full max-w-lg bg-[#0d0f14] border border-white/15 rounded-2xl p-6 shadow-2xl">
+          <div className="relative w-full max-w-lg bg-[#0a0e17] border border-[#00f0ff]/30 rounded-2xl p-6 shadow-2xl">
             <button
               type="button"
               onClick={() => setSelectedCert(null)}
@@ -147,16 +147,16 @@ export default function Certificates() {
             
             <div className="flex flex-wrap gap-1.5 mt-2">
               {selectedCert.skills.map((skill) => (
-                <span key={skill} className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#08090a] text-[#c8f31d] border border-white/10">
+                <span key={skill} className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#06080e] text-[#00f0ff] border border-white/10">
                   {skill}
                 </span>
               ))}
             </div>
 
-            <div className="mt-4 p-3 rounded-lg bg-[#08090a] border border-white/10 text-xs font-mono text-zinc-400 space-y-1">
+            <div className="mt-4 p-3 rounded-lg bg-[#06080e] border border-white/10 text-xs font-mono text-zinc-400 space-y-1">
               <div>Issue Date: <span className="text-white">{selectedCert.issueDate}</span></div>
               {selectedCert.credentialId && (
-                <div>Credential ID: <span className="text-[#c8f31d]">{selectedCert.credentialId}</span></div>
+                <div>Credential ID: <span className="text-[#00f0ff]">{selectedCert.credentialId}</span></div>
               )}
             </div>
 
