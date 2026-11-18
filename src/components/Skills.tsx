@@ -1,14 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import { portfolioData, SkillItem } from "@/data/portfolioData";
+import { motion, AnimatePresence } from "framer-motion";
+import { portfolioData } from "@/data/portfolioData";
+import { TechLogo } from "./Icons";
 import {
-  Server,
-  Database,
-  Wrench,
-  Cpu,
+  Terminal,
+  Layers,
   Sparkles,
-  FileCode2
+  CheckCircle2,
+  Cpu
 } from "lucide-react";
 
 type CategoryFilter = "All" | "Frontend" | "Backend" | "Databases" | "Tools" | "Other";
@@ -30,65 +31,50 @@ export default function Skills() {
       ? portfolioData.skills
       : portfolioData.skills.filter((skill) => skill.category === selectedCategory);
 
-  const getSkillIcon = (category: string) => {
+  const getCategoryBadgeClass = (category: string) => {
     switch (category) {
       case "Frontend":
-        return <FileCode2 className="w-4 h-4 text-indigo-400 group-hover:text-indigo-300 transition-colors" />;
+        return "text-[#38bdf8] bg-[#38bdf8]/10 border-[#38bdf8]/20";
       case "Backend":
-        return <Server className="w-4 h-4 text-purple-400 group-hover:text-purple-300 transition-colors" />;
+        return "text-[#c8f31d] bg-[#c8f31d]/10 border-[#c8f31d]/20";
       case "Databases":
-        return <Database className="w-4 h-4 text-cyan-400 group-hover:text-cyan-300 transition-colors" />;
+        return "text-[#10b981] bg-[#10b981]/10 border-[#10b981]/20";
       case "Tools":
-        return <Wrench className="w-4 h-4 text-amber-400 group-hover:text-amber-300 transition-colors" />;
+        return "text-[#fb923c] bg-[#fb923c]/10 border-[#fb923c]/20";
       default:
-        return <Cpu className="w-4 h-4 text-pink-400 group-hover:text-pink-300 transition-colors" />;
-    }
-  };
-
-  const getCategoryColor = (category: string) => {
-    switch (category) {
-      case "Frontend":
-        return "text-indigo-400 bg-indigo-500/10 border-indigo-500/20";
-      case "Backend":
-        return "text-purple-400 bg-purple-500/10 border-purple-500/20";
-      case "Databases":
-        return "text-cyan-400 bg-cyan-500/10 border-cyan-500/20";
-      case "Tools":
-        return "text-amber-400 bg-amber-500/10 border-amber-500/20";
-      default:
-        return "text-pink-400 bg-pink-500/10 border-pink-500/20";
+        return "text-zinc-300 bg-white/5 border-white/10";
     }
   };
 
   return (
     <section
       id="skills"
-      className="relative min-h-screen flex flex-col justify-center items-center py-16 sm:py-20 lg:py-12 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center items-center py-20 sm:py-24 lg:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
-      {/* Background radial accent */}
-      <div className="absolute top-1/3 right-0 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      {/* Subtle background glow */}
+      <div className="absolute top-1/3 right-10 w-96 h-96 bg-[#c8f31d]/[0.025] rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-6xl mx-auto w-full my-auto">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-5 sm:mb-6">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono uppercase tracking-wider text-purple-400 mb-2">
-            <Sparkles className="w-3.5 h-3.5 text-purple-400" />
-            <span>Tech Stack</span>
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#0d0f14] border border-white/10 text-xs font-mono uppercase tracking-wider text-[#c8f31d] mb-3">
+            <Terminal className="w-3.5 h-3.5 text-[#c8f31d]" />
+            <span>Technical Capabilities</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">
-            Technical Skills &amp;{" "}
-            <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Tooling
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+            Tools &amp; Technologies{" "}
+            <span className="text-[#c8f31d]">
+              I Work With
             </span>
           </h2>
-          <p className="mt-1.5 text-xs sm:text-sm text-slate-300/80">
-            A comprehensive, editable overview of modern technologies I leverage to build performant web platforms.
+          <p className="mt-2 text-xs sm:text-sm text-zinc-400">
+            Authentic software tooling, production frameworks, and modern databases powering scalable web architectures.
           </p>
         </div>
 
         {/* Category Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mb-6">
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
           {categories.map((category) => {
             const isSelected = selectedCategory === category;
             return (
@@ -96,10 +82,10 @@ export default function Skills() {
                 key={category}
                 type="button"
                 onClick={() => setSelectedCategory(category)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-300 ${
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-mono transition-all duration-200 ${
                   isSelected
-                    ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-[0_0_15px_rgba(168,85,247,0.35)] scale-105"
-                    : "bg-white/[0.03] text-slate-400 hover:text-white hover:bg-white/[0.06] border border-white/10"
+                    ? "bg-[#c8f31d] text-black font-semibold shadow-[0_0_20px_rgba(200,243,29,0.3)] scale-[1.02]"
+                    : "bg-[#0d0f14] text-zinc-400 hover:text-white hover:bg-[#14171f] border border-white/10"
                 }`}
               >
                 {category}
@@ -108,45 +94,61 @@ export default function Skills() {
           })}
         </div>
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-          {filteredSkills.map((skill) => (
-            <div
-              key={skill.name}
-              className="group relative rounded-xl bg-[#09061c]/80 hover:bg-[#120b33] border border-white/10 hover:border-purple-500/40 p-3 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(99,102,241,0.2)] flex flex-col justify-between"
-            >
-              <div className="flex items-center justify-between mb-2">
-                <div className="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/5 flex items-center justify-center group-hover:scale-105 transition-transform">
-                  {getSkillIcon(skill.category)}
+        {/* Skills Grid with Real Brand Logos */}
+        <motion.div 
+          layout
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5"
+        >
+          <AnimatePresence>
+            {filteredSkills.map((skill, index) => (
+              <motion.div
+                key={skill.name}
+                layout
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.25, delay: index * 0.02 }}
+                whileHover={{ y: -3, transition: { duration: 0.2 } }}
+                className="group relative rounded-xl bg-[#0d0f14] hover:bg-[#13161f] border border-white/10 hover:border-[#c8f31d]/40 p-4 transition-all duration-200 shadow-sm hover:shadow-[0_8px_25px_rgba(0,0,0,0.5)] flex flex-col justify-between"
+              >
+                {/* Real Tech Brand Logo & Category Indicator */}
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-[#08090a] border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:border-[#c8f31d]/30 transition-all p-2">
+                    <TechLogo name={skill.name} className="w-full h-full object-contain" />
+                  </div>
+                  <span
+                    className={`text-[9px] font-mono px-2 py-0.5 rounded border ${getCategoryBadgeClass(
+                      skill.category
+                    )}`}
+                  >
+                    {skill.category}
+                  </span>
                 </div>
-                <span
-                  className={`text-[9px] font-mono px-1.5 py-0.5 rounded border ${getCategoryColor(
-                    skill.category
-                  )}`}
-                >
-                  {skill.category}
-                </span>
-              </div>
 
-              <div>
-                <h4 className="text-xs sm:text-sm font-semibold text-white group-hover:text-purple-300 transition-colors truncate">
-                  {skill.name}
-                </h4>
-                <p className="text-[10px] text-slate-400 mt-0.5 flex items-center gap-1 font-mono">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" />
-                  Active Stack
-                </p>
-              </div>
+                {/* Skill Name & Status */}
+                <div>
+                  <h4 className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#c8f31d] transition-colors truncate">
+                    {skill.name}
+                  </h4>
+                  <p className="text-[10px] text-zinc-500 mt-1 flex items-center gap-1.5 font-mono">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#c8f31d] inline-block" />
+                    <span>Production</span>
+                  </p>
+                </div>
 
-              <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-tr-xl pointer-events-none" />
-            </div>
-          ))}
-        </div>
+                {/* Subtle corner marker */}
+                <div className="absolute top-1 right-1 text-[8px] font-mono text-zinc-700 group-hover:text-[#c8f31d] transition-colors">
+                  +
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
 
-        {/* Informative Note for Customization */}
-        <div className="mt-5 text-center">
-          <p className="text-[11px] text-slate-400 font-mono">
-            💡 Update technical stack entries anytime in <code className="text-purple-300 bg-white/[0.05] px-1 py-0.5 rounded">src/data/portfolioData.ts</code>
+        {/* Footer Note */}
+        <div className="mt-8 text-center">
+          <p className="text-[11px] text-zinc-500 font-mono">
+            Configurable stack items mapped in <code className="text-[#c8f31d] bg-[#0d0f14] px-1.5 py-0.5 rounded border border-white/10">src/data/portfolioData.ts</code>
           </p>
         </div>
 

@@ -2,15 +2,19 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { portfolioData } from "@/data/portfolioData";
 import { GithubIcon, LinkedinIcon } from "./Icons";
 import {
   Mail,
-  ArrowRight,
+  ArrowUpRight,
   Send,
   FileDown,
   Sparkles,
+  Terminal,
+  Code2,
   ChevronDown,
+  CheckCircle2
 } from "lucide-react";
 
 export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }) {
@@ -23,14 +27,14 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
 
   useEffect(() => {
     const currentRole = roles[roleIndex];
-    const typingSpeed = isDeleting ? 35 : 70;
+    const typingSpeed = isDeleting ? 30 : 65;
 
     const timer = setTimeout(() => {
       if (!isDeleting && charIndex < currentRole.length) {
         setTypedText(currentRole.substring(0, charIndex + 1));
         setCharIndex((prev) => prev + 1);
       } else if (!isDeleting && charIndex === currentRole.length) {
-        setTimeout(() => setIsDeleting(true), 1800);
+        setTimeout(() => setIsDeleting(true), 2000);
       } else if (isDeleting && charIndex > 0) {
         setTypedText(currentRole.substring(0, charIndex - 1));
         setCharIndex((prev) => prev - 1);
@@ -55,242 +59,289 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
   return (
     <section
       id="home"
-      className="relative min-h-screen lg:h-screen flex flex-col justify-center items-center pt-20 sm:pt-24 lg:pt-16 pb-6 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative min-h-screen lg:h-screen flex flex-col justify-center items-center pt-24 sm:pt-28 lg:pt-16 pb-8 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
-      {/* Background Ambient Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-tr from-indigo-600/15 via-purple-600/15 to-pink-500/10 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-slow" />
-      <div className="absolute top-1/3 -left-32 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-10 -right-32 w-80 h-80 bg-purple-600/15 rounded-full blur-3xl pointer-events-none -z-10" />
+      {/* Minimalist Ambient Geometric Accents */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-[#c8f31d]/[0.035] via-[#38bdf8]/[0.03] to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-6xl mx-auto w-full my-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Left Column: Introductions & CTAs */}
-          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-4 sm:space-y-5">
+          {/* Left Column: Introductions & Editorial Typography */}
+          <motion.div 
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-5"
+          >
             
-            {/* Status Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md shadow-inner shadow-purple-500/10 hover:border-purple-500/30 transition-all duration-300">
+            {/* Status Pill — Minimalist Terminal Style */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0d0f14] border border-white/10 hover:border-[#c8f31d]/40 transition-colors duration-300">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c8f31d] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c8f31d]" />
               </span>
-              <span className="text-[11px] sm:text-xs font-medium text-slate-300 tracking-wide">
+              <span className="text-[11px] font-mono tracking-wider uppercase text-zinc-300">
                 {portfolioData.personal.statusBadge}
               </span>
-              <Sparkles className="w-3 h-3 text-amber-400 ml-0.5" />
+              <span className="w-1 h-1 rounded-full bg-white/20" />
+              <span className="text-[11px] font-mono text-[#c8f31d]">2026</span>
             </div>
 
             {/* Main Greeting & Headings */}
-            <div className="space-y-1.5 sm:space-y-2">
-              <p className="text-sm sm:text-base font-medium text-indigo-400 tracking-wide flex items-center justify-center lg:justify-start gap-1.5">
+            <div className="space-y-2">
+              <p className="text-xs sm:text-sm font-mono tracking-wider text-[#38bdf8] uppercase flex items-center justify-center lg:justify-start gap-2">
+                <Terminal className="w-3.5 h-3.5 text-[#c8f31d]" />
                 <span>{portfolioData.personal.greeting}</span>
-                <span className="inline-block animate-bounce text-lg">👋</span>
               </p>
               
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                <span>I build with code as a</span>
-                <span className="block mt-1 min-h-[1.2em] bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.15]">
+                <span>Engineering modern web systems as a</span>
+                <span className="block mt-1.5 min-h-[1.25em] text-[#c8f31d]">
                   {typedText}
-                  <span className="inline-block w-[3px] h-[0.85em] bg-purple-400 ml-1 translate-y-[2px] animate-pulse" />
+                  <span className="inline-block w-[3px] h-[0.8em] bg-[#c8f31d] ml-1.5 translate-y-[2px] animate-pulse" />
                 </span>
               </h1>
             </div>
 
-            {/* Short Description */}
-            <p className="text-xs sm:text-sm text-slate-300/90 max-w-xl leading-relaxed font-normal">
+            {/* Short Bio */}
+            <p className="text-sm sm:text-base text-zinc-400 max-w-xl leading-relaxed font-normal">
               {portfolioData.personal.shortBio}
             </p>
 
-            {/* University & Degree Pill */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px] text-slate-400">
-              <span className="px-2.5 py-0.5 rounded-md bg-white/[0.03] border border-white/10 font-mono">
-                🎓 {portfolioData.personal.degree}
-              </span>
-              <span className="px-2.5 py-0.5 rounded-md bg-white/[0.03] border border-white/10 font-mono">
+            {/* University & Degree — Clean Architectural Badges */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 text-xs text-zinc-300">
+              <span className="px-3 py-1 rounded-md bg-[#0d0f14] border border-white/10 font-mono text-[11px] text-zinc-300 hover:border-[#38bdf8]/40 transition-colors">
                 🏛️ {portfolioData.personal.university}
+              </span>
+              <span className="px-3 py-1 rounded-md bg-[#0d0f14] border border-white/10 font-mono text-[11px] text-[#38bdf8] hover:border-[#38bdf8]/40 transition-colors">
+                🎓 {portfolioData.personal.degree}
               </span>
             </div>
 
             {/* Primary & Secondary Action Buttons */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
-              <button
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2">
+              <motion.button
+                whileHover={{ scale: 1.02, y: -1 }}
+                whileTap={{ scale: 0.98 }}
                 type="button"
                 onClick={() => scrollTo("projects")}
-                className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-500 hover:to-pink-500 shadow-[0_0_20px_rgba(99,102,241,0.35)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
+                className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold text-black bg-[#c8f31d] hover:bg-[#d8ff38] shadow-[0_0_25px_rgba(200,243,29,0.25)] transition-all duration-200"
               >
-                <span>View My Projects</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-              </button>
+                <span>Explore Projects</span>
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </motion.button>
 
-              <button
+              <motion.button
+                whileHover={{ scale: 1.02, y: -1 }}
+                whileTap={{ scale: 0.98 }}
                 type="button"
                 onClick={() => scrollTo("contact")}
-                className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-slate-200 bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 hover:border-purple-500/40 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs sm:text-sm font-medium text-white bg-[#0d0f14] hover:bg-[#14171f] border border-white/15 hover:border-[#c8f31d]/40 transition-all duration-200"
               >
-                <span>Contact Me</span>
-                <Send className="w-3.5 h-3.5 text-indigo-400 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </button>
+                <span>Initiate Contact</span>
+                <Send className="w-3.5 h-3.5 text-[#c8f31d] transition-transform duration-200 group-hover:translate-x-0.5" />
+              </motion.button>
 
               <button
                 type="button"
                 onClick={onOpenCVNotice}
-                className="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-full text-xs font-medium text-slate-400 hover:text-white hover:bg-white/[0.05] transition-all"
-                title="View Resume / CV status"
+                className="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-mono text-zinc-400 hover:text-[#c8f31d] hover:bg-white/[0.03] transition-all"
+                title="Curriculum Vitae"
               >
-                <FileDown className="w-3.5 h-3.5 text-purple-400" />
-                <span>Download CV</span>
+                <FileDown className="w-3.5 h-3.5" />
+                <span>Resume</span>
               </button>
             </div>
 
             {/* Social Links Bar */}
-            <div className="pt-1 flex items-center justify-center lg:justify-start gap-3">
-              <span className="text-[11px] text-slate-400 font-mono tracking-wider uppercase">
-                Connect:
+            <div className="pt-2 flex items-center justify-center lg:justify-start gap-3">
+              <span className="text-[11px] text-zinc-500 font-mono tracking-wider uppercase">
+                Find Me:
               </span>
               <div className="flex items-center gap-2">
                 <a
                   href={portfolioData.contact.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full bg-white/[0.03] hover:bg-white/[0.1] border border-white/10 hover:border-purple-500/50 text-slate-300 hover:text-white transition-all duration-300 shadow-sm hover:shadow-[0_0_12px_rgba(99,102,241,0.3)] hover:-translate-y-0.5"
-                  aria-label="Yasith Umesha GitHub Profile"
+                  className="p-2 rounded-lg bg-[#0d0f14] hover:bg-[#14171f] border border-white/10 hover:border-[#c8f31d]/50 text-zinc-300 hover:text-[#c8f31d] transition-all duration-200"
+                  aria-label="GitHub Profile"
                 >
-                  <GithubIcon className="w-3.5 h-3.5" />
+                  <GithubIcon className="w-4 h-4" />
                 </a>
 
                 <a
                   href={portfolioData.contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full bg-white/[0.03] hover:bg-white/[0.1] border border-white/10 hover:border-purple-500/50 text-slate-300 hover:text-white transition-all duration-300 shadow-sm hover:shadow-[0_0_12px_rgba(168,85,247,0.3)] hover:-translate-y-0.5"
-                  aria-label="Yasith Umesha LinkedIn Profile"
+                  className="p-2 rounded-lg bg-[#0d0f14] hover:bg-[#14171f] border border-white/10 hover:border-[#38bdf8]/50 text-zinc-300 hover:text-[#38bdf8] transition-all duration-200"
+                  aria-label="LinkedIn Profile"
                 >
-                  <LinkedinIcon className="w-3.5 h-3.5 text-blue-400" />
+                  <LinkedinIcon className="w-4 h-4" />
                 </a>
 
                 <a
                   href={`mailto:${portfolioData.contact.email}`}
-                  className="p-2 rounded-full bg-white/[0.03] hover:bg-white/[0.1] border border-white/10 hover:border-purple-500/50 text-slate-300 hover:text-white transition-all duration-300 shadow-sm hover:shadow-[0_0_12px_rgba(236,72,153,0.3)] hover:-translate-y-0.5"
-                  aria-label="Email Yasith Umesha"
+                  className="p-2 rounded-lg bg-[#0d0f14] hover:bg-[#14171f] border border-white/10 hover:border-[#c8f31d]/50 text-zinc-300 hover:text-[#c8f31d] transition-all duration-200"
+                  aria-label="Email"
                 >
-                  <Mail className="w-3.5 h-3.5 text-pink-400" />
+                  <Mail className="w-4 h-4" />
                 </a>
               </div>
             </div>
 
-          </div>
+          </motion.div>
 
-          {/* Right Column: Animated Profile Photo */}
+          {/* Right Column: Framer Motion Animated Profile Portrait with Architectural Orbit */}
           <div className="lg:col-span-5 flex justify-center relative">
-            <div className="avatar-float relative flex items-center justify-center w-72 h-72 sm:w-80 sm:h-80">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="relative flex items-center justify-center w-72 h-72 sm:w-80 sm:h-80"
+            >
 
-              {/* Outer ambient glow blob */}
-              <div className="glow-pulse-avatar absolute inset-0 rounded-full bg-gradient-to-tr from-indigo-600/30 via-purple-600/25 to-pink-500/20 blur-3xl" />
-
-              {/* Outermost slow-spinning conic ring */}
-              <div
-                className="ring-spin-slow absolute inset-0 rounded-full"
-                style={{
-                  background:
-                    "conic-gradient(from 0deg, transparent 55%, rgba(99,102,241,0.7) 72%, rgba(168,85,247,0.9) 84%, rgba(236,72,153,0.7) 94%, transparent 100%)",
+              {/* Radiant Soft Breathing Glow */}
+              <motion.div
+                animate={{
+                  scale: [1, 1.08, 1],
+                  opacity: [0.35, 0.65, 0.35],
                 }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#c8f31d]/20 via-[#38bdf8]/15 to-transparent blur-3xl pointer-events-none"
               />
 
-              {/* Middle counter-spinning ring */}
-              <div
-                className="ring-spin-reverse absolute rounded-full"
-                style={{
-                  inset: "10px",
-                  background:
-                    "conic-gradient(from 180deg, transparent 55%, rgba(236,72,153,0.6) 70%, rgba(99,102,241,0.8) 85%, transparent 100%)",
-                }}
-              />
-
-              {/* Fast inner accent ring */}
-              <div
-                className="ring-spin absolute rounded-full"
-                style={{
-                  inset: "20px",
-                  background:
-                    "conic-gradient(from 90deg, transparent 65%, rgba(168,85,247,1) 80%, rgba(99,102,241,0.6) 92%, transparent 100%)",
-                }}
-              />
-
-              {/* White gap ring */}
-              <div
-                className="absolute rounded-full bg-[#030014]"
-                style={{ inset: "28px" }}
-              />
-
-              {/* Gradient border frame */}
-              <div
-                className="absolute rounded-full"
-                style={{
-                  inset: "30px",
-                  padding: "3px",
-                  background:
-                    "linear-gradient(135deg, #6366f1 0%, #a855f7 40%, #ec4899 70%, #6366f1 100%)",
-                  borderRadius: "9999px",
-                }}
+              {/* Minimalist Rotating Orbital Geometry 1 (Outer fine dashed ring) */}
+              <motion.svg
+                animate={{ rotate: 360 }}
+                transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 w-full h-full pointer-events-none"
+                viewBox="0 0 320 320"
               >
-                {/* Inner dark gap */}
-                <div
-                  className="w-full h-full rounded-full bg-[#030014]"
-                  style={{ padding: "3px" }}
-                >
-                  {/* Photo with shimmer */}
-                  <div className="photo-shimmer relative w-full h-full rounded-full overflow-hidden shadow-2xl">
+                <circle
+                  cx="160"
+                  cy="160"
+                  r="156"
+                  fill="none"
+                  stroke="rgba(255, 255, 255, 0.08)"
+                  strokeWidth="1"
+                  strokeDasharray="4 8"
+                />
+                <circle
+                  cx="160"
+                  cy="4"
+                  r="3"
+                  fill="#c8f31d"
+                />
+              </motion.svg>
+
+              {/* Counter-Rotating Orbital Geometry 2 (Middle accented ring) */}
+              <motion.svg
+                animate={{ rotate: -360 }}
+                transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+                className="absolute w-64 h-64 sm:w-72 sm:h-72 pointer-events-none"
+                viewBox="0 0 288 288"
+              >
+                <circle
+                  cx="144"
+                  cy="144"
+                  r="140"
+                  fill="none"
+                  stroke="rgba(56, 189, 248, 0.2)"
+                  strokeWidth="1.2"
+                  strokeDasharray="40 180"
+                />
+                <circle
+                  cx="144"
+                  cy="4"
+                  r="3"
+                  fill="#38bdf8"
+                />
+              </motion.svg>
+
+              {/* Architectonic Octagon / Corner Accents Frame */}
+              <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-2xl p-[2px] bg-gradient-to-b from-white/20 via-white/5 to-[#c8f31d]/40 shadow-2xl">
+                
+                {/* Dark Inner Container */}
+                <div className="relative w-full h-full rounded-[14px] overflow-hidden bg-[#0d0f14] p-1">
+                  
+                  {/* Photo with subtle zoom on container hover */}
+                  <div className="relative w-full h-full rounded-xl overflow-hidden bg-[#08090a]">
                     <Image
                       src={portfolioData.personal.avatar}
                       alt={portfolioData.personal.name}
                       fill
-                      className="object-cover object-top"
+                      className="object-cover object-top filter brightness-[1.02] contrast-[1.03] transition-transform duration-500 hover:scale-105"
                       priority
                     />
+                  </div>
+
+                  {/* Corner Target Marks (Architectural Aesthetic) */}
+                  <div className="absolute top-2 left-2 text-[9px] font-mono text-[#c8f31d] pointer-events-none opacity-80">
+                    +
+                  </div>
+                  <div className="absolute top-2 right-2 text-[9px] font-mono text-[#c8f31d] pointer-events-none opacity-80">
+                    +
+                  </div>
+                  <div className="absolute bottom-2 left-2 text-[9px] font-mono text-zinc-500 pointer-events-none">
+                    +
+                  </div>
+                  <div className="absolute bottom-2 right-2 text-[9px] font-mono text-zinc-500 pointer-events-none">
+                    +
                   </div>
                 </div>
               </div>
 
-              {/* Floating badge — Open to Work (top-right) */}
-              <div className="absolute top-4 -right-6 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0a0620]/95 border border-emerald-500/50 text-[10px] font-semibold text-emerald-300 shadow-xl backdrop-blur-md whitespace-nowrap z-10">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping inline-block flex-shrink-0" />
-                Open to Work
-              </div>
+              {/* Floating Badge 1: Top Right — Live Open to Work */}
+              <motion.div
+                animate={{ y: [0, -4, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -top-3 -right-4 sm:-right-6 flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#0d0f14]/95 border border-[#c8f31d]/35 text-[11px] font-mono text-white shadow-xl backdrop-blur-md"
+              >
+                <span className="w-2 h-2 rounded-full bg-[#c8f31d] animate-ping" />
+                <span className="text-[#c8f31d] font-semibold">Available</span>
+                <span className="text-zinc-500">•</span>
+                <span className="text-zinc-400">Roles</span>
+              </motion.div>
 
-              {/* Floating badge — Full Stack (bottom-left) */}
-              <div className="absolute bottom-6 -left-8 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0a0620]/95 border border-purple-500/50 text-[10px] font-semibold text-purple-300 shadow-xl backdrop-blur-md whitespace-nowrap z-10">
-                ⚡ Full-Stack Dev
-              </div>
+              {/* Floating Badge 2: Bottom Left — Engineering Core */}
+              <motion.div
+                animate={{ y: [0, 4, 0] }}
+                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="absolute -bottom-4 -left-4 sm:-left-6 flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#0d0f14]/95 border border-white/10 text-[11px] font-mono text-zinc-300 shadow-xl backdrop-blur-md"
+              >
+                <Code2 className="w-3.5 h-3.5 text-[#38bdf8]" />
+                <span>Full-Stack Engineer</span>
+              </motion.div>
 
-              {/* Floating badge — University (bottom-right) */}
-              <div className="absolute bottom-2 -right-4 flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#0a0620]/95 border border-indigo-500/50 text-[10px] font-semibold text-indigo-300 shadow-xl backdrop-blur-md whitespace-nowrap z-10">
-                🎓 SUSL
-              </div>
+              {/* Floating Badge 3: Bottom Right — Sabaragamuwa Univ */}
+              <motion.div
+                animate={{ y: [0, -3, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute -bottom-5 right-2 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#0d0f14]/95 border border-white/10 text-[10px] font-mono text-zinc-400 shadow-lg backdrop-blur-md"
+              >
+                <span>BSc (Hons) IS</span>
+              </motion.div>
 
-              {/* Decorative floating dots */}
-              <div className="absolute top-8 -left-4 w-3 h-3 rounded-full bg-indigo-500/70 blur-[2px] animate-pulse" />
-              <div className="absolute bottom-14 -right-3 w-2 h-2 rounded-full bg-pink-500/70 blur-[2px] animate-pulse" style={{ animationDelay: "1s" }} />
-              <div className="absolute top-1/2 -right-6 w-2 h-2 rounded-full bg-purple-400/60 blur-[2px] animate-pulse" style={{ animationDelay: "2s" }} />
-              <div className="absolute top-1/3 -left-5 w-2 h-2 rounded-full bg-cyan-400/50 blur-[2px] animate-pulse" style={{ animationDelay: "0.5s" }} />
-
-            </div>
+            </motion.div>
           </div>
 
         </div>
 
-        {/* Scroll Down Indicator */}
-        <div className="mt-6 sm:mt-8 flex flex-col items-center justify-center">
+        {/* Minimalist Scroll Indicator */}
+        <div className="mt-8 flex flex-col items-center justify-center">
           <button
             type="button"
             onClick={() => scrollTo("about")}
-            className="group flex flex-col items-center gap-1 text-[10px] text-slate-400 hover:text-purple-400 transition-colors cursor-pointer"
-            aria-label="Scroll to About section"
+            className="group flex flex-col items-center gap-1.5 text-[10px] font-mono text-zinc-500 hover:text-[#c8f31d] transition-colors cursor-pointer"
+            aria-label="Scroll to About"
           >
-            <span className="tracking-widest uppercase font-mono text-[9px]">Scroll</span>
-            <div className="w-5 h-8 rounded-full border border-white/20 group-hover:border-purple-400/60 flex items-start justify-center p-1 transition-colors">
-              <span className="w-1 h-2 rounded-full bg-purple-400 animate-bounce" />
-            </div>
-            <ChevronDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
+            <span className="tracking-widest uppercase">Index // 01</span>
+            <ChevronDown className="w-3.5 h-3.5 animate-bounce text-[#c8f31d]" />
           </button>
         </div>
 

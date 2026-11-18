@@ -8,37 +8,41 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "#030014",
-        foreground: "#f8faff",
-        brand: {
-          indigo: "#6366f1",
-          purple: "#a855f7",
-          pink: "#ec4899",
-          blue: "#3b82f6",
-          cyan: "#06b6d4",
-          violet: "#8b5cf6"
-        }
+        background: "#08090a",
+        foreground: "#f4f4f5",
+        surface: {
+          base: "#08090a",
+          card: "#0d0f14",
+          cardHover: "#12151d",
+          elevated: "#171a23",
+          border: "rgba(255, 255, 255, 0.08)",
+          borderHover: "rgba(200, 243, 29, 0.35)",
+        },
+        accent: {
+          lime: "#c8f31d",       // Primary signature electric lime
+          limeMuted: "#9ebf16",
+          cyan: "#38bdf8",       // Technical glacier cyan
+          emerald: "#10b981",    // Live status indicator
+          amber: "#f59e0b",      // Academic/highlight badge
+          orange: "#fb923c",
+        },
       },
       fontFamily: {
         sans: ["var(--font-poppins)", "Inter", "sans-serif"],
+        mono: ["var(--font-mono)", "JetBrains Mono", "monospace"],
       },
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'float': 'float 6s ease-in-out infinite',
-        'glow': 'glow 3s ease-in-out infinite alternate',
+        'float': 'float 5s ease-in-out infinite',
+        'spin-slow': 'spin 20s linear infinite',
       },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-12px)' },
+          '50%': { transform: 'translateY(-8px)' },
         },
-        glow: {
-          '0%': { opacity: '0.3', transform: 'scale(0.98)' },
-          '100%': { opacity: '0.6', transform: 'scale(1.02)' },
-        }
-      }
+      },
     },
   },
   plugins: [],
 };
-
