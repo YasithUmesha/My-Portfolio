@@ -1,8 +1,21 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { portfolioData } from "@/data/portfolioData";
-import { Menu, X, ArrowUpRight, Code2, Terminal } from "lucide-react";
+import {
+  Menu,
+  X,
+  ArrowUpRight,
+  Home,
+  User,
+  Terminal,
+  FolderGit2,
+  Briefcase,
+  Award,
+  Mail,
+  Sparkles
+} from "lucide-react";
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
@@ -17,7 +30,7 @@ export default function Navbar() {
         item.href.replace("#", "")
       );
 
-      const scrollPosition = window.scrollY + 120;
+      const scrollPosition = window.scrollY + 140;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const sectionEl = document.getElementById(sections[i]);
@@ -47,37 +60,66 @@ export default function Navbar() {
     }
   };
 
+  const getNavIcon = (label: string) => {
+    switch (label.toLowerCase()) {
+      case "home":
+        return <Home className="w-3.5 h-3.5" />;
+      case "about":
+        return <User className="w-3.5 h-3.5" />;
+      case "skills":
+        return <Terminal className="w-3.5 h-3.5" />;
+      case "projects":
+        return <FolderGit2 className="w-3.5 h-3.5" />;
+      case "experience":
+        return <Briefcase className="w-3.5 h-3.5" />;
+      case "certificates":
+        return <Award className="w-3.5 h-3.5" />;
+      case "contact":
+        return <Mail className="w-3.5 h-3.5" />;
+      default:
+        return <Sparkles className="w-3.5 h-3.5" />;
+    }
+  };
+
   return (
-    <header
+    <motion.header
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#08090a]/90 backdrop-blur-md border-b border-white/[0.08] py-3.5"
+          ? "bg-[#08090a]/90 backdrop-blur-xl border-b border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.5)] py-3"
           : "bg-transparent py-5"
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <a
+          
+          {/* Logo with interactive Framer Motion pulse */}
+          <motion.a
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             href="#home"
             onClick={(e) => scrollToSection(e, "#home")}
             className="group flex items-center gap-2.5 text-base font-bold tracking-tight"
           >
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#0d0f14] border border-white/10 group-hover:border-[#c8f31d]/40 transition-colors">
+            <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-[#0d0f14] border border-white/10 group-hover:border-[#c8f31d]/60 transition-colors shadow-sm">
               <span className="font-mono text-xs font-bold text-[#c8f31d]">YU</span>
+              <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-[#c8f31d] animate-ping" />
             </div>
             <div className="flex flex-col">
-              <span className="text-sm font-bold text-white tracking-wide flex items-center">
+              <span className="text-sm font-bold text-white tracking-wide flex items-center gap-1">
                 {portfolioData.personal.name}
+                <span className="text-[#c8f31d] text-xs font-mono">.dev</span>
               </span>
               <span className="text-[10px] text-zinc-500 font-mono -mt-0.5 tracking-wider uppercase">
                 Software • IS
               </span>
             </div>
-          </a>
+          </motion.a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1 bg-[#0d0f14]/80 border border-white/10 px-3 py-1.5 rounded-full backdrop-blur-md">
+          {/* Desktop Navigation with Framer Motion layoutId Smooth Sliding Pill */}
+          <nav className="hidden md:flex items-center gap-1 bg-[#0d0f14]/85 border border-white/10 px-2.5 py-1.5 rounded-full backdrop-blur-md shadow-inner">
             {portfolioData.navigation.map((item) => {
               const sectionId = item.href.replace("#", "");
               const isActive = activeSection === sectionId;
@@ -87,28 +129,42 @@ export default function Navbar() {
                   key={item.label}
                   href={item.href}
                   onClick={(e) => scrollToSection(e, item.href)}
-                  className={`px-3 py-1 rounded-full text-xs font-mono transition-all duration-200 ${
+                  className={`relative px-3 py-1 rounded-full text-xs font-mono flex items-center gap-1.5 transition-colors duration-200 z-10 ${
                     isActive
-                      ? "text-black bg-[#c8f31d] font-semibold"
+                      ? "text-black font-semibold"
                       : "text-zinc-400 hover:text-white"
                   }`}
                 >
-                  {item.label}
+                  {/* Sliding highlight indicator */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeNavIndicator"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      className="absolute inset-0 bg-[#c8f31d] rounded-full -z-10 shadow-[0_0_15px_rgba(200,243,29,0.35)]"
+                    />
+                  )}
+                  <span className={isActive ? "text-black" : "text-zinc-500"}>
+                    {getNavIcon(item.label)}
+                  </span>
+                  <span>{item.label}</span>
                 </a>
               );
             })}
           </nav>
 
-          {/* Connect Action Button */}
+          {/* Connect Action Button with Spring Hover */}
           <div className="hidden md:flex items-center gap-3">
-            <a
+            <motion.a
+              whileHover={{ scale: 1.03, y: -1 }}
+              whileTap={{ scale: 0.97 }}
               href="#contact"
               onClick={(e) => scrollToSection(e, "#contact")}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-md text-xs font-mono text-zinc-300 bg-[#0d0f14] border border-white/10 hover:border-[#c8f31d]/40 hover:text-[#c8f31d] transition-all"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-mono text-zinc-200 bg-[#0d0f14] border border-white/10 hover:border-[#c8f31d]/50 hover:text-[#c8f31d] transition-all shadow-sm"
             >
+              <Mail className="w-3.5 h-3.5 text-[#c8f31d]" />
               <span>Say Hello</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#c8f31d]" />
-            </a>
+              <ArrowUpRight className="w-3.5 h-3.5 opacity-70 group-hover:opacity-100" />
+            </motion.a>
           </div>
 
           {/* Mobile Menu Toggle Button */}
@@ -119,36 +175,45 @@ export default function Navbar() {
               className="p-2 rounded-lg bg-[#0d0f14] border border-white/10 text-zinc-300 hover:text-white"
               aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMobileMenuOpen ? <X className="w-5 h-5 text-[#c8f31d]" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-[#0d0f14] border-b border-white/10 px-4 pt-3 pb-5 space-y-1">
-          {portfolioData.navigation.map((item) => {
-            const sectionId = item.href.replace("#", "");
-            const isActive = activeSection === sectionId;
+      {/* Mobile Drawer with Framer Motion AnimatePresence */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="md:hidden bg-[#0d0f14] border-b border-white/10 px-4 pt-3 pb-5 space-y-1 overflow-hidden"
+          >
+            {portfolioData.navigation.map((item) => {
+              const sectionId = item.href.replace("#", "");
+              const isActive = activeSection === sectionId;
 
-            return (
-              <a
-                key={item.label}
-                href={item.href}
-                onClick={(e) => scrollToSection(e, item.href)}
-                className={`block px-3 py-2 rounded-md text-xs font-mono transition-colors ${
-                  isActive
-                    ? "text-black bg-[#c8f31d] font-semibold"
-                    : "text-zinc-400 hover:text-white hover:bg-white/5"
-                }`}
-              >
-                {item.label}
-              </a>
-            );
-          })}
-        </div>
-      )}
-    </header>
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={(e) => scrollToSection(e, item.href)}
+                  className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-mono transition-colors ${
+                    isActive
+                      ? "text-black bg-[#c8f31d] font-semibold"
+                      : "text-zinc-400 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  {getNavIcon(item.label)}
+                  <span>{item.label}</span>
+                </a>
+              );
+            })}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }

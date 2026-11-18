@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import { portfolioData } from "@/data/portfolioData";
 import {
   Briefcase,
@@ -10,7 +11,9 @@ import {
   Building,
   GraduationCap,
   Sparkles,
-  GitBranch
+  GitBranch,
+  Workflow,
+  Terminal
 } from "lucide-react";
 
 export default function Experience() {
@@ -23,27 +26,51 @@ export default function Experience() {
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#0d0f14] border border-white/10 text-xs font-mono uppercase tracking-wider text-[#38bdf8] mb-3">
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#0d0f14] border border-white/10 text-xs font-mono uppercase tracking-wider text-[#38bdf8] mb-3"
+          >
             <GitBranch className="w-3.5 h-3.5 text-[#38bdf8]" />
-            <span>Trajectory</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+            <span>Trajectory &amp; Growth</span>
+          </motion.div>
+          
+          <motion.h2 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight"
+          >
             Work Experience &amp;{" "}
             <span className="text-[#c8f31d]">
               Milestones
             </span>
-          </h2>
-          <p className="mt-2 text-xs sm:text-sm text-zinc-400">
+          </motion.h2>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mt-2 text-xs sm:text-sm text-zinc-400"
+          >
             Professional roles, collaborative software development, and undergraduate engineering initiatives.
-          </p>
+          </motion.p>
         </div>
 
-        {/* 2-Column Experience Grid */}
+        {/* 2-Column Experience Grid with Framer Motion Stagger */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {portfolioData.experience.map((item) => (
-            <div
+          {portfolioData.experience.map((item, index) => (
+            <motion.div
               key={item.id}
-              className="group relative rounded-xl bg-[#0d0f14] hover:bg-[#12151d] border border-white/10 hover:border-[#c8f31d]/35 p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between shadow-sm"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.15 }}
+              whileHover={{ y: -5, transition: { type: "spring", stiffness: 300, damping: 20 } }}
+              className="group relative rounded-xl bg-[#0d0f14] hover:bg-[#12151d] border border-white/10 hover:border-[#c8f31d]/40 p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between shadow-sm hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
             >
               <div>
                 {/* Meta Badge */}
@@ -54,23 +81,36 @@ export default function Experience() {
                   </span>
 
                   <span className="text-[10px] font-mono text-zinc-500 flex items-center gap-1">
-                    <MapPin className="w-3 h-3" />
+                    <MapPin className="w-3 h-3 text-[#38bdf8]" />
                     <span>{item.location}</span>
                   </span>
                 </div>
 
-                <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#c8f31d] transition-colors">
-                  {item.role}
-                </h3>
-                <p className="text-xs font-mono text-[#38bdf8] mt-0.5">
-                  {item.company}
-                </p>
+                {/* Role & Company with Lucide Icons */}
+                <div className="flex items-start gap-2.5 mt-2">
+                  <div className="p-2 rounded-lg bg-[#08090a] border border-white/10 text-[#c8f31d] mt-0.5 flex-shrink-0 group-hover:border-[#c8f31d]/30 transition-colors">
+                    {item.isCurrent ? (
+                      <Briefcase className="w-4 h-4 text-[#c8f31d]" />
+                    ) : (
+                      <GraduationCap className="w-4 h-4 text-[#38bdf8]" />
+                    )}
+                  </div>
+                  <div>
+                    <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#c8f31d] transition-colors leading-snug">
+                      {item.role}
+                    </h3>
+                    <p className="text-xs font-mono text-[#38bdf8] mt-0.5 flex items-center gap-1.5">
+                      <Building className="w-3 h-3 text-zinc-500" />
+                      <span>{item.company}</span>
+                    </p>
+                  </div>
+                </div>
 
                 {/* Bullet Points */}
                 <ul className="mt-4 space-y-2">
                   {item.description.map((desc, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-xs text-zinc-400 leading-relaxed">
-                      <span className="text-[#c8f31d] mt-0.5">•</span>
+                      <span className="text-[#c8f31d] mt-0.5 text-xs">▸</span>
                       <span>{desc}</span>
                     </li>
                   ))}
@@ -82,15 +122,16 @@ export default function Experience() {
                 {item.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="px-2 py-0.5 rounded bg-[#08090a] border border-white/10 text-[10px] font-mono text-zinc-400"
+                    className="px-2 py-0.5 rounded bg-[#08090a] border border-white/10 text-[10px] font-mono text-zinc-400 group-hover:border-white/20 transition-colors"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
 
+              {/* Corner Marker */}
               <span className="absolute bottom-1 right-1 text-[8px] font-mono text-zinc-700 pointer-events-none">+</span>
-            </div>
+            </motion.div>
           ))}
         </div>
 
