@@ -6,7 +6,6 @@ const isGithubPages = process.env.GITHUB_ACTIONS === "true" || repoName.length >
 const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
-  reactCompiler: true,
   images: {
     unoptimized: true,
   },
