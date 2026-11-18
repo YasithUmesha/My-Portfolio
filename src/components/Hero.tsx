@@ -212,40 +212,40 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
                   
                   <p>
                     <span className="text-pink-400 font-semibold">export const</span>{" "}
-                    <span className="text-blue-300">developer</span> = &#123;
+                    <span className="text-blue-300">developer</span>{" = {"}
                   </p>
                   
                   <div className="pl-3.5 space-y-0.5">
                     <p>
                       <span className="text-indigo-300">name</span>:{" "}
-                      <span className="text-emerald-300">&quot;{portfolioData.personal.name}&quot;</span>,
+                      <span className="text-emerald-300">{'"'}{portfolioData.personal.name}{'"'}</span>,
                     </p>
                     <p>
                       <span className="text-indigo-300">role</span>:{" "}
-                      <span className="text-emerald-300">&quot;{portfolioData.personal.role}&quot;</span>,
+                      <span className="text-emerald-300">{'"'}{portfolioData.personal.role}{'"'}</span>,
                     </p>
                     <p>
                       <span className="text-indigo-300">degree</span>:{" "}
-                      <span className="text-amber-300">&quot;BSc (Hons) in IS&quot;</span>,
+                      <span className="text-amber-300">{'"'}BSc (Hons) in IS{'"'}</span>,
                     </p>
                     <p>
                       <span className="text-indigo-300">university</span>:{" "}
-                      <span className="text-amber-300">&quot;Sabaragamuwa Univ.&quot;</span>,
+                      <span className="text-amber-300">{'"'}Sabaragamuwa Univ.{'"'}</span>,
                     </p>
                     <p>
-                      <span className="text-indigo-300">coreTech</span>: [
+                      <span className="text-indigo-300">coreTech</span>{": ["}
                     </p>
                     <p className="pl-3 text-purple-300">
-                      &quot;Next.js&quot;, &quot;React&quot;, &quot;Node.js&quot;, &quot;Tailwind&quot;
+                      {'"'}Next.js{'"'}, {'"'}React{'"'}, {'"'}Node.js{'"'}, {'"'}Tailwind{'"'}
                     </p>
-                    <p>],</p>
+                    <p>{"],"}</p>
                     <p>
                       <span className="text-indigo-300">openToWork</span>:{" "}
                       <span className="text-cyan-400 font-bold">true</span>
                     </p>
                   </div>
                   
-                  <p>&#125;;</p>
+                  <p>{"};"}</p>
 
                   <div className="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-[10px] text-slate-400">
                     <span className="flex items-center gap-1.5 text-emerald-400">
