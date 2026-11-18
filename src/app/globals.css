@@ -153,6 +153,103 @@ body::after {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* ============================================
+   PROFILE PHOTO ANIMATIONS
+   ============================================ */
+
+/* Rotating conic gradient ring */
+@keyframes spin-ring {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Reverse spin for counter-ring */
+@keyframes spin-ring-reverse {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+/* Soft outer glow pulse */
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.06);
+  }
+}
+
+/* Floating badge orbit */
+@keyframes orbit-badge {
+  0%   { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+}
+
+@keyframes orbit-badge-sm {
+  0%   { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+}
+
+/* Shimmer sweep across the photo */
+@keyframes photo-shimmer {
+  0%   { left: -120%; }
+  100% { left: 150%; }
+}
+
+/* Subtle float for the whole avatar block */
+@keyframes avatar-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* Classes */
+.avatar-float {
+  animation: avatar-float 4s ease-in-out infinite;
+}
+
+.ring-spin {
+  animation: spin-ring 4s linear infinite;
+}
+
+.ring-spin-slow {
+  animation: spin-ring 8s linear infinite;
+}
+
+.ring-spin-reverse {
+  animation: spin-ring-reverse 6s linear infinite;
+}
+
+.glow-pulse-avatar {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.orbit-badge {
+  animation: orbit-badge 8s linear infinite;
+}
+
+.orbit-badge-slow {
+  animation: orbit-badge 12s linear infinite;
+}
+
+.photo-shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 80%
+  );
+  animation: photo-shimmer 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * {

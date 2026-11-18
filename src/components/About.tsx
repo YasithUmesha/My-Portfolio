@@ -44,28 +44,72 @@ export default function About({ onOpenCVNotice }: { onOpenCVNotice?: () => void 
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
-          {/* Left Column: Profile Card */}
+          {/* Left Column: Animated Profile Card */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-xs sm:max-w-sm">
-              {/* Outer Glow */}
-              <div className="absolute -inset-1 bg-gradient-to-tr from-indigo-600 via-purple-600 to-pink-500 rounded-3xl blur-lg opacity-25 group-hover:opacity-40 transition duration-500" />
-              
-              <div className="relative rounded-3xl bg-[#0a0720]/90 backdrop-blur-xl border border-white/10 p-5 sm:p-6 flex flex-col items-center text-center shadow-xl">
-                
-                {/* Profile Image with Ring */}
-                <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden p-1 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 shadow-lg mb-4">
-                  <div className="w-full h-full rounded-[14px] overflow-hidden bg-[#030014] relative">
-                    <Image
-                      src={portfolioData.personal.avatar}
-                      alt={portfolioData.personal.name}
-                      width={128}
-                      height={128}
-                      className="object-cover w-full h-full"
-                    />
+            <div className="relative w-full max-w-xs sm:max-w-sm flex flex-col items-center">
+
+              {/* Animated Photo Ring */}
+              <div className="avatar-float relative flex items-center justify-center w-52 h-52 sm:w-60 sm:h-60 mb-5">
+
+                {/* Outer glow */}
+                <div className="glow-pulse-avatar absolute inset-0 rounded-full bg-gradient-to-tr from-indigo-600/30 via-purple-600/25 to-pink-500/20 blur-2xl" />
+
+                {/* Spinning conic outer ring */}
+                <div
+                  className="ring-spin-slow absolute inset-0 rounded-full"
+                  style={{
+                    background:
+                      "conic-gradient(from 0deg, transparent 55%, rgba(99,102,241,0.7) 72%, rgba(168,85,247,0.9) 84%, rgba(236,72,153,0.7) 94%, transparent 100%)",
+                  }}
+                />
+
+                {/* Counter-spin middle ring */}
+                <div
+                  className="ring-spin-reverse absolute rounded-full"
+                  style={{
+                    inset: "8px",
+                    background:
+                      "conic-gradient(from 180deg, transparent 55%, rgba(236,72,153,0.6) 70%, rgba(99,102,241,0.8) 85%, transparent 100%)",
+                  }}
+                />
+
+                {/* White gap */}
+                <div className="absolute rounded-full bg-[#030014]" style={{ inset: "16px" }} />
+
+                {/* Gradient border */}
+                <div
+                  className="absolute rounded-full"
+                  style={{
+                    inset: "18px",
+                    padding: "3px",
+                    background: "linear-gradient(135deg, #6366f1 0%, #a855f7 40%, #ec4899 70%, #6366f1 100%)",
+                    borderRadius: "9999px",
+                  }}
+                >
+                  <div className="w-full h-full rounded-full bg-[#030014]" style={{ padding: "2px" }}>
+                    <div className="photo-shimmer relative w-full h-full rounded-full overflow-hidden shadow-xl">
+                      <Image
+                        src={portfolioData.personal.avatar}
+                        alt={portfolioData.personal.name}
+                        fill
+                        className="object-cover object-top"
+                      />
+                    </div>
                   </div>
                 </div>
 
-                {/* Name & Academic Title */}
+                {/* Floating dot accents */}
+                <div className="absolute top-4 -right-2 w-2.5 h-2.5 rounded-full bg-indigo-500/70 blur-[2px] animate-pulse" />
+                <div className="absolute bottom-6 -left-2 w-2 h-2 rounded-full bg-pink-500/70 blur-[2px] animate-pulse" style={{ animationDelay: "1s" }} />
+
+              </div>
+
+              {/* Info Card below photo */}
+              <div className="relative w-full rounded-2xl bg-[#0a0720]/90 backdrop-blur-xl border border-white/10 p-5 flex flex-col items-center text-center shadow-xl">
+                {/* Outer Glow on card */}
+                <div className="absolute -inset-1 bg-gradient-to-tr from-indigo-600 via-purple-600 to-pink-500 rounded-2xl blur-lg opacity-20 -z-10" />
+
+                {/* Name & Role */}
                 <h3 className="text-xl font-bold text-white tracking-tight">
                   {portfolioData.personal.name}
                 </h3>

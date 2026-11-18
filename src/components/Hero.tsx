@@ -11,8 +11,6 @@ import {
   FileDown,
   Sparkles,
   ChevronDown,
-  Terminal,
-  Code
 } from "lucide-react";
 
 export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }) {
@@ -65,7 +63,7 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
       <div className="absolute bottom-10 -right-32 w-80 h-80 bg-purple-600/15 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-6xl mx-auto w-full my-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
           {/* Left Column: Introductions & CTAs */}
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-4 sm:space-y-5">
@@ -182,116 +180,98 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
 
           </div>
 
-          {/* Right Column: Developer Code Window & Visual Element */}
+          {/* Right Column: Animated Profile Photo */}
           <div className="lg:col-span-5 flex justify-center relative">
-            <div className="relative w-full max-w-sm lg:max-w-none">
-              
-              {/* Glowing Halo around window */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition duration-700 -z-10" />
+            <div className="avatar-float relative flex items-center justify-center w-72 h-72 sm:w-80 sm:h-80">
 
-              {/* Glass Code Editor Window */}
-              <div className="relative rounded-2xl bg-[#09061c]/90 backdrop-blur-xl border border-white/15 shadow-2xl overflow-hidden">
-                
-                {/* Code Window Header */}
-                <div className="flex items-center justify-between px-3.5 py-2.5 bg-white/[0.03] border-b border-white/10">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block" />
-                  </div>
-                  <div className="flex items-center gap-1 text-[11px] text-slate-400 font-mono">
-                    <Terminal className="w-3 h-3 text-purple-400" />
-                    <span>yasith.config.ts</span>
-                  </div>
-                  <div className="w-6" />
-                </div>
+              {/* Outer ambient glow blob */}
+              <div className="glow-pulse-avatar absolute inset-0 rounded-full bg-gradient-to-tr from-indigo-600/30 via-purple-600/25 to-pink-500/20 blur-3xl" />
 
-                {/* Code Content */}
-                <div className="p-4 font-mono text-[11px] sm:text-xs leading-relaxed text-slate-300 overflow-x-auto">
-                  <p className="text-slate-500 italic mb-1.5">// Developer Configuration</p>
-                  
-                  <p>
-                    <span className="text-pink-400 font-semibold">export const</span>{" "}
-                    <span className="text-blue-300">developer</span>{" = {"}
-                  </p>
-                  
-                  <div className="pl-3.5 space-y-0.5">
-                    <p>
-                      <span className="text-indigo-300">name</span>:{" "}
-                      <span className="text-emerald-300">{'"'}{portfolioData.personal.name}{'"'}</span>,
-                    </p>
-                    <p>
-                      <span className="text-indigo-300">role</span>:{" "}
-                      <span className="text-emerald-300">{'"'}{portfolioData.personal.role}{'"'}</span>,
-                    </p>
-                    <p>
-                      <span className="text-indigo-300">degree</span>:{" "}
-                      <span className="text-amber-300">{'"'}BSc (Hons) in IS{'"'}</span>,
-                    </p>
-                    <p>
-                      <span className="text-indigo-300">university</span>:{" "}
-                      <span className="text-amber-300">{'"'}Sabaragamuwa Univ.{'"'}</span>,
-                    </p>
-                    <p>
-                      <span className="text-indigo-300">coreTech</span>{": ["}
-                    </p>
-                    <p className="pl-3 text-purple-300">
-                      {'"'}Next.js{'"'}, {'"'}React{'"'}, {'"'}Node.js{'"'}, {'"'}Tailwind{'"'}
-                    </p>
-                    <p>{"],"}</p>
-                    <p>
-                      <span className="text-indigo-300">openToWork</span>:{" "}
-                      <span className="text-cyan-400 font-bold">true</span>
-                    </p>
-                  </div>
-                  
-                  <p>{"};"}</p>
+              {/* Outermost slow-spinning conic ring */}
+              <div
+                className="ring-spin-slow absolute inset-0 rounded-full"
+                style={{
+                  background:
+                    "conic-gradient(from 0deg, transparent 55%, rgba(99,102,241,0.7) 72%, rgba(168,85,247,0.9) 84%, rgba(236,72,153,0.7) 94%, transparent 100%)",
+                }}
+              />
 
-                  <div className="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-[10px] text-slate-400">
-                    <span className="flex items-center gap-1.5 text-emerald-400">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block animate-ping" />
-                      Status: Ready to build
-                    </span>
-                    <span className="font-mono text-purple-300/80">TypeScript 5.x</span>
-                  </div>
-                </div>
+              {/* Middle counter-spinning ring */}
+              <div
+                className="ring-spin-reverse absolute rounded-full"
+                style={{
+                  inset: "10px",
+                  background:
+                    "conic-gradient(from 180deg, transparent 55%, rgba(236,72,153,0.6) 70%, rgba(99,102,241,0.8) 85%, transparent 100%)",
+                }}
+              />
 
-                {/* Avatar Mini Card Preview Badge inside code card */}
-                <div className="p-2.5 bg-white/[0.02] border-t border-white/5 flex items-center gap-2.5">
-                  <div className="relative w-8 h-8 rounded-full overflow-hidden bg-purple-950/60 border border-purple-500/30 flex-shrink-0">
+              {/* Fast inner accent ring */}
+              <div
+                className="ring-spin absolute rounded-full"
+                style={{
+                  inset: "20px",
+                  background:
+                    "conic-gradient(from 90deg, transparent 65%, rgba(168,85,247,1) 80%, rgba(99,102,241,0.6) 92%, transparent 100%)",
+                }}
+              />
+
+              {/* White gap ring */}
+              <div
+                className="absolute rounded-full bg-[#030014]"
+                style={{ inset: "28px" }}
+              />
+
+              {/* Gradient border frame */}
+              <div
+                className="absolute rounded-full"
+                style={{
+                  inset: "30px",
+                  padding: "3px",
+                  background:
+                    "linear-gradient(135deg, #6366f1 0%, #a855f7 40%, #ec4899 70%, #6366f1 100%)",
+                  borderRadius: "9999px",
+                }}
+              >
+                {/* Inner dark gap */}
+                <div
+                  className="w-full h-full rounded-full bg-[#030014]"
+                  style={{ padding: "3px" }}
+                >
+                  {/* Photo with shimmer */}
+                  <div className="photo-shimmer relative w-full h-full rounded-full overflow-hidden shadow-2xl">
                     <Image
                       src={portfolioData.personal.avatar}
                       alt={portfolioData.personal.name}
-                      width={32}
-                      height={32}
-                      className="object-cover"
+                      fill
+                      className="object-cover object-top"
                       priority
                     />
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-[11px] font-semibold text-white truncate">
-                      {portfolioData.personal.name}
-                    </p>
-                    <p className="text-[10px] text-slate-400 truncate">
-                      {portfolioData.personal.university}
-                    </p>
-                  </div>
-                  <div className="flex items-center text-[10px] text-indigo-400 font-mono">
-                    <Code className="w-3 h-3 mr-1" />
-                    <span>2026.dev</span>
-                  </div>
                 </div>
-
               </div>
 
-              {/* Floating Tech Chips around Card */}
-              <div className="hidden sm:flex absolute -top-3 -right-3 px-2.5 py-1 rounded-lg bg-[#0d0926]/90 border border-purple-500/40 text-[11px] font-semibold text-purple-300 shadow-xl backdrop-blur-md animate-float">
-                ⚡ React &amp; Next.js
+              {/* Floating badge — Open to Work (top-right) */}
+              <div className="absolute top-4 -right-6 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0a0620]/95 border border-emerald-500/50 text-[10px] font-semibold text-emerald-300 shadow-xl backdrop-blur-md whitespace-nowrap z-10">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping inline-block flex-shrink-0" />
+                Open to Work
               </div>
 
-              <div className="hidden sm:flex absolute -bottom-3 -left-3 px-2.5 py-1 rounded-lg bg-[#0d0926]/90 border border-indigo-500/40 text-[11px] font-semibold text-indigo-300 shadow-xl backdrop-blur-md animate-float" style={{ animationDelay: "2s" }}>
-                🚀 REST APIs &amp; DBs
+              {/* Floating badge — Full Stack (bottom-left) */}
+              <div className="absolute bottom-6 -left-8 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0a0620]/95 border border-purple-500/50 text-[10px] font-semibold text-purple-300 shadow-xl backdrop-blur-md whitespace-nowrap z-10">
+                ⚡ Full-Stack Dev
               </div>
+
+              {/* Floating badge — University (bottom-right) */}
+              <div className="absolute bottom-2 -right-4 flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#0a0620]/95 border border-indigo-500/50 text-[10px] font-semibold text-indigo-300 shadow-xl backdrop-blur-md whitespace-nowrap z-10">
+                🎓 SUSL
+              </div>
+
+              {/* Decorative floating dots */}
+              <div className="absolute top-8 -left-4 w-3 h-3 rounded-full bg-indigo-500/70 blur-[2px] animate-pulse" />
+              <div className="absolute bottom-14 -right-3 w-2 h-2 rounded-full bg-pink-500/70 blur-[2px] animate-pulse" style={{ animationDelay: "1s" }} />
+              <div className="absolute top-1/2 -right-6 w-2 h-2 rounded-full bg-purple-400/60 blur-[2px] animate-pulse" style={{ animationDelay: "2s" }} />
+              <div className="absolute top-1/3 -left-5 w-2 h-2 rounded-full bg-cyan-400/50 blur-[2px] animate-pulse" style={{ animationDelay: "0.5s" }} />
 
             </div>
           </div>

@@ -88,7 +88,7 @@ export const portfolioData = {
     statusBadge: "Available for Internships & Opportunities",
     location: "Sri Lanka",
     email: "yasithumesha.dev@gmail.com",
-    avatar: "/avatar.svg",
+    avatar: "/avatar.jpg",
     cvUrl: "#", // Clearly marked placeholder: replace with your actual CV/Resume file URL (e.g. /Yasith_Umesha_CV.pdf)
     hasRealCV: false,
     goals: "Building a strong online presence to showcase software projects, technical skills, certifications, and hands-on experience to recruiters and engineering teams.",
