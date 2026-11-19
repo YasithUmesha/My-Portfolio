@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { portfolioData, CertificateItem } from "@/data/portfolioData";
 import {
   GraduationCap,
@@ -12,7 +13,9 @@ import {
   Building,
   CheckCircle,
   Eye,
-  X
+  X,
+  ShieldCheck,
+  FileBadge
 } from "lucide-react";
 
 export default function Certificates() {
@@ -23,54 +26,82 @@ export default function Certificates() {
   return (
     <section
       id="certificates"
-      className="relative min-h-screen flex flex-col justify-center items-center py-20 sm:py-24 lg:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center items-center py-24 sm:py-28 lg:py-24 px-6 sm:px-10 lg:px-12 overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto w-full my-auto">
+      {/* Background ambient glow */}
+      <div className="absolute top-1/4 right-10 w-[700px] h-[700px] bg-[#00f0ff]/[0.03] rounded-full blur-3xl pointer-events-none -z-10" />
+
+      {/* Expanded Container Width to Remove Side Gaps */}
+      <div className="w-full max-w-7xl mx-auto my-auto">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#0a0e17] border border-[#00f0ff]/25 text-xs font-mono uppercase tracking-wider text-[#00f0ff] mb-3">
-            <Award className="w-3.5 h-3.5 text-[#00f0ff]" />
-            <span>Academic &amp; Verified</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0a0e17] border border-[#00f0ff]/30 text-xs sm:text-sm font-mono uppercase tracking-wider text-[#00f0ff] mb-4 shadow-[0_0_15px_rgba(0,240,255,0.12)]"
+          >
+            <Award className="w-4 h-4 text-[#00f0ff]" />
+            <span>Academic Qualifications &amp; Credentials</span>
+          </motion.div>
+          
+          <motion.h2 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight"
+          >
             Education &amp;{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f0ff] via-[#38bdf8] to-[#60a5fa]">
               Certificates
             </span>
-          </h2>
-          <p className="mt-2 text-xs sm:text-sm text-zinc-400">
-            Higher academic qualification and verified software engineering completions.
-          </p>
+          </motion.h2>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mt-3 text-sm sm:text-base lg:text-lg text-zinc-300 max-w-2xl mx-auto"
+          >
+            Higher academic degree qualification and verified software engineering completions.
+          </motion.p>
         </div>
 
-        {/* University Education Highlight */}
-        <div className="mb-6">
-          <div className="relative rounded-xl bg-[#0a0e17] border border-white/10 hover:border-[#00f0ff]/40 p-5 sm:p-6 transition-all duration-200 shadow-sm">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
+        {/* University Education Highlight Banner */}
+        <div className="mb-8">
+          <div className="relative rounded-2xl bg-[#0a0e17] border border-[#00f0ff]/30 hover:border-[#00f0ff]/60 p-7 sm:p-9 transition-all duration-300 shadow-xl">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
               
-              <div className="lg:col-span-8 space-y-2">
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-[#38bdf8]/10 border border-[#38bdf8]/20 text-[10px] font-mono text-[#38bdf8]">
-                  <GraduationCap className="w-3.5 h-3.5" />
+              <div className="lg:col-span-8 space-y-3">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#38bdf8]/10 border border-[#38bdf8]/20 text-xs font-mono text-[#38bdf8]">
+                  <GraduationCap className="w-4 h-4" />
                   <span>Degree In Progress</span>
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
                   {education.degree}
                 </h3>
-                <p className="text-xs font-mono text-[#00f0ff]">
-                  {education.university} • {education.faculty}
+                
+                <p className="text-sm sm:text-base font-mono text-[#00f0ff] flex items-center gap-2">
+                  <Building className="w-4 h-4 text-zinc-400" />
+                  <span>{education.university}</span>
+                  <span className="text-zinc-500">•</span>
+                  <span className="text-zinc-400">{education.faculty}</span>
                 </p>
-                <p className="text-xs text-zinc-300 leading-relaxed pt-1">
-                  Focusing on enterprise software architecture, modern web development, database management systems, and agile workflows.
+                
+                <p className="text-sm sm:text-base text-zinc-300 leading-relaxed pt-2">
+                  Comprehensive curriculum specializing in enterprise software architecture, full-stack web engineering, database modeling, distributed computing, and agile workflows.
                 </p>
               </div>
 
               <div className="lg:col-span-4 flex lg:justify-end">
-                <div className="px-4 py-3 rounded-lg bg-[#06080e] border border-white/10 text-left lg:text-right w-full lg:w-auto">
-                  <span className="text-[10px] font-mono text-zinc-500 block uppercase">Status</span>
-                  <span className="text-xs font-bold text-white block mt-0.5">{education.status}</span>
-                  <span className="text-[10px] font-mono text-zinc-400 block mt-0.5">{education.period}</span>
+                <div className="px-6 py-4 rounded-xl bg-[#06080e] border border-white/10 text-left lg:text-right w-full lg:w-auto shadow-inner space-y-1">
+                  <span className="text-xs font-mono text-zinc-400 block uppercase tracking-wider">Candidate Status</span>
+                  <span className="text-base sm:text-lg font-bold text-white block">{education.status}</span>
+                  <span className="text-xs font-mono text-[#00f0ff] block">{education.period}</span>
                 </div>
               </div>
 
@@ -79,46 +110,47 @@ export default function Certificates() {
         </div>
 
         {/* Certificates Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {certificates.map((cert) => (
             <div
               key={cert.id}
-              className="group rounded-xl bg-[#0a0e17] hover:bg-[#101726] border border-white/10 hover:border-[#00f0ff]/40 p-4 transition-all duration-200 flex flex-col justify-between"
+              className="group rounded-2xl bg-[#0a0e17] hover:bg-[#101726] border border-white/10 hover:border-[#00f0ff]/40 p-6 transition-all duration-300 flex flex-col justify-between shadow-lg hover:shadow-[0_15px_30px_rgba(0,0,0,0.6)]"
             >
               <div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] font-mono text-zinc-500 flex items-center gap-1">
-                    <Calendar className="w-3 h-3 text-[#00f0ff]" />
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono text-zinc-400 flex items-center gap-1.5">
+                    <Calendar className="w-3.5 h-3.5 text-[#00f0ff]" />
                     <span>{cert.issueDate}</span>
                   </span>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#06080e] text-zinc-300 border border-white/10">
+                  <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-[#06080e] text-[#38bdf8] border border-white/10">
                     {cert.issuer}
                   </span>
                 </div>
 
-                <h4 className="text-sm font-semibold text-white group-hover:text-[#00f0ff] transition-colors mt-2">
+                <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-[#00f0ff] transition-colors mt-2">
                   {cert.title}
                 </h4>
-                <div className="flex flex-wrap gap-1 mt-2">
+                
+                <div className="flex flex-wrap gap-1.5 mt-3">
                   {cert.skills.map((skill) => (
-                    <span key={skill} className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#06080e] text-zinc-400 border border-white/5">
+                    <span key={skill} className="text-xs font-mono px-2 py-0.5 rounded bg-[#06080e] text-zinc-300 border border-white/5">
                       {skill}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="pt-3 mt-3 border-t border-white/10 flex items-center justify-between">
-                <span className="text-[10px] font-mono text-zinc-500">
-                  {cert.credentialId ? `ID: ${cert.credentialId.slice(0, 10)}...` : "Verified Credential"}
+              <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
+                <span className="text-xs font-mono text-zinc-400">
+                  {cert.credentialId ? `ID: ${cert.credentialId.slice(0, 12)}...` : "Verified Credential"}
                 </span>
                 <button
                   type="button"
                   onClick={() => setSelectedCert(cert)}
-                  className="p-1 rounded bg-[#06080e] hover:bg-white/10 text-zinc-300 hover:text-white"
+                  className="p-2 rounded-lg bg-[#06080e] hover:bg-white/10 text-zinc-300 hover:text-white transition-colors"
                   aria-label="View Certificate Preview"
                 >
-                  <Eye className="w-3.5 h-3.5 text-[#00f0ff]" />
+                  <Eye className="w-4 h-4 text-[#00f0ff]" />
                 </button>
               </div>
             </div>
@@ -129,42 +161,42 @@ export default function Certificates() {
 
       {/* Certificate Modal */}
       {selectedCert && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-          <div className="relative w-full max-w-lg bg-[#0a0e17] border border-[#00f0ff]/30 rounded-2xl p-6 shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md animate-fadeIn">
+          <div className="relative w-full max-w-lg bg-[#0a0e17] border border-[#00f0ff]/30 rounded-3xl p-7 shadow-2xl">
             <button
               type="button"
               onClick={() => setSelectedCert(null)}
-              className="absolute top-4 right-4 p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white"
+              className="absolute top-5 right-5 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white transition-colors"
             >
-              <X className="w-5 h-5" />
+              <X className="w-6 h-6" />
             </button>
 
-            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#38bdf8]/10 text-[#38bdf8] border border-[#38bdf8]/20">
+            <span className="text-xs font-mono px-3 py-1 rounded-md bg-[#38bdf8]/10 text-[#38bdf8] border border-[#38bdf8]/20">
               {selectedCert.issuer}
             </span>
 
-            <h3 className="text-lg font-bold text-white mt-2">{selectedCert.title}</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-white mt-3">{selectedCert.title}</h3>
             
-            <div className="flex flex-wrap gap-1.5 mt-2">
+            <div className="flex flex-wrap gap-2 mt-3">
               {selectedCert.skills.map((skill) => (
-                <span key={skill} className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#06080e] text-[#00f0ff] border border-white/10">
+                <span key={skill} className="text-xs font-mono px-2.5 py-1 rounded bg-[#06080e] text-[#00f0ff] border border-white/10">
                   {skill}
                 </span>
               ))}
             </div>
 
-            <div className="mt-4 p-3 rounded-lg bg-[#06080e] border border-white/10 text-xs font-mono text-zinc-400 space-y-1">
-              <div>Issue Date: <span className="text-white">{selectedCert.issueDate}</span></div>
+            <div className="mt-5 p-4 rounded-xl bg-[#06080e] border border-white/10 text-xs font-mono text-zinc-300 space-y-1.5">
+              <div>Issue Date: <span className="text-white font-bold">{selectedCert.issueDate}</span></div>
               {selectedCert.credentialId && (
                 <div>Credential ID: <span className="text-[#00f0ff]">{selectedCert.credentialId}</span></div>
               )}
             </div>
 
-            <div className="mt-4 pt-3 border-t border-white/10">
+            <div className="mt-6 pt-4 border-t border-white/10">
               <button
                 type="button"
                 onClick={() => setSelectedCert(null)}
-                className="w-full py-2 rounded-lg bg-white/10 text-white text-xs font-semibold hover:bg-white/15"
+                className="w-full py-2.5 rounded-xl bg-white/10 text-white text-xs sm:text-sm font-semibold hover:bg-white/15 transition-colors"
               >
                 Close Preview
               </button>

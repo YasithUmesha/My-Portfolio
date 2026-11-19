@@ -91,23 +91,24 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative min-h-screen flex flex-col justify-center items-center py-20 sm:py-24 lg:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center items-center py-24 sm:py-28 lg:py-24 px-6 sm:px-10 lg:px-12 overflow-hidden"
     >
       {/* Background ambient lighting */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#00f0ff]/[0.025] rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[#00f0ff]/[0.03] rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-6xl mx-auto w-full my-auto">
+      {/* Expanded Container Width to Remove Side Gaps */}
+      <div className="w-full max-w-7xl mx-auto my-auto">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
           <motion.div 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#0a0e17] border border-[#00f0ff]/25 text-xs font-mono uppercase tracking-wider text-[#00f0ff] mb-3"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0a0e17] border border-[#00f0ff]/30 text-xs sm:text-sm font-mono uppercase tracking-wider text-[#00f0ff] mb-4 shadow-[0_0_15px_rgba(0,240,255,0.12)]"
           >
-            <Radio className="w-3.5 h-3.5 text-[#00f0ff] animate-pulse" />
-            <span>Open Dialogue</span>
+            <Radio className="w-4 h-4 text-[#00f0ff] animate-pulse" />
+            <span>Open Communication Channel</span>
           </motion.div>
           
           <motion.h2 
@@ -115,7 +116,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight"
           >
             Initiate Contact &amp;{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f0ff] via-[#38bdf8] to-[#60a5fa]">
@@ -128,14 +129,14 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="mt-2 text-xs sm:text-sm text-zinc-400"
+            className="mt-3 text-sm sm:text-base lg:text-lg text-zinc-300 max-w-2xl mx-auto"
           >
-            Open to software internships, project inquiries, and engineering collaborations.
+            Open to software engineering internships, project inquiries, full-stack roles, and collaborations.
           </motion.p>
         </div>
 
         {/* 2-Column Contact Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
           {/* Left Column: Direct Details */}
           <motion.div 
@@ -143,29 +144,29 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-5 space-y-4"
+            className="lg:col-span-5 space-y-5"
           >
-            <div className="rounded-xl bg-[#0a0e17] border border-white/10 p-5 sm:p-6 space-y-4 shadow-sm">
+            <div className="rounded-2xl bg-[#0a0e17] border border-white/10 p-7 sm:p-8 space-y-5 shadow-xl">
               <div className="flex items-center justify-between">
-                <h3 className="text-base font-bold text-white tracking-tight flex items-center gap-2">
-                  <MessageSquare className="w-4 h-4 text-[#00f0ff]" />
+                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight flex items-center gap-2.5">
+                  <MessageSquare className="w-5 h-5 text-[#00f0ff]" />
                   <span>Direct Channels</span>
                 </h3>
-                <span className="flex items-center gap-1 text-[10px] font-mono text-[#10b981]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-ping" />
-                  Online
+                <span className="flex items-center gap-1.5 text-xs font-mono text-[#10b981]">
+                  <span className="w-2 h-2 rounded-full bg-[#10b981] animate-ping" />
+                  Available for Hire
                 </span>
               </div>
 
-              <p className="text-xs text-zinc-400 leading-relaxed">
-                Feel free to copy my direct email, reach out on LinkedIn, or inspect my repositories on GitHub.
+              <p className="text-sm sm:text-base text-zinc-300 leading-relaxed font-normal">
+                Reach out directly via email, connect with me on LinkedIn, or inspect my open source projects on GitHub.
               </p>
 
-              {/* Email Copier with Spring Morph Checkmark */}
-              <div className="p-3 rounded-lg bg-[#06080e] border border-white/10 flex items-center justify-between hover:border-[#00f0ff]/40 transition-colors">
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <Mail className="w-4 h-4 text-[#00f0ff] flex-shrink-0" />
-                  <span className="text-xs font-mono text-zinc-300 truncate">
+              {/* Email Copier */}
+              <div className="p-4 rounded-xl bg-[#06080e] border border-white/10 flex items-center justify-between hover:border-[#00f0ff]/40 transition-colors">
+                <div className="flex items-center gap-3 min-w-0">
+                  <Mail className="w-5 h-5 text-[#00f0ff] flex-shrink-0" />
+                  <span className="text-xs sm:text-sm font-mono text-zinc-200 truncate">
                     {portfolioData.contact.email}
                   </span>
                 </div>
@@ -174,7 +175,7 @@ export default function Contact() {
                   whileTap={{ scale: 0.9 }}
                   type="button"
                   onClick={copyEmail}
-                  className="p-1.5 rounded-md bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white transition-colors"
+                  className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white transition-colors"
                   title="Copy email to clipboard"
                 >
                   <AnimatePresence mode="wait">
@@ -201,31 +202,31 @@ export default function Contact() {
                 </motion.button>
               </div>
 
-              {/* Location with Lucide Icon */}
-              <div className="p-3 rounded-lg bg-[#06080e] border border-white/10 flex items-center gap-2.5">
-                <MapPin className="w-4 h-4 text-[#38bdf8] flex-shrink-0" />
-                <span className="text-xs font-mono text-zinc-300">
+              {/* Location */}
+              <div className="p-4 rounded-xl bg-[#06080e] border border-white/10 flex items-center gap-3">
+                <MapPin className="w-5 h-5 text-[#38bdf8] flex-shrink-0" />
+                <span className="text-xs sm:text-sm font-mono text-zinc-200">
                   {portfolioData.contact.location}
                 </span>
               </div>
 
               {/* Response Time Guarantee Pill */}
-              <div className="p-3 rounded-lg bg-[#06080e] border border-white/10 flex items-center gap-2.5 text-zinc-400 text-xs font-mono">
-                <Clock className="w-4 h-4 text-[#fb923c] flex-shrink-0" />
+              <div className="p-4 rounded-xl bg-[#06080e] border border-white/10 flex items-center gap-3 text-zinc-300 text-xs sm:text-sm font-mono">
+                <Clock className="w-5 h-5 text-[#fb923c] flex-shrink-0" />
                 <span>Response Time: Typically within 24 hours</span>
               </div>
 
               {/* Social Link Cards with Spring Hover */}
-              <div className="pt-2 flex items-center gap-2.5">
+              <div className="pt-2 flex items-center gap-3">
                 <motion.a
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   href={portfolioData.contact.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 py-2 px-3 rounded-lg bg-[#06080e] hover:bg-[#121824] border border-white/10 hover:border-[#00f0ff]/40 flex items-center justify-center gap-2 text-xs font-mono text-zinc-300 hover:text-[#00f0ff] transition-colors"
+                  className="flex-1 py-3 px-4 rounded-xl bg-[#06080e] hover:bg-[#121824] border border-white/10 hover:border-[#00f0ff]/50 flex items-center justify-center gap-2.5 text-xs sm:text-sm font-mono text-zinc-200 hover:text-[#00f0ff] transition-colors shadow-sm"
                 >
-                  <GithubIcon className="w-4 h-4" />
+                  <GithubIcon className="w-4.5 h-4.5" />
                   <span>GitHub</span>
                 </motion.a>
                 <motion.a
@@ -234,16 +235,16 @@ export default function Contact() {
                   href={portfolioData.contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 py-2 px-3 rounded-lg bg-[#06080e] hover:bg-[#121824] border border-white/10 hover:border-[#38bdf8]/40 flex items-center justify-center gap-2 text-xs font-mono text-zinc-300 hover:text-[#38bdf8] transition-colors"
+                  className="flex-1 py-3 px-4 rounded-xl bg-[#06080e] hover:bg-[#121824] border border-white/10 hover:border-[#38bdf8]/50 flex items-center justify-center gap-2.5 text-xs sm:text-sm font-mono text-zinc-200 hover:text-[#38bdf8] transition-colors shadow-sm"
                 >
-                  <LinkedinIcon className="w-4 h-4" />
+                  <LinkedinIcon className="w-4.5 h-4.5" />
                   <span>LinkedIn</span>
                 </motion.a>
               </div>
             </div>
           </motion.div>
 
-          {/* Right Column: Clean Minimalist Form with Framer Motion Feedback */}
+          {/* Right Column: Clean Minimalist Form with Prominent Fields */}
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -251,86 +252,86 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-7"
           >
-            <div className="rounded-xl bg-[#0a0e17] border border-white/10 p-5 sm:p-6 shadow-sm">
+            <div className="rounded-2xl bg-[#0a0e17] border border-white/10 p-7 sm:p-8 shadow-xl">
               <AnimatePresence mode="wait">
                 {isSubmitted ? (
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
-                    className="text-center py-10 space-y-3"
+                    className="text-center py-12 space-y-4"
                   >
-                    <div className="w-12 h-12 rounded-full bg-[#00f0ff]/10 text-[#00f0ff] border border-[#00f0ff]/30 flex items-center justify-center mx-auto shadow-[0_0_20px_rgba(0,240,255,0.25)]">
-                      <CheckCircle2 className="w-6 h-6" />
+                    <div className="w-14 h-14 rounded-full bg-[#00f0ff]/10 text-[#00f0ff] border border-[#00f0ff]/40 flex items-center justify-center mx-auto shadow-[0_0_25px_rgba(0,240,255,0.3)]">
+                      <CheckCircle2 className="w-7 h-7" />
                     </div>
-                    <h4 className="text-lg font-bold text-white">Transmission Dispatched</h4>
-                    <p className="text-xs text-zinc-400 max-w-sm mx-auto">
-                      Thank you for reaching out. Your note has been logged and I will respond to your email promptly.
+                    <h4 className="text-xl sm:text-2xl font-bold text-white">Transmission Dispatched</h4>
+                    <p className="text-sm sm:text-base text-zinc-300 max-w-md mx-auto leading-relaxed">
+                      Thank you for reaching out. Your note has been received and I will review and respond to your email promptly.
                     </p>
                     <motion.button
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.97 }}
                       type="button"
                       onClick={() => setIsSubmitted(false)}
-                      className="mt-3 px-4 py-2 rounded-lg bg-white/10 text-xs font-mono text-white hover:bg-white/15 transition-colors"
+                      className="mt-4 px-6 py-2.5 rounded-xl bg-white/10 text-xs sm:text-sm font-mono text-white hover:bg-white/15 transition-colors"
                     >
                       Send Another Note
                     </motion.button>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div>
-                        <label className="text-xs font-mono text-zinc-400 block mb-1">Your Name</label>
+                        <label className="text-xs sm:text-sm font-mono text-zinc-300 block mb-2">Your Name</label>
                         <input
                           type="text"
                           name="name"
                           value={formData.name}
                           onChange={handleChange}
                           placeholder="Yasith Umesha"
-                          className="w-full px-3 py-2 rounded-lg bg-[#06080e] border border-white/10 focus:border-[#00f0ff] focus:outline-none text-xs text-white transition-colors"
+                          className="w-full px-4 py-3 rounded-xl bg-[#06080e] border border-white/10 focus:border-[#00f0ff] focus:outline-none text-sm text-white transition-colors"
                         />
-                        {errors.name && <p className="text-[10px] font-mono text-red-400 mt-1 flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors.name}</p>}
+                        {errors.name && <p className="text-xs font-mono text-red-400 mt-1.5 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5" />{errors.name}</p>}
                       </div>
 
                       <div>
-                        <label className="text-xs font-mono text-zinc-400 block mb-1">Your Email</label>
+                        <label className="text-xs sm:text-sm font-mono text-zinc-300 block mb-2">Your Email</label>
                         <input
                           type="email"
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="you@domain.com"
-                          className="w-full px-3 py-2 rounded-lg bg-[#06080e] border border-white/10 focus:border-[#00f0ff] focus:outline-none text-xs text-white transition-colors"
+                          className="w-full px-4 py-3 rounded-xl bg-[#06080e] border border-white/10 focus:border-[#00f0ff] focus:outline-none text-sm text-white transition-colors"
                         />
-                        {errors.email && <p className="text-[10px] font-mono text-red-400 mt-1 flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors.email}</p>}
+                        {errors.email && <p className="text-xs font-mono text-red-400 mt-1.5 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5" />{errors.email}</p>}
                       </div>
                     </div>
 
                     <div>
-                      <label className="text-xs font-mono text-zinc-400 block mb-1">Subject</label>
+                      <label className="text-xs sm:text-sm font-mono text-zinc-300 block mb-2">Subject</label>
                       <input
                         type="text"
                         name="subject"
                         value={formData.subject}
                         onChange={handleChange}
                         placeholder="Collaboration inquiry / Internship"
-                        className="w-full px-3 py-2 rounded-lg bg-[#06080e] border border-white/10 focus:border-[#00f0ff] focus:outline-none text-xs text-white transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-[#06080e] border border-white/10 focus:border-[#00f0ff] focus:outline-none text-sm text-white transition-colors"
                       />
-                      {errors.subject && <p className="text-[10px] font-mono text-red-400 mt-1 flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors.subject}</p>}
+                      {errors.subject && <p className="text-xs font-mono text-red-400 mt-1.5 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5" />{errors.subject}</p>}
                     </div>
 
                     <div>
-                      <label className="text-xs font-mono text-zinc-400 block mb-1">Message</label>
+                      <label className="text-xs sm:text-sm font-mono text-zinc-300 block mb-2">Message</label>
                       <textarea
                         name="message"
-                        rows={4}
+                        rows={5}
                         value={formData.message}
                         onChange={handleChange}
-                        placeholder="Outline your inquiry or project details..."
-                        className="w-full px-3 py-2 rounded-lg bg-[#06080e] border border-white/10 focus:border-[#00f0ff] focus:outline-none text-xs text-white resize-none transition-colors"
+                        placeholder="Outline your project details, engineering requirements, or opportunity..."
+                        className="w-full px-4 py-3 rounded-xl bg-[#06080e] border border-white/10 focus:border-[#00f0ff] focus:outline-none text-sm text-white resize-none transition-colors"
                       />
-                      {errors.message && <p className="text-[10px] font-mono text-red-400 mt-1 flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors.message}</p>}
+                      {errors.message && <p className="text-xs font-mono text-red-400 mt-1.5 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5" />{errors.message}</p>}
                     </div>
 
                     <motion.button
@@ -338,9 +339,9 @@ export default function Contact() {
                       whileTap={{ scale: 0.99 }}
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-2.5 rounded-lg bg-gradient-to-r from-[#00f0ff] to-[#38bdf8] hover:from-[#38bdf8] hover:to-[#00f0ff] text-black font-semibold text-xs transition-colors flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(0,240,255,0.3)]"
+                      className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#00f0ff] to-[#38bdf8] hover:from-[#38bdf8] hover:to-[#00f0ff] text-black font-bold text-sm sm:text-base transition-colors flex items-center justify-center gap-2.5 shadow-[0_0_25px_rgba(0,240,255,0.35)]"
                     >
-                      <Send className="w-3.5 h-3.5" />
+                      <Send className="w-4.5 h-4.5" />
                       <span>{isSubmitting ? "Dispatching..." : "Transmit Message"}</span>
                     </motion.button>
                   </form>
