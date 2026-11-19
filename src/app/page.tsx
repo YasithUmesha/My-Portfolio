@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import PageLoader from "@/components/PageLoader";
+import AnimeBackground from "@/components/AnimeBackground";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -19,6 +20,9 @@ export default function HomePage() {
     <main className="relative min-h-screen bg-[#06080e] text-slate-100 selection:bg-[#00f0ff]/25 selection:text-white overflow-x-hidden">
       {/* Interactive Page Refresh / Boot Animation */}
       <PageLoader />
+
+      {/* Anime.js Ambient Glass Shards & Constellation */}
+      <AnimeBackground />
 
       {/* Navigation */}
       <Navbar />

@@ -18,5 +18,8 @@ pnpm-debug.log*
 # local env files
 .env*
 
+# ts build info
+*.tsbuildinfo
+
 # reference downloads
 /reference/

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { portfolioData, CertificateItem } from "@/data/portfolioData";
+import GlassCard from "./GlassCard";
 import {
   GraduationCap,
   Award,
@@ -70,9 +71,9 @@ export default function Certificates() {
           </motion.p>
         </div>
 
-        {/* University Education Highlight Banner */}
+        {/* University Education Highlight Banner with GlassCard */}
         <div className="mb-8">
-          <div className="relative rounded-2xl bg-[#0a0e17] border border-[#00f0ff]/30 hover:border-[#00f0ff]/60 p-7 sm:p-9 transition-all duration-300 shadow-xl">
+          <GlassCard glowColor="#38bdf8" className="p-7 sm:p-9">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
               
               <div className="lg:col-span-8 space-y-3">
@@ -86,43 +87,45 @@ export default function Certificates() {
                 </h3>
                 
                 <p className="text-sm sm:text-base font-mono text-[#00f0ff] flex items-center gap-2">
-                  <Building className="w-4 h-4 text-zinc-400" />
+                  <Building className="w-4 h-4 text-slate-400" />
                   <span>{education.university}</span>
-                  <span className="text-zinc-500">•</span>
-                  <span className="text-zinc-400">{education.faculty}</span>
+                  <span className="text-slate-500">•</span>
+                  <span className="text-slate-400">{education.faculty}</span>
                 </p>
                 
-                <p className="text-sm sm:text-base text-zinc-300 leading-relaxed pt-2">
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed pt-2">
                   Comprehensive curriculum specializing in enterprise software architecture, full-stack web engineering, database modeling, distributed computing, and agile workflows.
                 </p>
               </div>
 
               <div className="lg:col-span-4 flex lg:justify-end">
-                <div className="px-6 py-4 rounded-xl bg-[#06080e] border border-white/10 text-left lg:text-right w-full lg:w-auto shadow-inner space-y-1">
-                  <span className="text-xs font-mono text-zinc-400 block uppercase tracking-wider">Candidate Status</span>
+                <div className="px-6 py-4 rounded-xl bg-[#06080e]/90 border border-white/[0.08] text-left lg:text-right w-full lg:w-auto shadow-inner space-y-1">
+                  <span className="text-xs font-mono text-slate-400 block uppercase tracking-wider">Candidate Status</span>
                   <span className="text-base sm:text-lg font-bold text-white block">{education.status}</span>
                   <span className="text-xs font-mono text-[#00f0ff] block">{education.period}</span>
                 </div>
               </div>
 
             </div>
-          </div>
+          </GlassCard>
         </div>
 
-        {/* Certificates Grid */}
+        {/* Certificates Grid with GlassCards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {certificates.map((cert) => (
-            <div
+            <GlassCard
               key={cert.id}
-              className="group rounded-2xl bg-[#0a0e17] hover:bg-[#101726] border border-white/10 hover:border-[#00f0ff]/40 p-6 transition-all duration-300 flex flex-col justify-between shadow-lg hover:shadow-[0_15px_30px_rgba(0,0,0,0.6)]"
+              hoverTilt={true}
+              glowColor="#00f0ff"
+              className="p-6 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono text-zinc-400 flex items-center gap-1.5">
+                  <span className="text-xs font-mono text-slate-400 flex items-center gap-1.5">
                     <Calendar className="w-3.5 h-3.5 text-[#00f0ff]" />
                     <span>{cert.issueDate}</span>
                   </span>
-                  <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-[#06080e] text-[#38bdf8] border border-white/10">
+                  <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-[#06080e]/90 text-[#38bdf8] border border-white/[0.08]">
                     {cert.issuer}
                   </span>
                 </div>
@@ -133,27 +136,27 @@ export default function Certificates() {
                 
                 <div className="flex flex-wrap gap-1.5 mt-3">
                   {cert.skills.map((skill) => (
-                    <span key={skill} className="text-xs font-mono px-2 py-0.5 rounded bg-[#06080e] text-zinc-300 border border-white/5">
+                    <span key={skill} className="text-xs font-mono px-2 py-0.5 rounded bg-[#06080e]/80 text-slate-300 border border-white/5">
                       {skill}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between">
-                <span className="text-xs font-mono text-zinc-400">
+              <div className="pt-4 mt-4 border-t border-white/[0.08] flex items-center justify-between">
+                <span className="text-xs font-mono text-slate-400">
                   {cert.credentialId ? `ID: ${cert.credentialId.slice(0, 12)}...` : "Verified Credential"}
                 </span>
                 <button
                   type="button"
                   onClick={() => setSelectedCert(cert)}
-                  className="p-2 rounded-lg bg-[#06080e] hover:bg-white/10 text-zinc-300 hover:text-white transition-colors"
+                  className="p-2 rounded-lg bg-[#06080e]/90 hover:bg-white/10 text-slate-300 hover:text-white transition-colors cursor-pointer"
                   aria-label="View Certificate Preview"
                 >
                   <Eye className="w-4 h-4 text-[#00f0ff]" />
                 </button>
               </div>
-            </div>
+            </GlassCard>
           ))}
         </div>
 

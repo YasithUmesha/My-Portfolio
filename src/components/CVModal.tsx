@@ -20,8 +20,8 @@ export default function CVModal({ isOpen, onClose }: CVModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm animate-fadeIn">
-      <div className="relative w-full max-w-lg bg-[#0a0e17] border border-[#00f0ff]/30 rounded-2xl p-6 sm:p-7 shadow-[0_0_50px_rgba(0,240,255,0.15)]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
+      <div className="relative w-full max-w-lg bg-[#090d18]/95 backdrop-blur-2xl border border-[#00f0ff]/30 rounded-2xl p-6 sm:p-7 shadow-[0_0_50px_rgba(0,240,255,0.2)]">
         
         {/* Close Button */}
         <button

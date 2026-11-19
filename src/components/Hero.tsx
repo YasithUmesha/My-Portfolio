@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useMotionValue, useTransform } from "framer-motion";
+import { animate } from "animejs";
 import { portfolioData } from "@/data/portfolioData";
 import { GithubIcon, LinkedinIcon, ReactIcon, NextjsIcon, NodejsIcon } from "./Icons";
 import {
@@ -70,6 +71,34 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
 
     return () => clearTimeout(timer);
   }, [charIndex, isDeleting, roleIndex, roles]);
+
+  // Anime.js radar rotation & breathing auras
+  useEffect(() => {
+    const radar = animate(".hero-radar-ring", {
+      rotate: [0, 360],
+      duration: 18000,
+      ease: "linear",
+      loop: true,
+    });
+
+    const breathing = animate(".hero-glow-orbit", {
+      scale: [0.95, 1.05],
+      opacity: [0.35, 0.65],
+      duration: 3500,
+      alternate: true,
+      ease: "inOutSine",
+      loop: true,
+    });
+
+    return () => {
+      try {
+        radar.pause();
+        breathing.pause();
+      } catch {
+        // Safe cleanup
+      }
+    };
+  }, []);
 
   const scrollTo = (targetId: string) => {
     const el = document.getElementById(targetId);
@@ -253,19 +282,11 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
               className="relative flex items-center justify-center w-80 h-80 sm:w-[420px] sm:h-[420px] cursor-pointer"
             >
 
-              {/* Ambient Sapphire & Cyan Backlight matching the photo's LED strips */}
-              <motion.div
-                animate={{
-                  scale: [1, 1.08, 1],
-                  opacity: [0.4, 0.75, 0.4],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="absolute inset-2 rounded-3xl bg-gradient-to-tr from-[#00f0ff]/30 via-[#2563eb]/25 to-transparent blur-3xl pointer-events-none"
-              />
+              {/* Anime.js Rotating Cyber Radar Ring */}
+              <div className="hero-radar-ring absolute -inset-6 sm:-inset-8 rounded-[38px] border border-dashed border-[#00f0ff]/25 pointer-events-none -z-10" />
+
+              {/* Anime.js Breathing Glow Orbit */}
+              <div className="hero-glow-orbit absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#00f0ff]/25 via-[#2563eb]/20 to-transparent blur-2xl pointer-events-none -z-10" />
 
               {/* Main Photo Card Container */}
               <motion.div 
@@ -284,7 +305,7 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
                   <div className="hologram-scan" />
 
                   {/* Photo with subtle hover zoom */}
-                  <div className="relative w-full h-full rounded-2xl overflow-hidden bg-[#0a0e17]">
+                  <div className="relative w-full h-full rounded-2xl overflow-hidden bg-[#090d18]">
                     <Image
                       src={heroImageSrc}
                       alt={portfolioData.personal.name}
@@ -309,12 +330,12 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
                 </div>
               </motion.div>
 
-              {/* Floating Tech Orbit 1: React & Next.js Badge (Top Right) */}
+              {/* Floating Tech Orbit 1: React & Next.js Glass Badge (Top Right) */}
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 whileHover={{ scale: 1.1 }}
-                className="absolute -top-3 -right-2 sm:-right-4 flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-[#0a0e17]/95 border border-[#00f0ff]/40 text-xs font-mono text-white shadow-[0_10px_25px_rgba(0,0,0,0.7)] backdrop-blur-md z-30"
+                className="absolute -top-3 -right-2 sm:-right-4 flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-[#090d18]/90 border border-[#00f0ff]/40 text-xs font-mono text-white shadow-[0_10px_25px_rgba(0,0,0,0.7)] backdrop-blur-xl z-30"
               >
                 <div className="w-5 h-5 flex items-center justify-center">
                   <ReactIcon className="w-5 h-5" />
@@ -322,12 +343,12 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
                 <span className="text-[#00f0ff] font-semibold">React &amp; Next</span>
               </motion.div>
 
-              {/* Floating Tech Orbit 2: Full-Stack Architecture Badge (Bottom Left) */}
+              {/* Floating Tech Orbit 2: Full-Stack Architecture Glass Badge (Bottom Left) */}
               <motion.div
                 animate={{ y: [0, 6, 0] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                 whileHover={{ scale: 1.1 }}
-                className="absolute -bottom-4 -left-2 sm:-left-6 flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-[#0a0e17]/95 border border-white/15 text-xs font-mono text-zinc-200 shadow-[0_10px_25px_rgba(0,0,0,0.7)] backdrop-blur-md z-30"
+                className="absolute -bottom-4 -left-2 sm:-left-6 flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-[#090d18]/90 border border-white/15 text-xs font-mono text-zinc-200 shadow-[0_10px_25px_rgba(0,0,0,0.7)] backdrop-blur-xl z-30"
               >
                 <div className="w-5 h-5 flex items-center justify-center">
                   <NodejsIcon className="w-5 h-5" />
@@ -335,12 +356,12 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
                 <span>Full-Stack Architecture</span>
               </motion.div>
 
-              {/* Floating Tech Orbit 3: Status Indicator (Bottom Right) */}
+              {/* Floating Tech Orbit 3: Status Indicator Glass Badge (Bottom Right) */}
               <motion.div
                 animate={{ y: [0, -4, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                 whileHover={{ scale: 1.1 }}
-                className="absolute -bottom-6 right-2 sm:right-0 flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#0a0e17]/95 border border-[#10b981]/40 text-xs font-mono text-zinc-200 shadow-xl backdrop-blur-md z-30"
+                className="absolute -bottom-6 right-2 sm:right-0 flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#090d18]/90 border border-[#10b981]/40 text-xs font-mono text-zinc-200 shadow-xl backdrop-blur-xl z-30"
               >
                 <span className="w-2 h-2 rounded-full bg-[#10b981] animate-ping" />
                 <span className="text-[#10b981] font-semibold">Online</span>

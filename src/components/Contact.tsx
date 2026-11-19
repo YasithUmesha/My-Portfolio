@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { portfolioData } from "@/data/portfolioData";
+import GlassCard from "./GlassCard";
 import { GithubIcon, LinkedinIcon } from "./Icons";
 import {
   Mail,
@@ -146,7 +147,7 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-5 space-y-5"
           >
-            <div className="rounded-2xl bg-[#0a0e17] border border-white/10 p-7 sm:p-8 space-y-5 shadow-xl">
+            <GlassCard glowColor="#00f0ff" className="p-7 sm:p-8 space-y-5">
               <div className="flex items-center justify-between">
                 <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight flex items-center gap-2.5">
                   <MessageSquare className="w-5 h-5 text-[#00f0ff]" />
@@ -158,15 +159,15 @@ export default function Contact() {
                 </span>
               </div>
 
-              <p className="text-sm sm:text-base text-zinc-300 leading-relaxed font-normal">
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
                 Reach out directly via email, connect with me on LinkedIn, or inspect my open source projects on GitHub.
               </p>
 
               {/* Email Copier */}
-              <div className="p-4 rounded-xl bg-[#06080e] border border-white/10 flex items-center justify-between hover:border-[#00f0ff]/40 transition-colors">
+              <div className="p-4 rounded-xl bg-[#06080e]/90 border border-white/[0.08] flex items-center justify-between hover:border-[#00f0ff]/40 transition-colors">
                 <div className="flex items-center gap-3 min-w-0">
                   <Mail className="w-5 h-5 text-[#00f0ff] flex-shrink-0" />
-                  <span className="text-xs sm:text-sm font-mono text-zinc-200 truncate">
+                  <span className="text-xs sm:text-sm font-mono text-slate-200 truncate">
                     {portfolioData.contact.email}
                   </span>
                 </div>
@@ -175,7 +176,7 @@ export default function Contact() {
                   whileTap={{ scale: 0.9 }}
                   type="button"
                   onClick={copyEmail}
-                  className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white transition-colors"
+                  className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
                   title="Copy email to clipboard"
                 >
                   <AnimatePresence mode="wait">
@@ -203,15 +204,15 @@ export default function Contact() {
               </div>
 
               {/* Location */}
-              <div className="p-4 rounded-xl bg-[#06080e] border border-white/10 flex items-center gap-3">
+              <div className="p-4 rounded-xl bg-[#06080e]/90 border border-white/[0.08] flex items-center gap-3">
                 <MapPin className="w-5 h-5 text-[#38bdf8] flex-shrink-0" />
-                <span className="text-xs sm:text-sm font-mono text-zinc-200">
+                <span className="text-xs sm:text-sm font-mono text-slate-200">
                   {portfolioData.contact.location}
                 </span>
               </div>
 
               {/* Response Time Guarantee Pill */}
-              <div className="p-4 rounded-xl bg-[#06080e] border border-white/10 flex items-center gap-3 text-zinc-300 text-xs sm:text-sm font-mono">
+              <div className="p-4 rounded-xl bg-[#06080e]/90 border border-white/[0.08] flex items-center gap-3 text-slate-300 text-xs sm:text-sm font-mono">
                 <Clock className="w-5 h-5 text-[#fb923c] flex-shrink-0" />
                 <span>Response Time: Typically within 24 hours</span>
               </div>
@@ -224,7 +225,7 @@ export default function Contact() {
                   href={portfolioData.contact.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 py-3 px-4 rounded-xl bg-[#06080e] hover:bg-[#121824] border border-white/10 hover:border-[#00f0ff]/50 flex items-center justify-center gap-2.5 text-xs sm:text-sm font-mono text-zinc-200 hover:text-[#00f0ff] transition-colors shadow-sm"
+                  className="flex-1 py-3 px-4 rounded-xl bg-[#06080e]/90 hover:bg-[#121824] border border-white/10 hover:border-[#00f0ff]/50 flex items-center justify-center gap-2.5 text-xs sm:text-sm font-mono text-slate-200 hover:text-[#00f0ff] transition-colors shadow-sm"
                 >
                   <GithubIcon className="w-4.5 h-4.5" />
                   <span>GitHub</span>
@@ -235,16 +236,16 @@ export default function Contact() {
                   href={portfolioData.contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 py-3 px-4 rounded-xl bg-[#06080e] hover:bg-[#121824] border border-white/10 hover:border-[#38bdf8]/50 flex items-center justify-center gap-2.5 text-xs sm:text-sm font-mono text-zinc-200 hover:text-[#38bdf8] transition-colors shadow-sm"
+                  className="flex-1 py-3 px-4 rounded-xl bg-[#06080e]/90 hover:bg-[#121824] border border-white/10 hover:border-[#38bdf8]/50 flex items-center justify-center gap-2.5 text-xs sm:text-sm font-mono text-slate-200 hover:text-[#38bdf8] transition-colors shadow-sm"
                 >
                   <LinkedinIcon className="w-4.5 h-4.5" />
                   <span>LinkedIn</span>
                 </motion.a>
               </div>
-            </div>
+            </GlassCard>
           </motion.div>
 
-          {/* Right Column: Clean Minimalist Form with Prominent Fields */}
+          {/* Right Column: Clean Minimalist Form with GlassCard */}
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -252,7 +253,7 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-7"
           >
-            <div className="rounded-2xl bg-[#0a0e17] border border-white/10 p-7 sm:p-8 shadow-xl">
+            <GlassCard glowColor="#38bdf8" className="p-7 sm:p-8">
               <AnimatePresence mode="wait">
                 {isSubmitted ? (
                   <motion.div 
@@ -347,7 +348,7 @@ export default function Contact() {
                   </form>
                 )}
               </AnimatePresence>
-            </div>
+            </GlassCard>
           </motion.div>
 
         </div>

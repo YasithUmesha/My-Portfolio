@@ -85,8 +85,8 @@ export default function Navbar() {
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? "bg-[#06080e]/95 backdrop-blur-xl border-b border-white/[0.08] shadow-[0_6px_30px_rgba(0,0,0,0.6)] py-4"
-          : "bg-transparent py-6"
+          ? "bg-[#06080e]/85 backdrop-blur-2xl border-b border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.7)] py-3.5"
+          : "bg-transparent py-5"
       }`}
     >
       <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
@@ -117,8 +117,8 @@ export default function Navbar() {
             </div>
           </motion.a>
 
-          {/* Desktop Navigation with larger text and clear padding */}
-          <nav className="hidden lg:flex items-center gap-1.5 bg-[#0a0e17]/90 border border-white/10 px-3.5 py-2 rounded-full backdrop-blur-md shadow-lg">
+          {/* Desktop Navigation with frosted glass dock */}
+          <nav className="hidden lg:flex items-center gap-1.5 bg-[#090d18]/85 border border-white/10 px-3.5 py-2 rounded-full backdrop-blur-xl shadow-lg">
             {portfolioData.navigation.map((item) => {
               const sectionId = item.href.replace("#", "");
               const isActive = activeSection === sectionId;

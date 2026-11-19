@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { portfolioData, ProjectItem } from "@/data/portfolioData";
+import GlassCard from "./GlassCard";
 import { GithubIcon } from "./Icons";
 import {
   ExternalLink,
@@ -119,68 +120,75 @@ export default function Projects() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                whileHover={{ y: -8, transition: { type: "spring", stiffness: 300, damping: 20 } }}
-                className="group relative rounded-2xl bg-[#0a0e17] hover:bg-[#101726] border border-white/10 hover:border-[#00f0ff]/50 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-xl hover:shadow-[0_20px_40px_rgba(0,0,0,0.7)]"
+                className="h-full"
               >
-                {/* Visual Preview Header */}
-                <div className="relative h-52 w-full bg-[#06080e] border-b border-white/10 overflow-hidden flex items-center justify-center p-6">
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    <Image
-                      src={project.image}
-                      alt={project.name}
-                      fill
-                      className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-
-                  {/* Category Pill */}
-                  <div className="absolute top-4 left-4 px-3 py-1 rounded-md bg-[#06080e]/95 border border-white/10 text-xs font-mono text-[#38bdf8] flex items-center gap-1.5 shadow-md">
-                    <Code2 className="w-3.5 h-3.5 text-[#38bdf8]" />
-                    <span>{project.category}</span>
-                  </div>
-
-                  {/* Featured Badge */}
-                  {project.featured && (
-                    <div className="absolute top-4 right-4 px-3 py-1 rounded-md bg-[#00f0ff]/10 border border-[#00f0ff]/30 text-xs font-mono text-[#00f0ff] flex items-center gap-1 shadow-md">
-                      <Sparkles className="w-3 h-3 text-[#00f0ff]" />
-                      <span>Featured</span>
-                    </div>
-                  )}
-                </div>
-
-                {/* Content Body */}
-                <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-5">
+                <GlassCard
+                  hoverTilt={true}
+                  glowColor="#00f0ff"
+                  className="h-full flex flex-col justify-between"
+                >
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-[#00f0ff] transition-colors">
-                      {project.name}
-                    </h3>
-                    <p className="text-xs sm:text-sm font-mono text-[#38bdf8] mt-1">
-                      {project.tagline}
-                    </p>
-                    <p className="text-sm text-zinc-300 mt-3 line-clamp-3 leading-relaxed">
-                      {project.description}
-                    </p>
-                  </div>
+                    {/* Visual Preview Header */}
+                    <div className="relative h-52 w-full bg-[#06080e]/90 border-b border-white/[0.08] overflow-hidden flex items-center justify-center p-6">
+                      <div className="relative w-full h-full flex items-center justify-center">
+                        <Image
+                          src={project.image}
+                          alt={project.name}
+                          fill
+                          className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
 
-                  {/* Technologies Tags */}
-                  <div>
-                    <div className="flex flex-wrap gap-2 pt-2">
-                      {project.technologies.slice(0, 5).map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2.5 py-1 rounded-lg bg-[#06080e] border border-white/10 text-xs font-mono text-zinc-300 group-hover:border-white/20 transition-colors"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                      {/* Category Pill */}
+                      <div className="absolute top-4 left-4 px-3 py-1 rounded-md bg-[#06080e]/90 backdrop-blur-md border border-white/10 text-xs font-mono text-[#38bdf8] flex items-center gap-1.5 shadow-md">
+                        <Code2 className="w-3.5 h-3.5 text-[#38bdf8]" />
+                        <span>{project.category}</span>
+                      </div>
+
+                      {/* Featured Badge */}
+                      {project.featured && (
+                        <div className="absolute top-4 right-4 px-3 py-1 rounded-md bg-[#00f0ff]/10 backdrop-blur-md border border-[#00f0ff]/30 text-xs font-mono text-[#00f0ff] flex items-center gap-1 shadow-md">
+                          <Sparkles className="w-3 h-3 text-[#00f0ff]" />
+                          <span>Featured</span>
+                        </div>
+                      )}
                     </div>
 
-                    {/* Action Bar */}
-                    <div className="flex items-center justify-between pt-5 mt-4 border-t border-white/10">
+                    {/* Content Body */}
+                    <div className="p-6 sm:p-7 flex flex-col space-y-4">
+                      <div>
+                        <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-[#00f0ff] transition-colors">
+                          {project.name}
+                        </h3>
+                        <p className="text-xs sm:text-sm font-mono text-[#38bdf8] mt-1">
+                          {project.tagline}
+                        </p>
+                        <p className="text-sm text-slate-300 mt-3 line-clamp-3 leading-relaxed">
+                          {project.description}
+                        </p>
+                      </div>
+
+                      {/* Technologies Tags */}
+                      <div className="flex flex-wrap gap-2 pt-1">
+                        {project.technologies.slice(0, 5).map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2.5 py-1 rounded-lg bg-[#06080e]/80 border border-white/[0.08] text-xs font-mono text-slate-300 group-hover:border-white/20 transition-colors"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Action Bar */}
+                  <div className="px-6 pb-6 pt-2">
+                    <div className="flex items-center justify-between pt-4 border-t border-white/[0.08]">
                       <button
                         type="button"
                         onClick={() => setSelectedProject(project)}
-                        className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-mono font-semibold text-[#00f0ff] hover:underline"
+                        className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-mono font-semibold text-[#00f0ff] hover:underline cursor-pointer"
                       >
                         <span>Specifications</span>
                         <ArrowUpRight className="w-4 h-4" />
@@ -193,7 +201,7 @@ export default function Projects() {
                           href={project.repoUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-2 rounded-xl bg-[#06080e] hover:bg-white/10 border border-white/10 text-zinc-300 hover:text-white transition-colors"
+                          className="p-2 rounded-xl bg-[#06080e]/90 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition-colors"
                           aria-label={`GitHub repo for ${project.name}`}
                         >
                           <GithubIcon className="w-4 h-4" />
@@ -201,10 +209,7 @@ export default function Projects() {
                       </div>
                     </div>
                   </div>
-                </div>
-
-                {/* Corner Crosshairs */}
-                <span className="absolute bottom-1 right-1 text-[8px] font-mono text-zinc-700 pointer-events-none">+</span>
+                </GlassCard>
               </motion.div>
             ))}
           </AnimatePresence>

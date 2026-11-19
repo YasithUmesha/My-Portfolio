@@ -3,7 +3,7 @@ import "./globals.css";
 import { portfolioData } from "@/data/portfolioData";
 
 export const viewport: Viewport = {
-  themeColor: "#030014",
+  themeColor: "#06080e",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -67,7 +67,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="bg-[#030014] text-slate-100 antialiased selection:bg-purple-600/30 selection:text-white">
+      <body className="bg-[#06080e] text-slate-100 antialiased selection:bg-[#00f0ff]/25 selection:text-white">
         {children}
       </body>
     </html>

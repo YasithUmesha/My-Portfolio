@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { portfolioData } from "@/data/portfolioData";
+import GlassCard from "./GlassCard";
 import {
   ReactIcon,
   NextjsIcon,
@@ -28,12 +28,8 @@ import {
   Server,
   Database,
   Workflow,
-  Cpu,
-  Sparkles,
   CheckCircle2,
-  Code2,
-  Layers,
-  ArrowRight
+  Code2
 } from "lucide-react";
 
 export default function Skills() {
@@ -42,9 +38,7 @@ export default function Skills() {
       id: "frontend",
       category: "Frontend Engineering & Reactive UI",
       badge: "User Interface",
-      accentColor: "from-[#00f0ff] to-[#38bdf8]",
-      borderHover: "hover:border-[#00f0ff]/50",
-      iconColor: "text-[#00f0ff]",
+      glowColor: "#00f0ff",
       icon: <Monitor className="w-6 h-6 text-[#00f0ff]" />,
       description:
         "Building reactive, high-performance client web applications with modern component architectures, type safety, and responsive design systems.",
@@ -58,17 +52,15 @@ export default function Skills() {
       ],
       capabilities: [
         "Server-Side Rendering (SSR) & Static Site Generation (SSG)",
-        "Fluid Micro-Interactions with Framer Motion",
-        "Mobile-first responsive typography and viewport layouts"
+        "Fluid Micro-Interactions with anime.js & Framer Motion",
+        "Mobile-first responsive typography and zero-CLS layouts"
       ]
     },
     {
       id: "backend",
       category: "Backend Services & API Architecture",
       badge: "Server Runtime",
-      accentColor: "from-[#38bdf8] to-[#2563eb]",
-      borderHover: "hover:border-[#38bdf8]/50",
-      iconColor: "text-[#38bdf8]",
+      glowColor: "#38bdf8",
       icon: <Server className="w-6 h-6 text-[#38bdf8]" />,
       description:
         "Structuring scalable backend services, RESTful communication protocols, authentication layers, and asynchronous request pipelines.",
@@ -87,9 +79,7 @@ export default function Skills() {
       id: "databases",
       category: "Database Modeling & Data Persistence",
       badge: "Storage Engine",
-      accentColor: "from-[#60a5fa] to-[#00f0ff]",
-      borderHover: "hover:border-[#60a5fa]/50",
-      iconColor: "text-[#60a5fa]",
+      glowColor: "#60a5fa",
       icon: <Database className="w-6 h-6 text-[#60a5fa]" />,
       description:
         "Designing relational and document database architectures, schema validation models, and query structures for data integrity.",
@@ -108,9 +98,7 @@ export default function Skills() {
       id: "tools",
       category: "Developer Tooling, Version Control & CI",
       badge: "Workflow & DevOps",
-      accentColor: "from-[#fb923c] to-[#f59e0b]",
-      borderHover: "hover:border-[#fb923c]/50",
-      iconColor: "text-[#fb923c]",
+      glowColor: "#fb923c",
       icon: <Workflow className="w-6 h-6 text-[#fb923c]" />,
       description:
         "Employing industry-standard version control workflows, automated endpoint verification, and configured development environments.",
@@ -123,7 +111,7 @@ export default function Skills() {
       capabilities: [
         "Trunk-based branch discipline and collaborative Git PRs",
         "Automated API testing collections and mock server environments",
-        "Strict ESLint standards and continuous deployment to Vercel"
+        "Strict ESLint standards and continuous deployment pipelines"
       ]
     }
   ];
@@ -146,7 +134,7 @@ export default function Skills() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0a0e17] border border-[#00f0ff]/30 text-xs sm:text-sm font-mono uppercase tracking-wider text-[#00f0ff] mb-4 shadow-[0_0_15px_rgba(0,240,255,0.12)]"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#090d18]/80 backdrop-blur-md border border-[#00f0ff]/30 text-xs sm:text-sm font-mono uppercase tracking-wider text-[#00f0ff] mb-4 shadow-[0_0_15px_rgba(0,240,255,0.12)]"
           >
             <Terminal className="w-4 h-4 text-[#00f0ff]" />
             <span>Technical Architecture</span>
@@ -170,7 +158,7 @@ export default function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="mt-3 text-sm sm:text-base lg:text-lg text-zinc-300 max-w-2xl mx-auto"
+            className="mt-3 text-sm sm:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto"
           >
             A structured breakdown of my full-stack engineering toolkit, categorized into distinct, production-tested features.
           </motion.p>
@@ -185,77 +173,81 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              whileHover={{ y: -6, transition: { type: "spring", stiffness: 300, damping: 20 } }}
-              className={`rounded-2xl bg-[#0a0e17] border border-white/10 ${feature.borderHover} p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.6)] group`}
             >
-              <div>
-                {/* Header: Category Badge & Icon */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-xl bg-[#06080e] border border-white/10 flex items-center justify-center p-2.5 shadow-inner group-hover:border-[#00f0ff]/40 transition-colors">
-                      {feature.icon}
+              <GlassCard
+                glowColor={feature.glowColor}
+                hoverTilt={true}
+                className="p-7 sm:p-8 flex flex-col justify-between h-full"
+              >
+                <div>
+                  {/* Header: Category Badge & Icon */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 rounded-xl bg-[#06080e]/90 border border-white/10 flex items-center justify-center p-2.5 shadow-inner group-hover:border-[#00f0ff]/40 transition-colors">
+                        {feature.icon}
+                      </div>
+                      <div>
+                        <span className="text-[11px] font-mono tracking-wider uppercase text-slate-400 block">
+                          Feature // 0{idx + 1}
+                        </span>
+                        <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight group-hover:text-[#00f0ff] transition-colors">
+                          {feature.category}
+                        </h3>
+                      </div>
                     </div>
-                    <div>
-                      <span className="text-[11px] font-mono tracking-wider uppercase text-zinc-400 block">
-                        Feature // 0{idx + 1}
-                      </span>
-                      <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight group-hover:text-[#00f0ff] transition-colors">
-                        {feature.category}
-                      </h3>
+
+                    <span className="hidden sm:inline-block px-3 py-1 rounded-full text-xs font-mono bg-[#06080e]/80 border border-white/10 text-slate-300">
+                      {feature.badge}
+                    </span>
+                  </div>
+
+                  {/* Feature Description */}
+                  <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-6 font-normal">
+                    {feature.description}
+                  </p>
+
+                  {/* Tech Badges with Real SVG Vector Logos */}
+                  <div className="mb-6">
+                    <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-2">
+                      <Code2 className="w-3.5 h-3.5 text-[#00f0ff]" />
+                      <span>Key Technologies &amp; Frameworks:</span>
+                    </h4>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                      {feature.techStack.map((tech) => (
+                        <div
+                          key={tech.name}
+                          className="p-3 rounded-xl bg-[#06080e]/80 border border-white/[0.08] hover:border-[#00f0ff]/40 flex items-center gap-3 transition-colors shadow-sm"
+                        >
+                          <div className="w-7 h-7 flex-shrink-0 flex items-center justify-center">
+                            {tech.icon}
+                          </div>
+                          <div className="min-w-0">
+                            <span className="text-xs sm:text-sm font-bold text-white block truncate">
+                              {tech.name}
+                            </span>
+                            <span className="text-[10px] font-mono text-slate-400 block truncate">
+                              {tech.tag}
+                            </span>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
 
-                  <span className="hidden sm:inline-block px-3 py-1 rounded-full text-xs font-mono bg-[#06080e] border border-white/10 text-zinc-300">
-                    {feature.badge}
-                  </span>
-                </div>
-
-                {/* Feature Description */}
-                <p className="text-sm sm:text-base text-zinc-300 leading-relaxed mb-6 font-normal">
-                  {feature.description}
-                </p>
-
-                {/* Tech Badges with Real SVG Vector Logos */}
-                <div className="mb-6">
-                  <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-3 flex items-center gap-2">
-                    <Code2 className="w-3.5 h-3.5 text-[#00f0ff]" />
-                    <span>Key Technologies &amp; Frameworks:</span>
-                  </h4>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                    {feature.techStack.map((tech) => (
-                      <div
-                        key={tech.name}
-                        className="p-3 rounded-xl bg-[#06080e] border border-white/10 hover:border-[#00f0ff]/40 flex items-center gap-3 transition-colors shadow-sm"
-                      >
-                        <div className="w-7 h-7 flex-shrink-0 flex items-center justify-center">
-                          {tech.icon}
-                        </div>
-                        <div className="min-w-0">
-                          <span className="text-xs sm:text-sm font-bold text-white block truncate">
-                            {tech.name}
-                          </span>
-                          <span className="text-[10px] font-mono text-zinc-400 block truncate">
-                            {tech.tag}
-                          </span>
-                        </div>
+                  {/* Feature Capabilities Checklist */}
+                  <div className="pt-5 border-t border-white/[0.08] space-y-2">
+                    <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-2">
+                      Delivered Capabilities:
+                    </h4>
+                    {feature.capabilities.map((cap, cIdx) => (
+                      <div key={cIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300">
+                        <CheckCircle2 className="w-4 h-4 text-[#00f0ff] flex-shrink-0 mt-0.5" />
+                        <span>{cap}</span>
                       </div>
                     ))}
                   </div>
                 </div>
-
-                {/* Feature Capabilities Checklist */}
-                <div className="pt-5 border-t border-white/10 space-y-2">
-                  <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">
-                    Delivered Capabilities:
-                  </h4>
-                  {feature.capabilities.map((cap, cIdx) => (
-                    <div key={cIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300">
-                      <CheckCircle2 className="w-4 h-4 text-[#00f0ff] flex-shrink-0 mt-0.5" />
-                      <span>{cap}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              </GlassCard>
             </motion.div>
           ))}
         </div>

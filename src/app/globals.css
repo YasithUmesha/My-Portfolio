@@ -93,9 +93,31 @@ body::after {
   font-family: 'JetBrains Mono', monospace;
 }
 
+/* Modern Glassmorphic UI utilities (Glass.js design) */
+.glass-panel {
+  background: rgba(9, 13, 24, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-pill:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(0, 240, 255, 0.45);
+}
+
 /* Subtle glow card */
 .cyber-card {
-  background: #0a0e17;
+  background: #090d18;
   border: 1px solid rgba(56, 189, 248, 0.12);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
