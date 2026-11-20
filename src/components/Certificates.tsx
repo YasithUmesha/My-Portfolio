@@ -72,7 +72,7 @@ export default function Certificates() {
         </div>
 
         {/* University Education Highlight Banner with GlassCard */}
-        <div className="mb-8">
+        <div className="mb-8 space-y-4">
           <GlassCard glowColor="#38bdf8" className="p-7 sm:p-9">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
               
@@ -108,6 +108,26 @@ export default function Certificates() {
 
             </div>
           </GlassCard>
+
+          {/* Secondary Education (A/L) */}
+          {education.secondary && (
+            <GlassCard glowColor="#60a5fa" className="p-5 sm:p-6">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <div className="flex-1 space-y-1">
+                  <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-md bg-[#60a5fa]/10 border border-[#60a5fa]/20 text-xs font-mono text-[#60a5fa] mb-2">
+                    <BookOpen className="w-3.5 h-3.5" />
+                    <span>Secondary Education</span>
+                  </div>
+                  <h4 className="text-base sm:text-lg font-bold text-white">{education.secondary.exam}</h4>
+                  <p className="text-xs font-mono text-slate-400">{education.secondary.school}</p>
+                </div>
+                <div className="px-4 py-2.5 rounded-xl bg-[#06080e]/90 border border-white/[0.08] text-left sm:text-right shrink-0">
+                  <span className="text-xs font-mono text-[#60a5fa] block">{education.secondary.period}</span>
+                  <span className="text-xs font-mono text-slate-500 block">G.C.E A/L</span>
+                </div>
+              </div>
+            </GlassCard>
+          )}
         </div>
 
         {/* Certificates Grid with GlassCards */}

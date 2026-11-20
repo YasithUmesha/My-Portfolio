@@ -5,16 +5,15 @@ export interface NavItem {
 
 export interface SocialLink {
   platform: string;
-  url: string;
   label: string;
-  iconName: "github" | "linkedin" | "mail";
+  url: string;
+  iconName: string;
 }
 
 export interface SkillItem {
   name: string;
   category: "Frontend" | "Backend" | "Databases" | "Tools" | "Other";
-  iconName?: string;
-  levelBadge?: string;
+  icon?: string;
 }
 
 export interface ProjectItem {
@@ -23,26 +22,13 @@ export interface ProjectItem {
   tagline: string;
   description: string;
   longDescription: string;
-  category: "Full-Stack" | "Web Application" | "Frontend";
+  category: "Full-Stack" | "Web Application" | "Frontend" | "Mobile";
   technologies: string[];
   features: string[];
   repoUrl: string;
   liveUrl?: string;
   image: string;
   featured: boolean;
-}
-
-export interface ExperienceItem {
-  id: string;
-  role: string;
-  company: string;
-  location: string;
-  period: string;
-  type: string;
-  isCurrent: boolean;
-  isPlaceholder: boolean;
-  description: string[];
-  technologies: string[];
 }
 
 export interface EducationItem {
@@ -53,6 +39,11 @@ export interface EducationItem {
   faculty: string;
   description: string;
   highlights: string[];
+  secondary?: {
+    exam: string;
+    school: string;
+    period: string;
+  };
 }
 
 export interface CertificateItem {
@@ -67,62 +58,78 @@ export interface CertificateItem {
   isPlaceholder: boolean;
 }
 
+export interface VolunteerItem {
+  role: string;
+  organization: string;
+  period?: string;
+  description: string;
+}
+
+export interface ReferenceItem {
+  name: string;
+  title: string;
+  organization: string;
+  email: string;
+  phone: string;
+}
+
 export const portfolioData = {
   // 1. Personal & Brand Details
   personal: {
     name: "Yasith Umesha",
     shortName: "Yasith",
-    role: "Full-Stack Developer",
+    role: "Full Stack Developer",
     typedTitles: [
-      "Full-Stack Developer",
-      "Information Systems Undergraduate",
-      "UI/UX Enthusiast",
-      "API & Database Builder",
-      "Problem Solver"
+      "Full Stack Developer",
+      "React.js & Next.js Builder",
+      "Node.js & Express Engineer",
+      "REST API & Database Architect",
+      "Software Engineering Enthusiast"
     ],
     greeting: "Hi, I'm Yasith",
-    tagline: "Building scalable, elegant web applications and robust digital products.",
-    shortBio: "Information Systems undergraduate at Sabaragamuwa University of Sri Lanka passionate about building useful, user-friendly, and modern web applications.",
+    tagline: "Engineering scalable web applications, robust REST APIs, and modern digital experiences.",
+    shortBio: "Full Stack Developer and Information Systems undergraduate with hands-on experience building responsive web applications, developing RESTful APIs, and crafting intuitive user interfaces.",
     university: "Sabaragamuwa University of Sri Lanka",
-    degree: "BSc (Hons) in Information Systems undergraduate",
-    statusBadge: "Available for Internships & Opportunities",
-    location: "Sri Lanka",
-    email: "yasithumesha.dev@gmail.com",
+    degree: "BSc. (Hons) in Information Systems",
+    statusBadge: "React & Next.js Developer",
+    availabilityBadge: "Available for Internships & Opportunities",
+    location: "Sabaragamuwa, Sri Lanka",
+    phone: "(+94) 77 368 9599",
+    email: "Yasithumesha016@gmail.com",
     avatar: "/avatar.jpg",
     heroAvatar: "/hero-avatar.jpg",
-    cvUrl: "#", // Clearly marked placeholder: replace with your actual CV/Resume file URL (e.g. /Yasith_Umesha_CV.pdf)
-    hasRealCV: false,
-    goals: "Building a strong online presence to showcase software projects, technical skills, certifications, and hands-on experience to recruiters and engineering teams.",
+    cvUrl: "#",
+    hasRealCV: true,
     interests: [
       "Full-Stack Web Development",
-      "UI/UX Design & Prototyping",
-      "Software Engineering & Architecture",
-      "RESTful API Development",
-      "Database Modeling & Management"
+      "RESTful API & Backend Systems",
+      "Database Architecture & Optimization",
+      "Responsive UI/UX Engineering",
+      "Cloud & Modern DevOps Workflows"
     ],
     aboutText: [
-      "I am an Information Systems undergraduate at Sabaragamuwa University of Sri Lanka with a genuine passion for engineering modern web applications that unite clean architecture with intuitive user interfaces.",
-      "My journey spans frontend craftsmanship with React, Next.js, and Tailwind CSS, all the way to backend services, REST APIs, and database engineering using Node.js, Express, MongoDB, and PostgreSQL.",
-      "I thrive in collaborative agile environments, love turning complex problems into elegant software solutions, and continually expand my knowledge of emerging web technologies."
+      "I am a Full Stack Developer and Information Systems undergraduate with hands-on experience in building responsive web applications and developing robust frontend and backend solutions.",
+      "My core engineering stack centers around JavaScript, TypeScript, React.js, Next.js, Node.js, and Express.js, combined with relational and document database management including MongoDB and MySQL.",
+      "Experienced in architecting REST APIs, implementing secure authentication, and designing user-friendly interfaces. Passionate about software engineering, problem-solving, and continuously mastering modern technologies."
     ],
     highlights: [
       {
-        title: "Academic Background",
-        value: "BSc (Hons) in IS",
-        subtitle: "Sabaragamuwa University of Sri Lanka"
+        title: "Primary Specialization",
+        value: "Full Stack Dev",
+        subtitle: "React.js, Next.js, Node & DBs"
       },
       {
-        title: "Core Stacks",
-        value: "Full-Stack Dev",
-        subtitle: "React, Next.js, Node & DBs"
+        title: "Database Modeling",
+        value: "MongoDB & MySQL",
+        subtitle: "Relational & Document Stores"
       },
       {
         title: "Engineering Mindset",
         value: "Clean & Scalable",
-        subtitle: "Performance & Best Practices"
+        subtitle: "Type Safety & Robust APIs"
       },
       {
-        title: "Current Status",
+        title: "Live Status",
         value: "Open to Work",
         subtitle: "Internships & Software Roles"
       }
@@ -155,79 +162,83 @@ export const portfolioData = {
     },
     {
       platform: "Email",
-      label: "yasithumesha.dev@gmail.com",
-      url: "mailto:yasithumesha.dev@gmail.com",
+      label: "Yasithumesha016@gmail.com",
+      url: "mailto:Yasithumesha016@gmail.com",
       iconName: "mail"
     }
   ] as SocialLink[],
 
-  // 4. Technical Skills (Categorized & Editable)
+  // 4. Technical Skills (Directly from CV)
   skills: [
-    // Frontend
+    // Programming Languages
+    { name: "JavaScript", category: "Frontend" },
+    { name: "TypeScript", category: "Frontend" },
+    { name: "Java", category: "Backend" },
+    { name: "PHP", category: "Backend" },
     { name: "HTML5", category: "Frontend" },
     { name: "CSS3", category: "Frontend" },
-    { name: "JavaScript (ES6+)", category: "Frontend" },
-    { name: "React", category: "Frontend" },
+
+    // Frontend Development
+    { name: "React.js", category: "Frontend" },
     { name: "Next.js", category: "Frontend" },
     { name: "Tailwind CSS", category: "Frontend" },
+    { name: "Bootstrap", category: "Frontend" },
 
-    // Backend
+    // Backend Development
     { name: "Node.js", category: "Backend" },
     { name: "Express.js", category: "Backend" },
     { name: "REST APIs", category: "Backend" },
+    { name: "JWT Authentication", category: "Backend" },
 
     // Databases
     { name: "MongoDB", category: "Databases" },
     { name: "MySQL", category: "Databases" },
-    { name: "PostgreSQL", category: "Databases" },
+    { name: "Supabase / SQL", category: "Databases" },
 
-    // Tools
+    // Tools & Platforms
     { name: "Git", category: "Tools" },
     { name: "GitHub", category: "Tools" },
     { name: "VS Code", category: "Tools" },
     { name: "Postman", category: "Tools" },
-
-    // Other Core Competencies
-    { name: "Responsive Web Design", category: "Other" },
-    { name: "API Integration", category: "Other" },
-    { name: "Database Management", category: "Other" },
-    { name: "Problem Solving", category: "Other" }
+    { name: "Figma", category: "Tools" },
+    { name: "Vercel", category: "Tools" },
+    { name: "Vite", category: "Tools" }
   ] as SkillItem[],
 
-  // 5. Featured Projects
+  // 5. Real Projects from CV
   projects: [
     {
-      id: "mealmate",
-      name: "MealMate",
-      tagline: "Smart Meal Planning & Dietary Assistant",
-      description: "A full-featured web application designed for curated meal scheduling, nutritional breakdown, and recipe discovery.",
-      longDescription: "MealMate helps users optimize their daily nutrition with custom meal schedules, pantry tracking, and recipe recommendations. Developed with modular components and modern API flows.",
+      id: "farmtrust",
+      name: "FarmTrust",
+      tagline: "Direct Farmer-to-Buyer Agricultural Marketplace",
+      description: "A full-stack marketplace connecting Sri Lankan farmers directly with buyers to improve marketplace accessibility and transparency.",
+      longDescription: "Developed with responsive user and admin dashboards featuring crop listings, user management, and inventory search functionality. Implemented backend services and database operations to support application workflows and dynamic data management.",
       category: "Full-Stack",
-      technologies: ["React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+      technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
       features: [
-        "Curated daily and weekly meal plans with calorie tracking",
-        "Interactive recipe search and ingredient categorization",
-        "RESTful API backend for user profiles and favorites",
-        "Responsive glassmorphism dashboard UI"
+        "Direct farmer-to-buyer marketplace connecting local producers with buyers",
+        "Responsive user and admin dashboards with real-time crop listings",
+        "Dynamic inventory search, filtering, and user management workflows",
+        "Backend services and MongoDB operations for scalable transactions"
       ],
       repoUrl: "https://github.com/YasithUmesha",
       liveUrl: "https://github.com/YasithUmesha",
-      image: "/projects/mealmate.svg",
+      image: "/projects/farmtrust.svg",
       featured: true
     },
     {
-      id: "smartrent",
-      name: "SmartRent",
-      tagline: "Property Rental & Tenant Platform",
-      description: "A modern rental platform created to streamline property listings, location-based searches, and rental inquiries.",
-      longDescription: "SmartRent bridges property owners and prospective tenants with an intuitive booking flow, responsive property cards, interactive filters, and verified property badges.",
-      category: "Web Application",
-      technologies: ["Next.js", "React", "PostgreSQL", "REST APIs", "Tailwind CSS"],
+      id: "rentsmart",
+      name: "RentSmart",
+      tagline: "Mobile-First Item Rental Marketplace",
+      description: "A responsive rental marketplace allowing users to browse, search, and list items across diverse categories with dynamic filtering.",
+      longDescription: "Implemented category filtering, dynamic item detail pages, item listing forms, and authentication interfaces. Designed a modern, mobile-first user interface with a dark theme and reusable component architecture.",
+      category: "Frontend",
+      technologies: ["React.js", "TypeScript", "Vite", "React Router", "Tailwind CSS"],
       features: [
-        "Dynamic listing search with price, bedroom, and location filters",
-        "Clean property detail view with status tags and tour booking",
-        "Optimized mobile navigation and touch-friendly controls",
-        "Backend schema structured for multi-tenant scalability"
+        "Category-based filtering and dynamic item detail pages",
+        "Item listing creation forms with client-side validation",
+        "Clean authentication interfaces and responsive user sessions",
+        "Mobile-first responsive architecture built with strict TypeScript"
       ],
       repoUrl: "https://github.com/YasithUmesha",
       liveUrl: "https://github.com/YasithUmesha",
@@ -235,121 +246,153 @@ export const portfolioData = {
       featured: true
     },
     {
-      id: "portfolio",
-      name: "Personal Portfolio",
-      tagline: "Developer Brand & Project Showcase",
-      description: "A modern, high-performance developer portfolio built with Next.js App Router, Tailwind CSS, and Framer Motion.",
-      longDescription: "Designed with a cosmic dark aesthetic inspired by top modern portfolios, featuring smooth section animations, centralized data configuration, project modal previews, and complete mobile responsiveness.",
-      category: "Frontend",
-      technologies: ["Next.js", "React", "Tailwind CSS", "Framer Motion", "Lucide React"],
+      id: "mealmate",
+      name: "MealMate",
+      tagline: "Flutter Campus Food Ordering Platform",
+      description: "A collaborative food ordering platform connecting students with campus food shops, featuring JWT authentication and backend schema design.",
+      longDescription: "Contributed to a six-member development team building a Flutter-based food ordering platform. Responsible for backend foundation including database schema design, Supabase configuration, user registration, login, and JWT-based authentication. Developed project structure, navigation, API client, role-based middleware, and centralized error handling.",
+      category: "Full-Stack",
+      technologies: ["Flutter", "Supabase", "SQL", "REST APIs", "JWT Authentication"],
       features: [
-        "Cosmic dark theme with ambient lighting and glassmorphism",
-        "Centralized configuration file for rapid content updates",
-        "Interactive project preview modal and skill category filtering",
-        "Client-side validated contact form ready for email service integration"
+        "Backend foundation with database schema design and Supabase setup",
+        "User registration, secure login, and JWT token-based authentication",
+        "Role-based middleware and centralized error handling for client calls",
+        "Cross-platform Flutter application structure, navigation, and theme system"
       ],
       repoUrl: "https://github.com/YasithUmesha",
-      liveUrl: "#home",
-      image: "/projects/portfolio.svg",
+      liveUrl: "https://github.com/YasithUmesha",
+      image: "/projects/mealmate.svg",
       featured: true
     }
   ] as ProjectItem[],
 
-  // 6. Experience (Timeline)
-  experience: [
-    {
-      id: "exp-1",
-      role: "Software Engineer Intern (Placeholder)",
-      company: "[Company / Organization Name - Editable Placeholder]",
-      location: "Sri Lanka",
-      period: "2024 - Present",
-      type: "Internship",
-      isCurrent: true,
-      isPlaceholder: true,
-      description: [
-        "Collaborating with senior engineers to develop and maintain full-stack web applications.",
-        "Building responsive, accessible frontend interfaces and integrating backend RESTful APIs.",
-        "Writing clean, modular code, participating in code reviews, and following agile workflows."
-      ],
-      technologies: ["React", "Next.js", "Node.js", "REST APIs", "Git", "Tailwind CSS"]
-    },
-    {
-      id: "exp-2",
-      role: "Undergraduate Software Project Developer",
-      company: "Sabaragamuwa University of Sri Lanka",
-      location: "Belihuloya, Sri Lanka",
-      period: "2023 - Present",
-      type: "Academic & Projects",
-      isCurrent: false,
-      isPlaceholder: false,
-      description: [
-        "Designed and implemented full-stack web projects adhering to software engineering principles.",
-        "Structured relational (MySQL, PostgreSQL) and NoSQL (MongoDB) database architectures.",
-        "Practiced system analysis, requirements gathering, and modern UI/UX design heuristics."
-      ],
-      technologies: ["Next.js", "JavaScript", "MongoDB", "MySQL", "UI/UX Design", "Postman"]
-    }
-  ] as ExperienceItem[],
-
-  // 7. Education & Certificates
+  // 6. Education & Academic Background (Centralized, No Repetition Elsewhere)
   education: {
-    degree: "BSc (Hons) in Information Systems",
+    degree: "BSc. (Hons) in Information Systems",
     university: "Sabaragamuwa University of Sri Lanka",
-    period: "Undergraduate (Present)",
+    period: "2024 – Present",
     status: "Undergraduate Student",
     faculty: "Faculty of Computing",
-    description: "Rigorous curriculum encompassing enterprise software development, database architecture, distributed systems, system analysis and design, and web technologies.",
+    description: "Curriculum emphasizing software engineering principles, distributed systems, relational & NoSQL database architecture, and full-stack application development.",
     highlights: [
-      "Enterprise Software Engineering & Architecture",
-      "Relational & NoSQL Database Management Systems",
-      "Web Applications & Distributed Computing",
-      "Systems Analysis, Design & Project Management",
-      "Data Structures, Algorithms & Problem Solving"
-    ]
+      "Enterprise Software Engineering & Web Architecture",
+      "Relational (MySQL) & Document (MongoDB) Database Systems",
+      "RESTful API Development & Distributed Computing",
+      "System Analysis, Design Patterns & Agile Methodologies"
+    ],
+    secondary: {
+      exam: "G.C.E. Advanced Level",
+      school: "R/B/ Ananda Maithreya Central College, Sri Lanka",
+      period: "2022 / 2023"
+    }
   } as EducationItem,
 
+  // 7. Verified Certifications from CV
   certificates: [
     {
       id: "cert-1",
-      title: "Full-Stack Web Development Specialization (Placeholder)",
-      issuer: "[Issuing Academy / Platform - e.g. Coursera, Udemy, freeCodeCamp]",
-      issueDate: "2024",
-      credentialUrl: "https://example.com/credential-placeholder",
-      credentialId: "CERT-FS-2024-PLACEHOLDER",
+      title: "Full Stack React with Spring Boot: Unit 2",
+      issuer: "Pearson / Coursera",
+      issueDate: "Verified Credential",
+      credentialUrl: "https://www.coursera.org/",
+      credentialId: "COURSERA-PEARSON-FS-REACT",
       image: "/certificates/cert-placeholder.svg",
-      skills: ["React", "Node.js", "Express.js", "MongoDB"],
-      isPlaceholder: true
+      skills: ["React.js", "Spring Boot", "Full Stack", "REST APIs"],
+      isPlaceholder: false
     },
     {
       id: "cert-2",
-      title: "Modern JavaScript & Front-End Architecture (Placeholder)",
-      issuer: "[Issuing Academy / Platform - e.g. Meta, HackerRank]",
-      issueDate: "2024",
-      credentialUrl: "https://example.com/credential-placeholder",
-      credentialId: "CERT-JS-2024-PLACEHOLDER",
+      title: "Introduction to AI",
+      issuer: "Google / Coursera",
+      issueDate: "Verified Credential",
+      credentialUrl: "https://www.coursera.org/",
+      credentialId: "COURSERA-GOOGLE-AI",
       image: "/certificates/cert-placeholder.svg",
-      skills: ["JavaScript (ES6+)", "React", "Next.js", "Tailwind CSS"],
-      isPlaceholder: true
+      skills: ["Artificial Intelligence", "AI Concepts", "Google Cloud AI"],
+      isPlaceholder: false
     },
     {
       id: "cert-3",
-      title: "Database Management & SQL Systems (Placeholder)",
-      issuer: "[Issuing Academy / Platform - e.g. Oracle, Coursera]",
-      issueDate: "2023",
-      credentialUrl: "https://example.com/credential-placeholder",
-      credentialId: "CERT-DB-2023-PLACEHOLDER",
+      title: "Introduction to Artificial Intelligence",
+      issuer: "Simplilearn",
+      issueDate: "Verified Credential",
+      credentialUrl: "https://www.simplilearn.com/",
+      credentialId: "SIMPLILEARN-AI-INTRO",
       image: "/certificates/cert-placeholder.svg",
-      skills: ["MySQL", "PostgreSQL", "Database Design", "REST APIs"],
-      isPlaceholder: true
+      skills: ["AI Fundamentals", "Machine Learning", "Data Intelligence"],
+      isPlaceholder: false
+    },
+    {
+      id: "cert-4",
+      title: "Introduction to MERN Stack",
+      issuer: "Simplilearn",
+      issueDate: "Verified Credential",
+      credentialUrl: "https://www.simplilearn.com/",
+      credentialId: "SIMPLILEARN-MERN-STACK",
+      image: "/certificates/cert-placeholder.svg",
+      skills: ["MongoDB", "Express.js", "React.js", "Node.js"],
+      isPlaceholder: false
+    },
+    {
+      id: "cert-5",
+      title: "ReactJS with AI for Beginners [LIVE] – Batch 01",
+      issuer: "eLearning.lk",
+      issueDate: "Verified Credential",
+      credentialUrl: "https://elearning.lk/",
+      credentialId: "ELEARNING-LK-REACT-AI",
+      image: "/certificates/cert-placeholder.svg",
+      skills: ["React.js", "AI Integration", "Modern UI", "Frontend Engineering"],
+      isPlaceholder: false
     }
   ] as CertificateItem[],
 
-  // 8. Contact Details
+  // 8. Volunteering & Leadership (From CV)
+  volunteering: [
+    {
+      role: "Technical Team Member",
+      organization: "Aurelia 2.0 (2026) – IEEE WIE Affinity Group, Sabaragamuwa University of Sri Lanka",
+      period: "2026",
+      description: "Contributing technical expertise and digital support for IEEE Women in Engineering initiatives."
+    },
+    {
+      role: "Active Member",
+      organization: "Society of Computer Sciences (SOCS), Sabaragamuwa University of Sri Lanka",
+      period: "Active",
+      description: "Participating in computer science community development, coding workshops, and tech conferences."
+    },
+    {
+      role: "Volunteer",
+      organization: "Hope 2.0 – IEEE WIE of SUSL",
+      period: "Completed",
+      description: "Participated in educational support programs for underprivileged local community schools."
+    }
+  ] as VolunteerItem[],
+
+  // 9. References (From CV)
+  references: [
+    {
+      name: "Prof. B.T.G.S. Kumara",
+      title: "Professor in Computer Science",
+      organization: "Faculty of Computing, Sabaragamuwa University of Sri Lanka",
+      email: "kumara@foc.sab.ac.lk",
+      phone: "(+94) 71 443 1192"
+    },
+    {
+      name: "Ravin Bandara",
+      title: "Senior Software Quality Assurance Engineer",
+      organization: "Virtusa Pvt Limited",
+      email: "ravinbandara@virtusa.com",
+      phone: "(+94) 71 707 9612"
+    }
+  ] as ReferenceItem[],
+
+  // 10. Contact Details
   contact: {
-    invitation: "Have an internship opportunity, project collaboration, or question? Feel free to reach out. I would love to hear from you!",
-    email: "yasithumesha.dev@gmail.com",
-    location: "Sri Lanka",
-    availability: "Actively seeking internship and full-stack software engineering opportunities",
+    invitation: "Have an internship opportunity, project collaboration, or technical inquiry? Feel free to reach out directly.",
+    email: "Yasithumesha016@gmail.com",
+    phone: "(+94) 77 368 9599",
+    location: "Sabaragamuwa, Sri Lanka",
+    availability: "Available for Internships & Software Engineering Opportunities",
     github: "https://github.com/YasithUmesha",
     linkedin: "https://www.linkedin.com/in/yasith-umesha"
   }

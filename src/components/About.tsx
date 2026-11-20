@@ -15,8 +15,6 @@ import {
   Compass,
   ShieldCheck,
   Terminal,
-  Cpu,
-  Building,
   Sparkles
 } from "lucide-react";
 
@@ -65,7 +63,7 @@ export default function About({ onOpenCVNotice }: { onOpenCVNotice?: () => void 
             transition={{ delay: 0.2 }}
             className="mt-3 text-sm sm:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto"
           >
-            Undergraduate in Information Systems at Sabaragamuwa University of Sri Lanka, building production-grade web applications.
+            Undergraduate in Information Systems, building production-grade web applications and scalable APIs.
           </motion.p>
         </div>
 
@@ -142,29 +140,30 @@ export default function About({ onOpenCVNotice }: { onOpenCVNotice?: () => void 
             transition={{ duration: 0.6, delay: 0.15 }}
             className="lg:col-span-5 space-y-6"
           >
-            {/* University Higher Education Spotlight GlassCard */}
+            {/* Academic Focus Card — brief reference, full details in Education & Certificates section */}
             <GlassCard className="p-6 sm:p-7 space-y-3" glowColor="#38bdf8">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#38bdf8]/10 border border-[#38bdf8]/20 text-xs font-mono text-[#38bdf8]">
                 <GraduationCap className="w-4 h-4" />
-                <span>Undergraduate Degree</span>
+                <span>Academic Focus</span>
               </div>
 
               <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                {portfolioData.education.degree}
+                Information Systems Engineering
               </h3>
-              
-              <p className="text-sm font-mono text-[#00f0ff] flex items-center gap-1.5">
-                <Building className="w-4 h-4 text-slate-400" />
-                <span>{portfolioData.education.university}</span>
+
+              <p className="text-xs font-mono text-[#00f0ff] flex items-center gap-1.5">
+                <Sparkles className="w-4 h-4 text-[#38bdf8]" />
+                <span>Faculty of Computing · {portfolioData.education.period}</span>
               </p>
 
-              <p className="text-xs font-mono text-slate-400">
-                {portfolioData.education.faculty} • {portfolioData.education.period}
-              </p>
-
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed pt-2 border-t border-white/[0.08]">
-                Coursework emphasizes software engineering principles, distributed systems, relational &amp; NoSQL database architecture, and human-computer interaction.
-              </p>
+              <div className="pt-2 border-t border-white/[0.08] space-y-1.5">
+                {portfolioData.education.highlights.map((h, i) => (
+                  <p key={i} className="text-xs text-slate-300 flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#00f0ff] mt-0.5 flex-shrink-0" />
+                    <span>{h}</span>
+                  </p>
+                ))}
+              </div>
             </GlassCard>
 
             {/* 4 Animated Metric Counters powered by anime.js */}
@@ -191,7 +190,7 @@ export default function About({ onOpenCVNotice }: { onOpenCVNotice?: () => void 
                   <span className="text-[10px] font-mono text-slate-500">02</span>
                 </div>
                 <AnimatedCounter
-                  end={16}
+                  end={20}
                   suffix="+"
                   label="Technologies Mastered"
                 />
@@ -205,7 +204,7 @@ export default function About({ onOpenCVNotice }: { onOpenCVNotice?: () => void 
                   <span className="text-[10px] font-mono text-slate-500">03</span>
                 </div>
                 <AnimatedCounter
-                  end={4}
+                  end={5}
                   suffix="+"
                   label="Certifications"
                 />
