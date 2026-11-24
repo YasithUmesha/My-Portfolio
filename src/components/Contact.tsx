@@ -99,10 +99,10 @@ export default function Contact() {
 
       {/* Expanded Container Width to Remove Side Gaps */}
       <div className="w-full max-w-7xl mx-auto my-auto">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -111,8 +111,8 @@ export default function Contact() {
             <Radio className="w-4 h-4 text-[#00f0ff] animate-pulse" />
             <span>Open Communication Channel</span>
           </motion.div>
-          
-          <motion.h2 
+
+          <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -124,8 +124,8 @@ export default function Contact() {
               Collaborate
             </span>
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -138,9 +138,9 @@ export default function Contact() {
 
         {/* 2-Column Contact Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          
+
           {/* Left Column: Direct Details */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -227,7 +227,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="flex-1 py-2.5 px-3 rounded-xl bg-[#06080e]/90 hover:bg-[#121824] border border-white/10 hover:border-[#00f0ff]/50 flex items-center justify-center gap-2 text-xs font-mono text-slate-200 hover:text-[#00f0ff] transition-colors shadow-sm"
                 >
-                  <GithubIcon className="w-3.5 h-3.5" />
+                  <GithubIcon size={14} className="w-3.5 h-3.5 shrink-0" />
                   <span>GitHub</span>
                 </motion.a>
                 <motion.a
@@ -238,7 +238,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="flex-1 py-2.5 px-3 rounded-xl bg-[#06080e]/90 hover:bg-[#121824] border border-white/10 hover:border-[#38bdf8]/50 flex items-center justify-center gap-2 text-xs font-mono text-slate-200 hover:text-[#38bdf8] transition-colors shadow-sm"
                 >
-                  <LinkedinIcon className="w-3.5 h-3.5" />
+                  <LinkedinIcon size={14} className="w-3.5 h-3.5 shrink-0" />
                   <span>LinkedIn</span>
                 </motion.a>
               </div>
@@ -246,7 +246,7 @@ export default function Contact() {
           </motion.div>
 
           {/* Right Column: Clean Minimalist Form with GlassCard */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -256,7 +256,7 @@ export default function Contact() {
             <GlassCard glowColor="#38bdf8" className="p-7 sm:p-8">
               <AnimatePresence mode="wait">
                 {isSubmitted ? (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}

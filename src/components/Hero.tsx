@@ -120,17 +120,17 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
       {/* Expanded Max Width Container to Remove Awkward Side Gaps */}
       <div className="w-full max-w-7xl mx-auto my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-          
+
           {/* Left Column: Introductions & Bold Editorial Typography */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6"
           >
-            
+
             {/* Status Pill — Available for Internships & Opportunities */}
-            <motion.div 
+            <motion.div
               whileHover={{ scale: 1.02 }}
               className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#0a0e17] border border-[#10b981]/40 hover:border-[#10b981]/70 transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.15)]"
             >
@@ -149,7 +149,7 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
                 <Terminal className="w-4 h-4 text-[#00f0ff]" />
                 <span>{portfolioData.personal.greeting}</span>
               </p>
-              
+
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.12]">
                 <span>Engineering scalable systems as a</span>
                 <span className="block mt-2 min-h-[1.25em] text-transparent bg-clip-text bg-gradient-to-r from-[#00f0ff] via-[#38bdf8] to-[#60a5fa]">
@@ -166,14 +166,14 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
 
             {/* University & Degree */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 text-sm text-zinc-200">
-              <motion.span 
+              <motion.span
                 whileHover={{ y: -1 }}
                 className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#0a0e17] border border-white/10 font-mono text-xs sm:text-sm text-zinc-300 hover:border-[#00f0ff]/40 transition-colors"
               >
                 <Compass className="w-4 h-4 text-[#00f0ff]" />
                 <span>{portfolioData.personal.university}</span>
               </motion.span>
-              <motion.span 
+              <motion.span
                 whileHover={{ y: -1 }}
                 className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#0a0e17] border border-white/10 font-mono text-xs sm:text-sm text-[#38bdf8] hover:border-[#38bdf8]/40 transition-colors"
               >
@@ -233,11 +233,11 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
                   href={portfolioData.contact.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-[#0a0e17] hover:bg-[#121824] border border-white/10 hover:border-[#00f0ff]/60 text-zinc-300 hover:text-[#00f0ff] transition-all duration-200 shadow-sm flex items-center justify-center"
+                  className="w-10 h-10 rounded-xl bg-[#0a0e17] hover:bg-[#121824] border border-white/10 hover:border-[#00f0ff]/60 text-zinc-200 hover:text-[#00f0ff] transition-all duration-200 shadow-sm flex items-center justify-center shrink-0"
                   aria-label="GitHub Profile"
                   title="GitHub"
                 >
-                  <GithubIcon className="w-4 h-4" />
+                  <GithubIcon size={18} className="w-[18px] h-[18px] text-zinc-200 hover:text-[#00f0ff]" />
                 </motion.a>
 
                 <motion.a
@@ -246,22 +246,22 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
                   href={portfolioData.contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-[#0a0e17] hover:bg-[#121824] border border-white/10 hover:border-[#38bdf8]/60 text-zinc-300 hover:text-[#38bdf8] transition-all duration-200 shadow-sm flex items-center justify-center"
+                  className="w-10 h-10 rounded-xl bg-[#0a0e17] hover:bg-[#121824] border border-white/10 hover:border-[#38bdf8]/60 text-zinc-200 hover:text-[#38bdf8] transition-all duration-200 shadow-sm flex items-center justify-center shrink-0"
                   aria-label="LinkedIn Profile"
                   title="LinkedIn"
                 >
-                  <LinkedinIcon className="w-4 h-4" />
+                  <LinkedinIcon size={18} className="w-[18px] h-[18px] text-zinc-200 hover:text-[#38bdf8]" />
                 </motion.a>
 
                 <motion.a
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   href={`mailto:${portfolioData.contact.email}`}
-                  className="p-2.5 rounded-xl bg-[#0a0e17] hover:bg-[#121824] border border-white/10 hover:border-[#00f0ff]/60 text-zinc-300 hover:text-[#00f0ff] transition-all duration-200 shadow-sm flex items-center justify-center"
+                  className="w-10 h-10 rounded-xl bg-[#0a0e17] hover:bg-[#121824] border border-white/10 hover:border-[#00f0ff]/60 text-zinc-200 hover:text-[#00f0ff] transition-all duration-200 shadow-sm flex items-center justify-center shrink-0"
                   aria-label="Email"
                   title="Email"
                 >
-                  <Mail className="w-4 h-4" />
+                  <Mail className="w-[18px] h-[18px] text-zinc-200 hover:text-[#00f0ff]" />
                 </motion.a>
               </div>
             </div>
@@ -287,18 +287,18 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
               <div className="hero-glow-orbit absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#00f0ff]/25 via-[#2563eb]/20 to-transparent blur-2xl pointer-events-none -z-10" />
 
               {/* Main Photo Card Container */}
-              <motion.div 
+              <motion.div
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className="relative w-72 h-72 sm:w-[360px] sm:h-[360px] rounded-3xl p-[2px] bg-gradient-to-b from-[#00f0ff]/50 via-white/10 to-[#2563eb]/60 shadow-[0_25px_60px_rgba(0,0,0,0.85)]"
               >
-                
+
                 {/* Neon vertical edge matching photo's wall strip */}
                 <div className="absolute -left-1.5 top-6 bottom-6 w-1.5 rounded-full bg-gradient-to-b from-[#00f0ff] via-[#38bdf8] to-[#2563eb] shadow-[0_0_20px_#00f0ff] z-20 pointer-events-none" />
 
                 {/* Inner Canvas */}
                 <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-[#06080e] p-1.5">
-                  
+
                   {/* Hologram Laser Scan Beam */}
                   <div className="hologram-scan" />
 
@@ -311,7 +311,7 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
                       className="object-cover object-center filter brightness-[1.02] contrast-[1.02] transition-transform duration-700 hover:scale-105"
                       priority
                     />
-                    
+
                     {/* Vignette Shadow Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#06080e]/85 via-transparent to-transparent pointer-events-none" />
                   </div>
