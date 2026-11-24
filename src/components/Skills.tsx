@@ -41,7 +41,7 @@ export default function Skills() {
       glowColor: "#00f0ff",
       icon: <Monitor className="w-6 h-6 text-[#00f0ff]" />,
       description:
-        "Building reactive, high-performance client web applications with modern component architectures, type safety, and responsive design systems.",
+        "Reactive, high-performance web applications with modern component architecture and type safety.",
       techStack: [
         { name: "React", icon: <ReactIcon className="w-6 h-6" />, tag: "Component State" },
         { name: "Next.js", icon: <NextjsIcon className="w-6 h-6" />, tag: "SSR & App Router" },
@@ -63,7 +63,7 @@ export default function Skills() {
       glowColor: "#38bdf8",
       icon: <Server className="w-6 h-6 text-[#38bdf8]" />,
       description:
-        "Structuring scalable backend services, RESTful communication protocols, authentication layers, and asynchronous request pipelines.",
+        "Scalable backend services, RESTful API design, secure JWT authentication, and async pipelines.",
       techStack: [
         { name: "Node.js", icon: <NodejsIcon className="w-6 h-6" />, tag: "Asynchronous I/O" },
         { name: "Express.js", icon: <ExpressIcon className="w-6 h-6" />, tag: "Middleware Engine" },
@@ -82,7 +82,7 @@ export default function Skills() {
       glowColor: "#60a5fa",
       icon: <Database className="w-6 h-6 text-[#60a5fa]" />,
       description:
-        "Designing relational and document database architectures, schema validation models, and query structures for data integrity.",
+        "Relational and document database design, schema validation, and optimized query structures.",
       techStack: [
         { name: "MongoDB", icon: <MongodbIcon className="w-6 h-6" />, tag: "NoSQL Collections" },
         { name: "PostgreSQL", icon: <PostgresqlIcon className="w-6 h-6" />, tag: "Relational Tables" },
@@ -101,7 +101,7 @@ export default function Skills() {
       glowColor: "#fb923c",
       icon: <Workflow className="w-6 h-6 text-[#fb923c]" />,
       description:
-        "Employing industry-standard version control workflows, automated endpoint verification, and configured development environments.",
+        "Industry-standard Git workflows, automated API testing in Postman, and modern build setups.",
       techStack: [
         { name: "Git", icon: <GitIcon className="w-6 h-6" />, tag: "Distributed VCS" },
         { name: "GitHub", icon: <GithubIcon className="w-6 h-6" />, tag: "Repositories & PRs" },

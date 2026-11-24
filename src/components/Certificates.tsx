@@ -93,8 +93,8 @@ export default function Certificates() {
                   <span className="text-slate-400">{education.faculty}</span>
                 </p>
                 
-                <p className="text-sm sm:text-base text-slate-300 leading-relaxed pt-2">
-                  Comprehensive curriculum specializing in enterprise software architecture, full-stack web engineering, database modeling, distributed computing, and agile workflows.
+                <p className="text-sm text-slate-300 leading-relaxed pt-2">
+                  Specializing in software architecture, full-stack web engineering, database modeling, and distributed systems.
                 </p>
               </div>
 

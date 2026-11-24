@@ -88,10 +88,10 @@ export const portfolioData = {
     ],
     greeting: "Hi, I'm Yasith",
     tagline: "Engineering scalable web applications, robust REST APIs, and modern digital experiences.",
-    shortBio: "Full Stack Developer and Information Systems undergraduate with hands-on experience building responsive web applications, developing RESTful APIs, and crafting intuitive user interfaces.",
+    shortBio: "Full Stack Developer and Information Systems undergraduate crafting modern web applications, scalable REST APIs, and clean user experiences.",
     university: "Sabaragamuwa University of Sri Lanka",
     degree: "BSc. (Hons) in Information Systems",
-    statusBadge: "React & Next.js Developer",
+    statusBadge: "Available for Internships & Opportunities",
     availabilityBadge: "Available for Internships & Opportunities",
     location: "Sabaragamuwa, Sri Lanka",
     phone: "(+94) 77 368 9599",
@@ -108,9 +108,8 @@ export const portfolioData = {
       "Cloud & Modern DevOps Workflows"
     ],
     aboutText: [
-      "I am a Full Stack Developer and Information Systems undergraduate with hands-on experience in building responsive web applications and developing robust frontend and backend solutions.",
-      "My core engineering stack centers around JavaScript, TypeScript, React.js, Next.js, Node.js, and Express.js, combined with relational and document database management including MongoDB and MySQL.",
-      "Experienced in architecting REST APIs, implementing secure authentication, and designing user-friendly interfaces. Passionate about software engineering, problem-solving, and continuously mastering modern technologies."
+      "Full Stack Developer and Information Systems undergraduate with hands-on experience building performant web apps and reliable APIs.",
+      "Specialized in TypeScript, React, Next.js, Node.js, and databases (MongoDB, MySQL, Supabase). Focused on clean architecture and intuitive user experiences."
     ],
     highlights: [
       {
@@ -210,9 +209,9 @@ export const portfolioData = {
     {
       id: "farmtrust",
       name: "FarmTrust",
-      tagline: "Direct Farmer-to-Buyer Agricultural Marketplace",
-      description: "A full-stack marketplace connecting Sri Lankan farmers directly with buyers to improve marketplace accessibility and transparency.",
-      longDescription: "Developed with responsive user and admin dashboards featuring crop listings, user management, and inventory search functionality. Implemented backend services and database operations to support application workflows and dynamic data management.",
+      tagline: "Direct Farmer-to-Buyer Marketplace",
+      description: "Full-stack platform connecting Sri Lankan farmers directly with buyers to improve accessibility and pricing transparency.",
+      longDescription: "Developed with responsive user and admin dashboards featuring real-time crop listings, inventory search, and MongoDB transactions.",
       category: "Full-Stack",
       technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
       features: [
@@ -229,9 +228,9 @@ export const portfolioData = {
     {
       id: "rentsmart",
       name: "RentSmart",
-      tagline: "Mobile-First Item Rental Marketplace",
-      description: "A responsive rental marketplace allowing users to browse, search, and list items across diverse categories with dynamic filtering.",
-      longDescription: "Implemented category filtering, dynamic item detail pages, item listing forms, and authentication interfaces. Designed a modern, mobile-first user interface with a dark theme and reusable component architecture.",
+      tagline: "Mobile-First Item Rental Platform",
+      description: "Responsive item rental platform allowing users to browse, search, and list equipment with dynamic category filtering.",
+      longDescription: "Features category filtering, dynamic item detail pages, listing creation with validation, and a sleek mobile-first dark UI.",
       category: "Frontend",
       technologies: ["React.js", "TypeScript", "Vite", "React Router", "Tailwind CSS"],
       features: [
@@ -248,9 +247,9 @@ export const portfolioData = {
     {
       id: "mealmate",
       name: "MealMate",
-      tagline: "Flutter Campus Food Ordering Platform",
-      description: "A collaborative food ordering platform connecting students with campus food shops, featuring JWT authentication and backend schema design.",
-      longDescription: "Contributed to a six-member development team building a Flutter-based food ordering platform. Responsible for backend foundation including database schema design, Supabase configuration, user registration, login, and JWT-based authentication. Developed project structure, navigation, API client, role-based middleware, and centralized error handling.",
+      tagline: "Campus Food Ordering Platform",
+      description: "Collaborative food ordering system connecting students with campus food outlets, featuring JWT authentication.",
+      longDescription: "Engineered database schema, Supabase integration, JWT authentication, role-based middleware, and cross-platform Flutter UI.",
       category: "Full-Stack",
       technologies: ["Flutter", "Supabase", "SQL", "REST APIs", "JWT Authentication"],
       features: [
@@ -273,7 +272,7 @@ export const portfolioData = {
     period: "2024 – Present",
     status: "Undergraduate Student",
     faculty: "Faculty of Computing",
-    description: "Curriculum emphasizing software engineering principles, distributed systems, relational & NoSQL database architecture, and full-stack application development.",
+    description: "Curriculum emphasizing software engineering principles, database architecture, distributed systems, and full-stack application development.",
     highlights: [
       "Enterprise Software Engineering & Web Architecture",
       "Relational (MySQL) & Document (MongoDB) Database Systems",
@@ -388,7 +387,7 @@ export const portfolioData = {
 
   // 10. Contact Details
   contact: {
-    invitation: "Have an internship opportunity, project collaboration, or technical inquiry? Feel free to reach out directly.",
+    invitation: "Have an internship opportunity, project collaboration, or technical inquiry? Let's connect.",
     email: "Yasithumesha016@gmail.com",
     phone: "(+94) 77 368 9599",
     location: "Sabaragamuwa, Sri Lanka",

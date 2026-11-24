@@ -5,22 +5,18 @@ import Image from "next/image";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { animate } from "animejs";
 import { portfolioData } from "@/data/portfolioData";
-import { GithubIcon, LinkedinIcon, ReactIcon, NextjsIcon, NodejsIcon } from "./Icons";
+import { GithubIcon, LinkedinIcon, NodejsIcon } from "./Icons";
 import {
   Mail,
   ArrowUpRight,
   Send,
   FileDown,
-  Sparkles,
   Terminal,
-  Code2,
   ChevronDown,
   Compass,
   Cpu,
   Layers,
-  CheckCircle2,
-  Database,
-  Monitor
+  Share2
 } from "lucide-react";
 
 export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }) {
@@ -133,23 +129,21 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
             className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6"
           >
             
-            {/* Status Pill — Matching Hoodie Code Badge */}
+            {/* Status Pill — Available for Internships & Opportunities */}
             <motion.div 
               whileHover={{ scale: 1.02 }}
-              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#0a0e17] border border-[#00f0ff]/30 hover:border-[#00f0ff]/70 transition-all duration-300 shadow-[0_0_20px_rgba(0,240,255,0.15)]"
+              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#0a0e17] border border-[#10b981]/40 hover:border-[#10b981]/70 transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.15)]"
             >
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00f0ff] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#00f0ff]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10b981] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#10b981]" />
               </span>
               <span className="text-xs sm:text-sm font-mono tracking-wider uppercase text-zinc-200">
                 {portfolioData.personal.statusBadge}
               </span>
-              <span className="w-1 h-1 rounded-full bg-white/30" />
-              <span className="text-xs font-mono font-bold text-[#00f0ff]">&lt;/&gt; dev</span>
             </motion.div>
 
-            {/* Main Greeting & Headings with Confident Typography */}
+            {/* Main Greeting & Headings */}
             <div className="space-y-3">
               <p className="text-sm sm:text-base font-mono tracking-wider text-[#38bdf8] uppercase flex items-center justify-center lg:justify-start gap-2.5">
                 <Terminal className="w-4 h-4 text-[#00f0ff]" />
@@ -165,12 +159,12 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
               </h1>
             </div>
 
-            {/* Short Bio — Readable & Bold */}
+            {/* Short Bio */}
             <p className="text-base sm:text-lg text-zinc-300 max-w-2xl leading-relaxed font-normal">
               {portfolioData.personal.shortBio}
             </p>
 
-            {/* University & Degree — Badges with Clear Sizing */}
+            {/* University & Degree */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 text-sm text-zinc-200">
               <motion.span 
                 whileHover={{ y: -1 }}
@@ -197,9 +191,9 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
                 onClick={() => scrollTo("projects")}
                 className="group relative inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-sm sm:text-base font-bold text-black bg-gradient-to-r from-[#00f0ff] to-[#38bdf8] hover:from-[#38bdf8] hover:to-[#00f0ff] shadow-[0_0_25px_rgba(0,240,255,0.35)] transition-all duration-200"
               >
-                <Layers className="w-4.5 h-4.5 text-black" />
+                <Layers className="w-4 h-4 text-black" />
                 <span>Explore Projects</span>
-                <ArrowUpRight className="w-4.5 h-4.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </motion.button>
 
               <motion.button
@@ -226,10 +220,11 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
               </motion.button>
             </div>
 
-            {/* Social Links Bar */}
+            {/* Social Links Bar — Find Me */}
             <div className="pt-2 flex items-center justify-center lg:justify-start gap-4">
-              <span className="text-xs text-zinc-400 font-mono tracking-wider uppercase">
-                Find Me:
+              <span className="text-xs text-zinc-400 font-mono tracking-wider uppercase flex items-center gap-1.5">
+                <Share2 className="w-3.5 h-3.5 text-[#00f0ff]" />
+                <span>Find Me:</span>
               </span>
               <div className="flex items-center gap-2.5">
                 <motion.a
@@ -238,10 +233,11 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
                   href={portfolioData.contact.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-[#0a0e17] hover:bg-[#121824] border border-white/10 hover:border-[#00f0ff]/60 text-zinc-300 hover:text-[#00f0ff] transition-all duration-200 shadow-sm"
+                  className="p-2.5 rounded-xl bg-[#0a0e17] hover:bg-[#121824] border border-white/10 hover:border-[#00f0ff]/60 text-zinc-300 hover:text-[#00f0ff] transition-all duration-200 shadow-sm flex items-center justify-center"
                   aria-label="GitHub Profile"
+                  title="GitHub"
                 >
-                  <GithubIcon className="w-4.5 h-4.5" />
+                  <GithubIcon className="w-4 h-4" />
                 </motion.a>
 
                 <motion.a
@@ -250,20 +246,22 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
                   href={portfolioData.contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-[#0a0e17] hover:bg-[#121824] border border-white/10 hover:border-[#38bdf8]/60 text-zinc-300 hover:text-[#38bdf8] transition-all duration-200 shadow-sm"
+                  className="p-2.5 rounded-xl bg-[#0a0e17] hover:bg-[#121824] border border-white/10 hover:border-[#38bdf8]/60 text-zinc-300 hover:text-[#38bdf8] transition-all duration-200 shadow-sm flex items-center justify-center"
                   aria-label="LinkedIn Profile"
+                  title="LinkedIn"
                 >
-                  <LinkedinIcon className="w-4.5 h-4.5" />
+                  <LinkedinIcon className="w-4 h-4" />
                 </motion.a>
 
                 <motion.a
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   href={`mailto:${portfolioData.contact.email}`}
-                  className="p-2.5 rounded-xl bg-[#0a0e17] hover:bg-[#121824] border border-white/10 hover:border-[#00f0ff]/60 text-zinc-300 hover:text-[#00f0ff] transition-all duration-200 shadow-sm"
+                  className="p-2.5 rounded-xl bg-[#0a0e17] hover:bg-[#121824] border border-white/10 hover:border-[#00f0ff]/60 text-zinc-300 hover:text-[#00f0ff] transition-all duration-200 shadow-sm flex items-center justify-center"
                   aria-label="Email"
+                  title="Email"
                 >
-                  <Mail className="w-4.5 h-4.5" />
+                  <Mail className="w-4 h-4" />
                 </motion.a>
               </div>
             </div>
@@ -328,19 +326,6 @@ export default function Hero({ onOpenCVNotice }: { onOpenCVNotice?: () => void }
                   <div className="absolute top-2.5 left-2.5 text-[10px] font-mono text-[#00f0ff] pointer-events-none opacity-85">+</div>
                   <div className="absolute top-2.5 right-2.5 text-[10px] font-mono text-[#00f0ff] pointer-events-none opacity-85">+</div>
                 </div>
-              </motion.div>
-
-              {/* Floating Tech Orbit 1: React & Next.js Glass Badge (Top Right) */}
-              <motion.div
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                whileHover={{ scale: 1.1 }}
-                className="absolute -top-3 -right-2 sm:-right-4 flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-[#090d18]/90 border border-[#00f0ff]/40 text-xs font-mono text-white shadow-[0_10px_25px_rgba(0,0,0,0.7)] backdrop-blur-xl z-30"
-              >
-                <div className="w-5 h-5 flex items-center justify-center">
-                  <ReactIcon className="w-5 h-5" />
-                </div>
-                <span className="text-[#00f0ff] font-semibold">React &amp; Next</span>
               </motion.div>
 
               {/* Floating Tech Orbit 2: Full-Stack Architecture Glass Badge (Bottom Left) */}

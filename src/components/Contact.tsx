@@ -130,9 +130,9 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="mt-3 text-sm sm:text-base lg:text-lg text-zinc-300 max-w-2xl mx-auto"
+            className="mt-3 text-sm sm:text-base text-zinc-300 max-w-xl mx-auto"
           >
-            Open to software engineering internships, project inquiries, full-stack roles, and collaborations.
+            Open for software engineering internships, project inquiries, and collaborations.
           </motion.p>
         </div>
 
@@ -159,8 +159,8 @@ export default function Contact() {
                 </span>
               </div>
 
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
-                Reach out directly via email, connect with me on LinkedIn, or inspect my open source projects on GitHub.
+              <p className="text-sm text-slate-300 leading-relaxed font-normal">
+                Reach out via email, connect on LinkedIn, or explore my projects on GitHub.
               </p>
 
               {/* Email Copier */}
@@ -217,7 +217,7 @@ export default function Contact() {
                 <span>Response Time: Typically within 24 hours</span>
               </div>
 
-              {/* Social Link Cards with Spring Hover */}
+              {/* Social Link Cards with Spring Hover — Compact with small icons */}
               <div className="pt-2 flex items-center gap-3">
                 <motion.a
                   whileHover={{ scale: 1.02, y: -2 }}
@@ -225,9 +225,9 @@ export default function Contact() {
                   href={portfolioData.contact.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 py-3 px-4 rounded-xl bg-[#06080e]/90 hover:bg-[#121824] border border-white/10 hover:border-[#00f0ff]/50 flex items-center justify-center gap-2.5 text-xs sm:text-sm font-mono text-slate-200 hover:text-[#00f0ff] transition-colors shadow-sm"
+                  className="flex-1 py-2.5 px-3 rounded-xl bg-[#06080e]/90 hover:bg-[#121824] border border-white/10 hover:border-[#00f0ff]/50 flex items-center justify-center gap-2 text-xs font-mono text-slate-200 hover:text-[#00f0ff] transition-colors shadow-sm"
                 >
-                  <GithubIcon className="w-4.5 h-4.5" />
+                  <GithubIcon className="w-3.5 h-3.5" />
                   <span>GitHub</span>
                 </motion.a>
                 <motion.a
@@ -236,9 +236,9 @@ export default function Contact() {
                   href={portfolioData.contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 py-3 px-4 rounded-xl bg-[#06080e]/90 hover:bg-[#121824] border border-white/10 hover:border-[#38bdf8]/50 flex items-center justify-center gap-2.5 text-xs sm:text-sm font-mono text-slate-200 hover:text-[#38bdf8] transition-colors shadow-sm"
+                  className="flex-1 py-2.5 px-3 rounded-xl bg-[#06080e]/90 hover:bg-[#121824] border border-white/10 hover:border-[#38bdf8]/50 flex items-center justify-center gap-2 text-xs font-mono text-slate-200 hover:text-[#38bdf8] transition-colors shadow-sm"
                 >
-                  <LinkedinIcon className="w-4.5 h-4.5" />
+                  <LinkedinIcon className="w-3.5 h-3.5" />
                   <span>LinkedIn</span>
                 </motion.a>
               </div>
